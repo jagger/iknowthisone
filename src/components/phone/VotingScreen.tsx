@@ -45,7 +45,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
             textAlign: 'center',
           }}
         >
-          {meta.currentWord}
+          {meta.currentWord.toUpperCase()}
         </div>
         {singer && (
           <div style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 14, color: '#555' }}>

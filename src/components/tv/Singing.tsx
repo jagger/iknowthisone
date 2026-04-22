@@ -30,7 +30,7 @@ export default function Singing({ meta, players }: Props) {
             textAlign: 'center',
           }}
         >
-          {meta.currentWord}
+          {meta.currentWord.toUpperCase()}
         </div>
 
         {/* Singer banner */}

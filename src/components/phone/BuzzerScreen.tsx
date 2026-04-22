@@ -40,7 +40,7 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted }: Props) {
             textAlign: 'center',
           }}
         >
-          {meta.currentWord}
+          {meta.currentWord.toUpperCase()}
         </div>
       </div>
 

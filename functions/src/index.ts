@@ -6,6 +6,7 @@ import * as admin from 'firebase-admin'
 import { onCall, onRequest, HttpsError } from 'firebase-functions/v2/https'
 import { onValueCreated, onValueWritten } from 'firebase-functions/v2/database'
 import { CloudTasksClient } from '@google-cloud/tasks'
+import * as wordsData from './words.json'
 
 admin.initializeApp()
 const db = admin.database()
@@ -63,24 +64,18 @@ async function cancelTask(taskName: string | undefined): Promise<void> {
   }
 }
 
+const WORDS = wordsData as Record<string, string[]>
+
 function drawWord(category: string, usedWords: string[]): string {
-  // Words are bundled with the app; functions need their own copy
-  const WORDS: Record<string, string[]> = {
-    General: ['LOVE','FIRE','BRIDGE','RIVER','GOLD','SHADOW','STORM','RAIN','MOON','SUN','ROAD','HOME','HEART','TIME','WIND','STAR','DREAM','NIGHT','DANCE','SMILE','CHAIN','LIGHT','STONE','WAVE'],
-    Animals: ['WOLF','SHARK','EAGLE','LION','BEAR','SNAKE','TIGER','HORSE','CROW','FOX','DEER','HAWK','WHALE','DUCK','CAT','DOG','DOVE','RAT','OWL','FLY','BEE','ANT','BULL','BIRD'],
-    Emotions: ['FEAR','JOY','GRIEF','RAGE','HOPE','LOVE','PAIN','PRIDE','HATE','PEACE','SHAME','TRUST','ENVY','GUILT','BLISS','DREAD','FAITH','DOUBT','HUNGER','WONDER','REGRET','LONGING','THRILL','SORROW'],
-    '80s Music': ['HEART','NEON','TAPE','FAME','GLORY','RADIO','REBEL','DREAM','FIRE','DANCE','JUMP','BEAT','ROCK','ROLL','FLASH','SHINE','WILD','FREE','TONIGHT','FOREVER','ELECTRIC','DANGER','MAGIC','HEAT'],
-    Food: ['LEMON','HONEY','BREAD','SUGAR','SALT','PEPPER','APPLE','CREAM','CAKE','WINE','BEER','STEAK','FISH','RICE','CORN','MILK','CHERRY','PEACH','BUTTER','PICKLE','CANDY','COFFEE','ORANGE','GRAPE'],
-    Movies: ['BLADE','GHOST','HEAT','SPEED','CRASH','FLOW','RUSH','ALIEN','GREASE','FAME','DUNE','DRIVE','FROZEN','ROCKY','JOKER','IT','UP','WALL','CARS','RAY','GRIT','WIRE','HOOK','SIGNS'],
-  }
-  const pool = WORDS[category] ?? WORDS['General']
+  const categories = Object.keys(WORDS)
+  const pool = WORDS[category] ?? WORDS[categories[0]]
   const available = pool.filter((w) => !usedWords.includes(w))
   if (available.length === 0) return pool[Math.floor(Math.random() * pool.length)]
   return available[Math.floor(Math.random() * available.length)]
 }
 
 function randomCategories(count: number, exclude?: string): string[] {
-  const all = ['General','Animals','Emotions','80s Music','Food','Movies'].filter((c) => c !== exclude)
+  const all = Object.keys(WORDS).filter((c) => c !== exclude)
   return all.sort(() => Math.random() - 0.5).slice(0, count)
 }
 

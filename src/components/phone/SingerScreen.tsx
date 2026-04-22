@@ -27,7 +27,7 @@ export default function SingerScreen({ meta, players }: Props) {
             lineHeight: 1,
           }}
         >
-          {meta.currentWord}
+          {meta.currentWord.toUpperCase()}
         </div>
         <div style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 13, color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>
           Sing a song that contains this word

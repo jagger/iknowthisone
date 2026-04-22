@@ -67,7 +67,7 @@ export default function WordReveal({ meta, players }: Props) {
             textAlign: 'center',
           }}
         >
-          {meta.currentWord}
+          {meta.currentWord.toUpperCase()}
         </div>
 
         {/* Timer */}

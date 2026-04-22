@@ -30,7 +30,7 @@ export default function MutedScreen({ meta }: Props) {
           textAlign: 'center',
         }}
       >
-        {meta.currentWord}
+        {meta.currentWord.toUpperCase()}
       </div>
       <div style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 13, color: '#666', letterSpacing: '2px', textTransform: 'uppercase', textAlign: 'center' }}>
         Wait for the next singer
