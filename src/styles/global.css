@@ -1,0 +1,57 @@
+@import './tokens.css';
+
+/* Animation keyframes (spec §8.6) */
+@keyframes spin       { to { transform: rotate(360deg); } }
+@keyframes spinR      { to { transform: rotate(-360deg); } }
+@keyframes pulseBig   { from { transform: scale(0.75); } to { transform: scale(1.15); } }
+@keyframes slideRight { from { transform: translateX(-24px); } to { transform: translateX(24px); } }
+@keyframes slideLeft  { from { transform: translateX(24px); } to { transform: translateX(-24px); } }
+@keyframes bobUp      { from { transform: translateY(12px); } to { transform: translateY(-12px); } }
+@keyframes bobDown    { from { transform: translateY(-12px); } to { transform: translateY(12px); } }
+@keyframes fadeCheck  { from { opacity: 0.04; } to { opacity: 0.22; } }
+
+@keyframes wordSlam {
+  0%   { transform: scale(0.5); opacity: 0.7; }
+  75%  { transform: scale(1.05); }
+  100% { transform: scale(1.0); opacity: 1; }
+}
+
+@keyframes timerPulse {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.04); }
+}
+
+@keyframes flashIn {
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input {
+  font-family: var(--font-body);
+}

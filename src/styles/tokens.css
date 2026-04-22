@@ -1,0 +1,18 @@
+:root {
+  /* Typography */
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+
+  /* Palette */
+  --bg: #F4EFE6;
+  --ink: #141414;
+  --gold: #FFD700;
+  --danger: #EE2200;
+  --white: #FFFFFF;
+
+  /* Borders & shadows */
+  --border: 3px solid #141414;
+  --r: 12px;
+  --shadow: 5px 5px 0 #141414;
+  --shadow-lg: 8px 8px 0 #141414;
+}

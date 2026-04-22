@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/jagger/dev/flyers/.git/**)",
+      "Read(//home/jagger/dev/flyers/**)",
+      "Bash(git -C /home/jagger/dev/flyers config user.name)",
+      "Bash(git -C /home/jagger/dev/flyers config user.email)",
+      "Bash(gh repo *)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

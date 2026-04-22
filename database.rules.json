@@ -1,0 +1,37 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomCode": {
+        ".read": true,
+        "players": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid"
+          }
+        },
+        "votes": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid && !data.exists()"
+          }
+        },
+        "buzzIn": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid"
+          }
+        },
+        "categoryChoice": {
+          "chosen": {
+            ".write": "auth != null && auth.uid === root.child('rooms').child($roomCode).child('categoryChoice').child('chooserId').val()"
+          }
+        },
+        "rematchVotes": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid"
+          }
+        },
+        "meta": {
+          ".write": false
+        }
+      }
+    }
+  }
+}
