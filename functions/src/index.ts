@@ -145,7 +145,7 @@ export const createRoom = onCall({ secrets: [resendKey] }, async (request) => {
     const hostLink = `https://iknowthisone.jagger.dev/join/${roomCode}?hostToken=${hostToken}`
     const resend = new Resend(resendKey.value())
     await resend.emails.send({
-      from: 'I Know This One <noreply@oznog.org>',
+      from: 'I Know This One <noreply@iknowthisone.jagger.dev>',
       to: email,
       subject: `Your host link — room ${roomCode}`,
       text: `You created a room!\n\nJoin as host:\n${hostLink}\n\nRoom code: ${roomCode}\n\nThis link lets you control the game. Don't share it — just share the room code.`,
