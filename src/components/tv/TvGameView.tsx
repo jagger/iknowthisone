@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGameState } from '../../hooks/useGameState'
+import { generateQR } from '../../utils/qrCode'
 import Lobby from './Lobby'
 import WordReveal from './WordReveal'
 import Singing from './Singing'
@@ -29,9 +31,17 @@ const wrapStyle: React.CSSProperties = {
   padding: 16,
 }
 
+const APP_URL = 'https://iknowthisone.jagger.dev'
+
 export default function TvGameView() {
   const { roomCode } = useParams<{ roomCode: string }>()
   const { meta, players, categoryChoice, loading, error } = useGameState(roomCode ?? '')
+  const [qrUrl, setQrUrl] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!roomCode) return
+    generateQR(`${APP_URL}/join/${roomCode}`).then(setQrUrl)
+  }, [roomCode])
 
   if (loading) {
     return (
@@ -108,7 +118,15 @@ export default function TvGameView() {
     <>
       <style>{`.word-slam { animation: wordSlam 400ms ease-out both; }`}</style>
       <div style={wrapStyle}>
-        <div style={frameStyle}>{renderState()}</div>
+        <div style={frameStyle}>
+          {renderState()}
+          {meta.state !== 'LOBBY' && meta.state !== 'GAME_OVER' && (
+            <div style={{ position: 'absolute', bottom: 60, right: 8, display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(0,0,0,0.75)', border: '2px solid rgba(255,255,255,0.15)', borderRadius: 6, padding: '4px 8px 4px 4px', zIndex: 10 }}>
+              {qrUrl && <img src={qrUrl} alt="join QR" style={{ width: 36, height: 36, display: 'block' }} />}
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 14, color: '#fff', letterSpacing: '0.08em' }}>[Room: {roomCode}]</span>
+            </div>
+          )}
+        </div>
       </div>
     </>
   )

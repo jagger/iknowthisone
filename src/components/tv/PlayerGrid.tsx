@@ -7,8 +7,13 @@ interface Props {
   showVotes?: boolean
 }
 
+const TWO_MIN = 2 * 60 * 1000
+
 export default function PlayerGrid({ players, activeSinger, showVotes }: Props) {
-  const entries = Object.entries(players).filter(([, p]) => p.connected !== false)
+  const now = Date.now()
+  const entries = Object.entries(players).filter(([, p]) =>
+    p.connected !== false || !p.disconnectedAt || (now - p.disconnectedAt < TWO_MIN),
+  )
 
   return (
     <div
@@ -22,48 +27,53 @@ export default function PlayerGrid({ players, activeSinger, showVotes }: Props) 
         minHeight: 52,
       }}
     >
-      {entries.map(([uid, player]) => (
-        <PlayerBg
-          key={uid}
-          identityIndex={player.identityIndex}
-          style={{
-            borderRadius: 6,
-            border: uid === activeSinger ? '2px solid var(--gold)' : '2px solid transparent',
-            padding: '3px 10px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 4,
-          }}
-        >
-          <span
+      {entries.map(([uid, player]) => {
+        const inactive = player.connected === false
+        return (
+          <PlayerBg
+            key={uid}
+            identityIndex={player.identityIndex}
             style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 800,
-              fontSize: 12,
-              color: '#fff',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              whiteSpace: 'nowrap',
+              borderRadius: 6,
+              border: uid === activeSinger ? '2px solid var(--gold)' : '2px solid transparent',
+              padding: '3px 10px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+              opacity: inactive ? 0.35 : 1,
+              transition: 'opacity 0.4s',
             }}
           >
-            {player.name}
-          </span>
-          {showVotes && player.hasVoted && (
-            <span style={{ fontSize: 12 }}>✅</span>
-          )}
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 900,
-              fontSize: 13,
-              color: '#fff',
-              marginLeft: 4,
-            }}
-          >
-            {player.score}
-          </span>
-        </PlayerBg>
-      ))}
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 800,
+                fontSize: 12,
+                color: '#fff',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {player.name}
+            </span>
+            {showVotes && player.hasVoted && (
+              <span style={{ fontSize: 12 }}>✅</span>
+            )}
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 900,
+                fontSize: 13,
+                color: '#fff',
+                marginLeft: 4,
+              }}
+            >
+              {player.score}
+            </span>
+          </PlayerBg>
+        )
+      })}
     </div>
   )
 }

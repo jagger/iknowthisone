@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { ref, get, set, serverTimestamp } from 'firebase/database'
-import { db, auth } from '../../firebase'
+import { httpsCallable } from 'firebase/functions'
+import { db, auth, functions } from '../../firebase'
 import PhoneGameView from '../phone/PhoneGameView'
 
 const STORAGE_KEY = 'ikto_player'
 
 export default function JoinScreen() {
   const { roomCode } = useParams<{ roomCode: string }>()
+  const [searchParams] = useSearchParams()
+  const hostToken = searchParams.get('hostToken')
   const [ready, setReady] = useState(false)
   const [error, setError] = useState('')
 
@@ -35,6 +38,12 @@ export default function JoinScreen() {
             joinedAt: serverTimestamp(),
           })
         }
+
+        if (hostToken) {
+          const claimHost = httpsCallable(functions, 'claimHost')
+          await claimHost({ roomCode, hostToken })
+        }
+
         setReady(true)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to join room')
@@ -42,7 +51,7 @@ export default function JoinScreen() {
     }
 
     join()
-  }, [roomCode])
+  }, [roomCode, hostToken])
 
   if (error) {
     return (

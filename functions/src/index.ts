@@ -26,10 +26,18 @@ const FUNCTIONS_URL = `https://${LOCATION}-${PROJECT}.cloudfunctions.net`
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function candidateCode(): string {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ'
-  let code = ''
-  for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)]
-  return code
+  const categories = Object.keys(WORDS)
+  const words = WORDS[categories[Math.floor(Math.random() * categories.length)]]
+  const word = words[Math.floor(Math.random() * words.length)]
+  const digits = Math.floor(Math.random() * 10000).toString().padStart(4, '0')
+  return `${word}-${digits}`
+}
+
+function randomToken(len = 8): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz0123456789'
+  let t = ''
+  for (let i = 0; i < len; i++) t += chars[Math.floor(Math.random() * chars.length)]
+  return t
 }
 
 async function enqueueTask(
@@ -83,10 +91,10 @@ function randomCategories(count: number, exclude?: string): string[] {
 
 export const createRoom = onCall(async (request) => {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Must be signed in')
-  const uid = request.auth.uid
 
   let roomCode = ''
   let attempts = 0
+  const hostToken = randomToken()
 
   while (attempts < 10) {
     const candidate = candidateCode()
@@ -97,7 +105,8 @@ export const createRoom = onCall(async (request) => {
       root.rooms[candidate] = {
         meta: {
           state: 'LOBBY',
-          hostId: uid,
+          hostId: null,
+          hostToken,
           pointsToWin: 10,
           createdAt: admin.database.ServerValue.TIMESTAMP,
           currentWord: '',
@@ -108,6 +117,8 @@ export const createRoom = onCall(async (request) => {
           voteCloseTriggeredAt: null,
           wordMuteCount: 0,
           wordPointValue: 1,
+          timerDurationMs: 120000,
+          timerRemainingMs: null,
           usedWords: {},
         },
       }
@@ -122,7 +133,23 @@ export const createRoom = onCall(async (request) => {
   }
 
   if (!roomCode) throw new HttpsError('resource-exhausted', 'Could not generate room code')
-  return { roomCode }
+  return { roomCode, hostToken }
+})
+
+// ─── claimHost ────────────────────────────────────────────────────────────────
+
+export const claimHost = onCall(async (request) => {
+  if (!request.auth) throw new HttpsError('unauthenticated', 'Must be signed in')
+  const { roomCode, hostToken } = request.data as { roomCode: string; hostToken: string }
+  if (!roomCode || !hostToken) throw new HttpsError('invalid-argument', 'roomCode and hostToken required')
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  if (!meta) throw new HttpsError('not-found', 'Room not found')
+  if (meta.hostToken !== hostToken) throw new HttpsError('permission-denied', 'Invalid host token')
+
+  await db.ref(`rooms/${roomCode}/meta/hostId`).set(request.auth.uid)
+  return { ok: true }
 })
 
 // ─── startGame ────────────────────────────────────────────────────────────────
@@ -155,6 +182,8 @@ export const startGame = onCall(async (request) => {
     wordDrawnAt: now,
     wordMuteCount: 0,
     wordPointValue: 1,
+    timerDurationMs: 120000,
+    timerRemainingMs: null,
     activeSinger: null,
   })
 
@@ -177,7 +206,19 @@ export const onPlayerJoin = onValueCreated(
     const players = playersSnap.val() ?? {}
     const existingCount = Object.keys(players).length - 1 // exclude the new player
     const identityIndex = existingCount % 12
-    await db.ref(`rooms/${roomCode}/players/${uid}/identityIndex`).set(identityIndex)
+
+    const updates: Record<string, unknown> = {
+      [`rooms/${roomCode}/players/${uid}/identityIndex`]: identityIndex,
+    }
+
+    // First player to join becomes host if none set yet
+    const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+    const meta = metaSnap.val()
+    if (meta && meta.hostId == null) {
+      updates[`rooms/${roomCode}/meta/hostId`] = uid
+    }
+
+    await db.ref().update(updates)
   },
 )
 
@@ -192,7 +233,11 @@ export const onBuzzIn = onValueCreated(
     const meta = metaSnap.val()
     if (!meta || meta.state !== 'BUZZER_OPEN') return
 
-    // Cancel the word timer task
+    // Compute remaining time before cancelling the task
+    const elapsed = Date.now() - (meta.wordDrawnAt ?? Date.now())
+    const timerDurationMs = meta.timerDurationMs ?? 120000
+    const timerRemainingMs = Math.max(timerDurationMs - elapsed, 15000)
+
     await cancelTask(meta.wordTimerTaskName)
 
     // Clear buzzIn node
@@ -213,6 +258,7 @@ export const onBuzzIn = onValueCreated(
       singingStartedAt: admin.database.ServerValue.TIMESTAMP,
       state: 'SINGING',
       wordTimerTaskName: null,
+      timerRemainingMs,
     })
   },
 )
@@ -227,20 +273,37 @@ export const onVoteWritten = onValueWritten(
 
     const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
     const meta = metaSnap.val()
-    if (!meta || meta.state !== 'SINGING') return
+    if (!meta || (meta.state !== 'SINGING' && meta.state !== 'VOTE_CLOSING')) return
 
-    // Mark voter
-    await db.ref(`rooms/${roomCode}/players/${uid}/hasVoted`).set(true)
+    // Mark voter (only matters for display)
+    if (meta.state === 'SINGING') {
+      await db.ref(`rooms/${roomCode}/players/${uid}/hasVoted`).set(true)
+    }
 
-    // Count eligible voters and votes cast
+    // Count eligible voters
     const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
     const players = playersSnap.val() ?? {}
     const eligible = Object.entries(players).filter(
       ([pid, p]: [string, unknown]) => pid !== meta.activeSinger && (p as { connected: boolean }).connected !== false,
     )
-    const votedCount = eligible.filter(([, p]: [string, unknown]) => (p as { hasVoted: boolean }).hasVoted).length
+    if (eligible.length === 0) return
 
-    if (votedCount / eligible.length >= 0.5) {
+    // Count actual votes directly
+    const votesSnap = await db.ref(`rooms/${roomCode}/votes`).once('value')
+    const votes = votesSnap.val() ?? {}
+    const votedCount = Object.keys(votes).filter((vid) => vid !== meta.activeSinger).length
+
+    if (votedCount >= eligible.length) {
+      // All eligible players voted — close immediately, cancel any pending delay
+      await cancelTask(meta.voteCloseTaskName)
+      const taskName = await enqueueTask('voteCloseTask', { roomCode }, 2)
+      await db.ref(`rooms/${roomCode}/meta`).update({
+        state: 'VOTE_CLOSING',
+        voteCloseTriggeredAt: admin.database.ServerValue.TIMESTAMP,
+        voteCloseTaskName: taskName,
+      })
+    } else if (meta.state === 'SINGING' && votedCount / eligible.length >= 0.5) {
+      // Majority voted — 30s window
       const taskName = await enqueueTask('voteCloseTask', { roomCode }, 30)
       await db.ref(`rooms/${roomCode}/meta`).update({
         state: 'VOTE_CLOSING',
@@ -293,34 +356,69 @@ export const voteCloseTask = onRequest({ region: LOCATION }, async (req, res) =>
     )
     await db.ref(`rooms/${roomCode}/meta/pointAwardedTaskName`).set(pointTaskName)
   } else {
-    // MUTED
+    // MUTED — singer failed the vote
     const newMuteCount = (meta.wordMuteCount ?? 0) + 1
     const newPointValue = (meta.wordPointValue ?? 1) + 1
     const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
     const players = playersSnap.val() ?? {}
+
+    // Check if all connected players will be muted after this (including the singer being muted now)
+    const connectedPlayers = Object.entries(players).filter(
+      ([, p]) => (p as { connected: boolean }).connected !== false,
+    )
+    const allNowMuted = connectedPlayers.length > 0 && connectedPlayers.every(
+      ([pid, p]) => (p as { muted: boolean }).muted || pid === meta.activeSinger,
+    )
+
     const playerUpdates: Record<string, unknown> = {}
     for (const pid of Object.keys(players)) {
       playerUpdates[`rooms/${roomCode}/players/${pid}/hasVoted`] = false
-      playerUpdates[`rooms/${roomCode}/players/${pid}/muted`] = false
-    }
-    if (meta.activeSinger) {
-      playerUpdates[`rooms/${roomCode}/players/${meta.activeSinger}/muted`] = true
     }
 
-    const now = Date.now()
-    await db.ref().update({
-      ...playerUpdates,
-      [`rooms/${roomCode}/meta/state`]: 'MUTED',
-      [`rooms/${roomCode}/meta/wordMuteCount`]: newMuteCount,
-      [`rooms/${roomCode}/meta/wordPointValue`]: newPointValue,
-      [`rooms/${roomCode}/meta/activeSinger`]: null,
-      [`rooms/${roomCode}/meta/voteCloseTaskName`]: null,
-    })
-    await db.ref(`rooms/${roomCode}/votes`).remove()
+    if (allNowMuted) {
+      // All players muted — apply penalty, show for 3s, then auto-pick new word
+      const penalty = 1 + Math.floor(connectedPlayers.length / 4)
+      for (const [pid] of connectedPlayers) {
+        const currentScore = (players[pid] as { score: number }).score ?? 0
+        playerUpdates[`rooms/${roomCode}/players/${pid}/score`] = currentScore - penalty
+        playerUpdates[`rooms/${roomCode}/players/${pid}/muted`] = false
+      }
 
-    // Brief MUTED display, then back to BUZZER_OPEN
-    const muteTaskName = await enqueueTask('mutedTransitionTask', { roomCode, now }, 2)
-    await db.ref(`rooms/${roomCode}/meta/mutedTaskName`).set(muteTaskName)
+      await db.ref().update({
+        ...playerUpdates,
+        [`rooms/${roomCode}/meta/state`]: 'MUTED',
+        [`rooms/${roomCode}/meta/activeSinger`]: null,
+        [`rooms/${roomCode}/meta/wordMuteCount`]: 0,
+        [`rooms/${roomCode}/meta/wordPointValue`]: 1,
+        [`rooms/${roomCode}/meta/voteCloseTaskName`]: null,
+        [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+        [`rooms/${roomCode}/meta/allMutedPenalty`]: penalty,
+      })
+      await db.ref(`rooms/${roomCode}/votes`).remove()
+
+      const allMutedTaskName = await enqueueTask('allMutedTask', { roomCode }, 10)
+      await db.ref(`rooms/${roomCode}/meta/allMutedTaskName`).set(allMutedTaskName)
+    } else {
+      // Normal mute — mute the singer, resume timer
+      if (meta.activeSinger) {
+        playerUpdates[`rooms/${roomCode}/players/${meta.activeSinger}/muted`] = true
+      }
+
+      const now = Date.now()
+      await db.ref().update({
+        ...playerUpdates,
+        [`rooms/${roomCode}/meta/state`]: 'MUTED',
+        [`rooms/${roomCode}/meta/wordMuteCount`]: newMuteCount,
+        [`rooms/${roomCode}/meta/wordPointValue`]: newPointValue,
+        [`rooms/${roomCode}/meta/activeSinger`]: null,
+        [`rooms/${roomCode}/meta/voteCloseTaskName`]: null,
+      })
+      await db.ref(`rooms/${roomCode}/votes`).remove()
+
+      // Brief MUTED display, then back to BUZZER_OPEN with remaining timer
+      const muteTaskName = await enqueueTask('mutedTransitionTask', { roomCode, now }, 2)
+      await db.ref(`rooms/${roomCode}/meta/mutedTaskName`).set(muteTaskName)
+    }
   }
 
   res.status(200).send('ok')
@@ -364,13 +462,60 @@ export const mutedTransitionTask = onRequest({ region: LOCATION }, async (req, r
   const meta = metaSnap.val()
   if (!meta || meta.state !== 'MUTED') { res.status(200).send('stale'); return }
 
-  const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
+  // Resume remaining timer (not a full reset)
+  const remaining = meta.timerRemainingMs ?? 120000
+  const delaySec = Math.ceil(Math.max(remaining, 15000) / 1000)
+  const timerDurationMs = delaySec * 1000
+
+  const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, delaySec)
   await db.ref(`rooms/${roomCode}/meta`).update({
     state: 'BUZZER_OPEN',
     wordDrawnAt: now,
     wordTimerTaskName,
     mutedTaskName: null,
+    timerDurationMs,
+    timerRemainingMs: null,
   })
+
+  res.status(200).send('ok')
+})
+
+// ─── allMutedTask ─────────────────────────────────────────────────────────────
+
+export const allMutedTask = onRequest({ region: LOCATION }, async (req, res) => {
+  const { roomCode } = req.body as { roomCode: string }
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  if (!meta || meta.state !== 'MUTED' || !meta.allMutedPenalty) { res.status(200).send('stale'); return }
+
+  // Pick a fresh category and word — no player choice needed
+  const category = randomCategories(1, meta.currentCategory)[0]
+  const usedWords: string[] = meta.usedWords?.[category] ?? []
+  const newWord = drawWord(category, usedWords)
+  const now = Date.now()
+
+  const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
+  const players = playersSnap.val() ?? {}
+  const playerUpdates: Record<string, unknown> = {}
+  for (const pid of Object.keys(players)) {
+    playerUpdates[`rooms/${roomCode}/players/${pid}/hasVoted`] = false
+  }
+
+  await db.ref().update({
+    ...playerUpdates,
+    [`rooms/${roomCode}/meta/state`]: 'BUZZER_OPEN',
+    [`rooms/${roomCode}/meta/currentCategory`]: category,
+    [`rooms/${roomCode}/meta/currentWord`]: newWord,
+    [`rooms/${roomCode}/meta/wordDrawnAt`]: now,
+    [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
+    [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+    [`rooms/${roomCode}/meta/allMutedPenalty`]: null,
+    [`rooms/${roomCode}/meta/allMutedTaskName`]: null,
+  })
+
+  const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
+  await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(taskName)
 
   res.status(200).send('ok')
 })
@@ -393,7 +538,7 @@ export const wordTimerTask = onRequest({ region: LOCATION }, async (req, res) =>
   const newWord = drawWord(meta.currentCategory, usedWords)
   const now = Date.now()
 
-  // Reset all muted flags for new word
+  // Reset all muted flags and timers for new word
   const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
   const players = playersSnap.val() ?? {}
   const updates: Record<string, unknown> = {}
@@ -407,6 +552,8 @@ export const wordTimerTask = onRequest({ region: LOCATION }, async (req, res) =>
     [`rooms/${roomCode}/meta/wordDrawnAt`]: now,
     [`rooms/${roomCode}/meta/wordMuteCount`]: 0,
     [`rooms/${roomCode}/meta/wordPointValue`]: 1,
+    [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
+    [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
     [`rooms/${roomCode}/meta/usedWords/${meta.currentCategory}`]: usedWords,
   })
 
@@ -464,6 +611,8 @@ export const categoryRevealTask = onRequest({ region: LOCATION }, async (req, re
     [`rooms/${roomCode}/meta/wordDrawnAt`]: now,
     [`rooms/${roomCode}/meta/wordMuteCount`]: 0,
     [`rooms/${roomCode}/meta/wordPointValue`]: 1,
+    [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
+    [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
     [`rooms/${roomCode}/meta/activeSinger`]: null,
   })
 
@@ -516,6 +665,51 @@ export const onSingerDisconnect = onValueWritten(
   },
 )
 
+// ─── onGameStateChange ────────────────────────────────────────────────────────
+// Schedules session cleanup on every state change (except GAME_OVER).
+// Uses a token so stale tasks no-op if activity resumes.
+
+export const onGameStateChange = onValueWritten(
+  { ref: '/rooms/{roomCode}/meta/state', region: LOCATION },
+  async (event) => {
+    const newState = event.data.after.val()
+    if (!newState || newState === 'GAME_OVER') return
+
+    const { roomCode } = event.params
+    const token = randomToken()
+    await db.ref(`rooms/${roomCode}/meta/inactivityToken`).set(token)
+    await enqueueTask('inactivityTask', { roomCode, token }, 30 * 60)
+  },
+)
+
+// ─── inactivityTask ───────────────────────────────────────────────────────────
+
+export const inactivityTask = onRequest({ region: LOCATION }, async (req, res) => {
+  const { roomCode, token } = req.body as { roomCode: string; token: string }
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  if (!meta || meta.inactivityToken !== token) { res.status(200).send('stale'); return }
+
+  await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
+  await enqueueTask('cleanupTask', { roomCode, token }, 30 * 60)
+
+  res.status(200).send('ok')
+})
+
+// ─── cleanupTask ──────────────────────────────────────────────────────────────
+
+export const cleanupTask = onRequest({ region: LOCATION }, async (req, res) => {
+  const { roomCode, token } = req.body as { roomCode: string; token: string }
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  if (!meta || meta.inactivityToken !== token) { res.status(200).send('stale'); return }
+
+  await db.ref(`rooms/${roomCode}`).remove()
+  res.status(200).send('ok')
+})
+
 // ─── restartGame ──────────────────────────────────────────────────────────────
 
 export const restartGame = onCall(async (request) => {
@@ -550,6 +744,8 @@ export const restartGame = onCall(async (request) => {
     [`rooms/${roomCode}/meta/voteCloseTriggeredAt`]: null,
     [`rooms/${roomCode}/meta/wordMuteCount`]: 0,
     [`rooms/${roomCode}/meta/wordPointValue`]: 1,
+    [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
+    [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
     [`rooms/${roomCode}/meta/wordTimerTaskName`]: null,
     [`rooms/${roomCode}/meta/voteCloseTaskName`]: null,
     [`rooms/${roomCode}/meta/usedWords`]: {},
@@ -599,6 +795,8 @@ export const onRematchVote = onValueCreated(
         [`rooms/${roomCode}/meta/wordDrawnAt`]: null,
         [`rooms/${roomCode}/meta/wordMuteCount`]: 0,
         [`rooms/${roomCode}/meta/wordPointValue`]: 1,
+        [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
+        [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
         [`rooms/${roomCode}/meta/usedWords`]: {},
         [`rooms/${roomCode}/votes`]: null,
         [`rooms/${roomCode}/buzzIn`]: null,

@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ref, set, serverTimestamp } from 'firebase/database'
 import { db } from '../../firebase'
 import type { RoomMeta, Player } from '../../types/game'
+
+const VOTE_DELAY_MS = 5000
 
 interface Props {
   meta: RoomMeta
@@ -12,11 +14,25 @@ interface Props {
 
 export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
   const [voting, setVoting] = useState(false)
+  const [countdown, setCountdown] = useState(0)
   const hasVoted = players[uid]?.hasVoted ?? false
   const singer = meta.activeSinger ? players[meta.activeSinger] : null
 
+  useEffect(() => {
+    if (!meta.singingStartedAt) { setCountdown(0); return }
+    const elapsed = Date.now() - (meta.singingStartedAt as number)
+    if (elapsed >= VOTE_DELAY_MS) { setCountdown(0); return }
+    setCountdown(Math.ceil((VOTE_DELAY_MS - elapsed) / 1000))
+    const id = setInterval(() => {
+      const e = Date.now() - (meta.singingStartedAt as number)
+      if (e >= VOTE_DELAY_MS) { setCountdown(0); clearInterval(id) }
+      else setCountdown(Math.ceil((VOTE_DELAY_MS - e) / 1000))
+    }, 200)
+    return () => clearInterval(id)
+  }, [meta.singingStartedAt])
+
   const handleVote = async (value: 'point' | 'mute') => {
-    if (voting || hasVoted) return
+    if (voting || hasVoted || countdown > 0) return
     setVoting(true)
     try {
       await set(ref(db, `rooms/${roomCode}/votes/${uid}`), {
@@ -39,7 +55,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 900,
-            fontSize: '15vw',
+            fontSize: 'min(15vw, 80px)',
             letterSpacing: '0.06em',
             color: 'var(--ink)',
             textAlign: 'center',
@@ -56,20 +72,12 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
 
       <div style={actionZoneStyle}>
         {hasVoted ? (
-          <div
-            style={{
-              textAlign: 'center',
-              fontFamily: 'var(--font-body)',
-              fontWeight: 800,
-              fontSize: 18,
-              letterSpacing: '2px',
-              padding: '24px 0',
-              border: 'var(--border)',
-              borderRadius: 10,
-              background: 'var(--bg)',
-            }}
-          >
+          <div style={{ textAlign: 'center', fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: 18, letterSpacing: '2px', padding: '24px 0', border: 'var(--border)', borderRadius: 10, background: 'var(--bg)' }}>
             Vote submitted ✓
+          </div>
+        ) : countdown > 0 ? (
+          <div style={{ textAlign: 'center', fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 48, letterSpacing: '0.05em', padding: '16px 0', color: 'var(--ink)' }}>
+            {countdown}
           </div>
         ) : (
           <div style={{ display: 'flex', gap: 12 }}>

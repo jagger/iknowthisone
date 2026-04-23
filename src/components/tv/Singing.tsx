@@ -1,6 +1,7 @@
 import PlayerBg from '../shared/PlayerBg'
 import PlayerGrid from './PlayerGrid'
 import type { RoomMeta, Player } from '../../types/game'
+import { PLAYER_IDENTITIES } from '../../types/game'
 
 interface Props {
   meta: RoomMeta
@@ -10,6 +11,7 @@ interface Props {
 export default function Singing({ meta, players }: Props) {
   const singer = meta.activeSinger ? players[meta.activeSinger] : null
   const singerIdentity = singer?.identityIndex ?? 0
+  const identity = PLAYER_IDENTITIES[singerIdentity]
 
   const eligibleVoters = Object.entries(players).filter(
     ([uid, p]) => uid !== meta.activeSinger && p.connected !== false,
@@ -18,7 +20,7 @@ export default function Singing({ meta, players }: Props) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '3% 5%', gap: 16 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '3% 5%', gap: 16, background: identity.color }}>
         {/* Word */}
         <div
           style={{
@@ -26,7 +28,8 @@ export default function Singing({ meta, players }: Props) {
             fontWeight: 900,
             fontSize: 'clamp(42px, 8vw, 96px)',
             letterSpacing: '0.06em',
-            color: 'var(--ink)',
+            color: '#fff',
+            textShadow: '3px 3px 0 rgba(0,0,0,0.25)',
             textAlign: 'center',
           }}
         >
@@ -34,11 +37,11 @@ export default function Singing({ meta, players }: Props) {
         </div>
 
         {/* Singer banner */}
-        <PlayerBg
-          identityIndex={singerIdentity}
+        <div
           style={{
-            border: 'var(--border)',
-            boxShadow: 'var(--shadow)',
+            background: identity.shade,
+            border: '3px solid rgba(0,0,0,0.3)',
+            boxShadow: '4px 4px 0 rgba(0,0,0,0.3)',
             borderRadius: 8,
             padding: '12px 24px',
             display: 'flex',
@@ -60,7 +63,7 @@ export default function Singing({ meta, players }: Props) {
           >
             {singer?.name ?? '…'} is singing!
           </span>
-        </PlayerBg>
+        </div>
 
         {/* Vote progress */}
         <div

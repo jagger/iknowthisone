@@ -72,7 +72,7 @@ export default function WordReveal({ meta, players }: Props) {
 
         {/* Timer */}
         {meta.state === 'BUZZER_OPEN' && (
-          <TimerPill wordDrawnAt={meta.wordDrawnAt} totalSeconds={120} />
+          <TimerPill wordDrawnAt={meta.wordDrawnAt} totalSeconds={Math.round((meta.timerDurationMs ?? 120000) / 1000)} />
         )}
 
         {/* Point value badge if > 1 */}

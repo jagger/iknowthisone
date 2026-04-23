@@ -20,12 +20,19 @@ export interface RoomMeta {
   wordMuteCount: number
   wordPointValue: number
   pointsToWin: number
-  hostId: string
+  hostId: string | null
+  hostToken?: string
   createdAt: number
   wordTimerTaskName?: string
   voteCloseTaskName?: string
   usedWords: Record<string, string[]>
+  timerDurationMs?: number
+  timerRemainingMs?: number
+  inactivityToken?: string
+  allMutedPenalty?: number
 }
+
+
 
 export interface Player {
   name: string
@@ -34,6 +41,7 @@ export interface Player {
   hasVoted: boolean
   connected: boolean
   identityIndex: number
+  disconnectedAt?: number
 }
 
 export interface CategoryChoice {

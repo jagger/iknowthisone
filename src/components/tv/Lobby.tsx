@@ -8,7 +8,7 @@ interface Props {
   players: Record<string, Player>
 }
 
-const APP_URL = 'https://iknowthisone.web.app'
+const APP_URL = 'https://iknowthisone.jagger.dev'
 
 export default function Lobby({ roomCode, players }: Props) {
   const [qrUrl, setQrUrl] = useState<string | null>(null)
@@ -50,7 +50,7 @@ export default function Lobby({ roomCode, players }: Props) {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 900,
-            fontSize: 'clamp(60px, 11vw, 120px)',
+            fontSize: 'clamp(20px, 3.8vw, 42px)',
             letterSpacing: '0.12em',
             lineHeight: 1,
             color: 'var(--ink)',

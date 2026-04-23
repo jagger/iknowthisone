@@ -34,7 +34,7 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted }: Props) {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 900,
-            fontSize: '15vw',
+            fontSize: 'min(15vw, 80px)',
             letterSpacing: '0.06em',
             color: 'var(--ink)',
             textAlign: 'center',

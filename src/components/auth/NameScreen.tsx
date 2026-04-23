@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { signInAnonymously, updateProfile } from 'firebase/auth'
 import { httpsCallable } from 'firebase/functions'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { auth, functions } from '../../firebase'
 
 const STORAGE_KEY = 'ikto_player'
@@ -15,6 +15,8 @@ type Mode = 'choose' | 'create' | 'join'
 
 export default function NameScreen() {
   const { roomCode: codeParam } = useParams<{ roomCode?: string }>()
+  const [searchParams] = useSearchParams()
+  const hostTokenParam = searchParams.get('hostToken')
   const navigate = useNavigate()
   const saved = loadSaved()
 
@@ -43,11 +45,15 @@ export default function NameScreen() {
     e.preventDefault()
     setLoading(true); setError('')
     try {
-      const user = await signIn()
-      if (!user) { setLoading(false); return }
-      const createRoom = httpsCallable<Record<string, never>, { roomCode: string }>(functions, 'createRoom')
+      await signInAnonymously(auth)
+      const createRoom = httpsCallable<Record<string, never>, { roomCode: string; hostToken: string }>(functions, 'createRoom')
       const { data } = await createRoom({})
-      navigate(`/play/${data.roomCode}`, { replace: true })
+      const trimEmail = email.trim()
+      if (trimEmail) {
+        const hostLink = `https://iknowthisone.jagger.dev/join/${data.roomCode}?hostToken=${data.hostToken}`
+        window.location.href = `mailto:${trimEmail}?subject=Your%20host%20link%20for%20I%20Know%20This%20One&body=Join%20as%20host%3A%20${encodeURIComponent(hostLink)}`
+      }
+      navigate(`/screen/${data.roomCode}`, { replace: true })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
       setLoading(false)
@@ -56,13 +62,16 @@ export default function NameScreen() {
 
   const handleJoin = async (e: React.FormEvent) => {
     e.preventDefault()
-    const code = (codeParam ?? roomInput).trim().toUpperCase()
+    const code = (codeParam ?? roomInput).trim()
     if (!code) { setError('Enter a room code'); return }
     setLoading(true); setError('')
     try {
       const user = await signIn()
       if (!user) { setLoading(false); return }
-      navigate(`/play/${code}`, { replace: true })
+      const dest = hostTokenParam
+        ? `/play/${code}?hostToken=${hostTokenParam}`
+        : `/play/${code}`
+      navigate(dest, { replace: true })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
       setLoading(false)
@@ -127,8 +136,8 @@ export default function NameScreen() {
                 type="text"
                 placeholder="Room code"
                 value={roomInput}
-                onChange={(e) => setRoomInput(e.target.value.toUpperCase())}
-                maxLength={4}
+                onChange={(e) => setRoomInput(e.target.value)}
+                maxLength={20}
                 style={{ ...inputStyle, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 24, letterSpacing: '0.2em', textAlign: 'center' }}
               />
             )}
