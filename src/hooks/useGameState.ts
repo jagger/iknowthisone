@@ -7,6 +7,7 @@ interface UseGameStateResult {
   meta: RoomMeta | null
   players: Record<string, Player>
   categoryChoice: CategoryChoice | null
+  skipVotes: Record<string, boolean>
   loading: boolean
   error: string | null
 }
@@ -16,6 +17,7 @@ export function useGameState(roomCode: string): UseGameStateResult {
     meta: null,
     players: {},
     categoryChoice: null,
+    skipVotes: {},
     loading: true,
     error: null,
   })
@@ -27,7 +29,7 @@ export function useGameState(roomCode: string): UseGameStateResult {
       roomRef(roomCode),
       (snapshot) => {
         if (!snapshot.exists()) {
-          setResult({ meta: null, players: {}, categoryChoice: null, loading: false, error: 'Room not found' })
+          setResult({ meta: null, players: {}, categoryChoice: null, skipVotes: {}, loading: false, error: 'Room not found' })
           return
         }
         const data = snapshot.val() as Partial<RoomData>
@@ -35,6 +37,7 @@ export function useGameState(roomCode: string): UseGameStateResult {
           meta: (data.meta as RoomMeta) ?? null,
           players: (data.players as Record<string, Player>) ?? {},
           categoryChoice: (data.categoryChoice as CategoryChoice) ?? null,
+          skipVotes: (data.skipVotes as Record<string, boolean>) ?? {},
           loading: false,
           error: null,
         })

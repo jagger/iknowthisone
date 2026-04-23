@@ -136,7 +136,7 @@ export default function NameScreen() {
                 type="text"
                 placeholder="Room code"
                 value={roomInput}
-                onChange={(e) => setRoomInput(e.target.value)}
+                onChange={(e) => setRoomInput(e.target.value.toUpperCase())}
                 maxLength={20}
                 style={{ ...inputStyle, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 24, letterSpacing: '0.2em', textAlign: 'center' }}
               />

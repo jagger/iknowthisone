@@ -28,6 +28,11 @@
             ".write": "auth != null && auth.uid === $uid"
           }
         },
+        "skipVotes": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid"
+          }
+        },
         "meta": {
           ".write": false
         }

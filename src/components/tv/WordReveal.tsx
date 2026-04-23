@@ -6,9 +6,12 @@ import type { RoomMeta, Player } from '../../types/game'
 interface Props {
   meta: RoomMeta
   players: Record<string, Player>
+  skipVotes?: Record<string, boolean>
 }
 
-export default function WordReveal({ meta, players }: Props) {
+export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
+  const connectedCount = Object.values(players).filter(p => p.connected !== false).length
+  const skipCount = Object.keys(skipVotes).length
   const wordRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -73,6 +76,25 @@ export default function WordReveal({ meta, players }: Props) {
         {/* Timer */}
         {meta.state === 'BUZZER_OPEN' && (
           <TimerPill wordDrawnAt={meta.wordDrawnAt} totalSeconds={Math.round((meta.timerDurationMs ?? 120000) / 1000)} />
+        )}
+
+        {/* Skip vote progress */}
+        {meta.state === 'BUZZER_OPEN' && skipCount > 0 && (
+          <div
+            style={{
+              background: 'rgba(0,0,0,0.08)',
+              border: '2px solid #ccc',
+              padding: '3px 12px',
+              fontFamily: 'var(--font-body)',
+              fontWeight: 700,
+              fontSize: 11,
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              color: '#777',
+            }}
+          >
+            ⏩ Skip {skipCount}/{connectedCount}
+          </div>
         )}
 
         {/* Point value badge if > 1 */}

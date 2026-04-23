@@ -132,12 +132,15 @@ export default function Lobby({ roomCode, players }: Props) {
           )}
         </div>
         {qrUrl && (
-          <div style={{ marginTop: 'auto', alignSelf: 'flex-end' }}>
+          <div style={{ marginTop: 'auto', alignSelf: 'flex-end', textAlign: 'center' }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: 11, letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>
+              JOIN
+            </div>
             <img
               src={qrUrl}
               alt={`QR code for ${joinUrl}`}
               style={{
-                width: 120,
+                width: 160,
                 border: 'var(--border)',
                 boxShadow: '4px 4px 0 var(--ink)',
                 display: 'block',

@@ -30,7 +30,7 @@ function candidateCode(): string {
   const words = WORDS[categories[Math.floor(Math.random() * categories.length)]]
   const word = words[Math.floor(Math.random() * words.length)]
   const digits = Math.floor(Math.random() * 10000).toString().padStart(4, '0')
-  return `${word}-${digits}`
+  return `${word}-${digits}`.toUpperCase()
 }
 
 function randomToken(len = 8): string {
@@ -119,6 +119,7 @@ export const createRoom = onCall(async (request) => {
           wordPointValue: 1,
           timerDurationMs: 120000,
           timerRemainingMs: null,
+          consecutiveNoBuzzCount: 0,
           usedWords: {},
         },
       }
@@ -240,8 +241,9 @@ export const onBuzzIn = onValueCreated(
 
     await cancelTask(meta.wordTimerTaskName)
 
-    // Clear buzzIn node
+    // Clear buzzIn and skip votes
     await db.ref(`rooms/${roomCode}/buzzIn`).remove()
+    await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
     // Reset all hasVoted flags and clear previous votes
     await db.ref(`rooms/${roomCode}/votes`).remove()
@@ -259,6 +261,7 @@ export const onBuzzIn = onValueCreated(
       state: 'SINGING',
       wordTimerTaskName: null,
       timerRemainingMs,
+      consecutiveNoBuzzCount: 0,
     })
   },
 )
@@ -510,9 +513,11 @@ export const allMutedTask = onRequest({ region: LOCATION }, async (req, res) => 
     [`rooms/${roomCode}/meta/wordDrawnAt`]: now,
     [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
     [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+    [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: 0,
     [`rooms/${roomCode}/meta/allMutedPenalty`]: null,
     [`rooms/${roomCode}/meta/allMutedTaskName`]: null,
   })
+  await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
   const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
   await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(taskName)
@@ -531,6 +536,19 @@ export const wordTimerTask = onRequest({ region: LOCATION }, async (req, res) =>
   // Only fire if state is still BUZZER_OPEN with no singer, and timer matches
   if (!meta || meta.state !== 'BUZZER_OPEN' || meta.activeSinger || meta.wordDrawnAt !== wordDrawnAt) {
     res.status(200).send('stale')
+    return
+  }
+
+  const newNoBuzzCount = (meta.consecutiveNoBuzzCount ?? 0) + 1
+
+  // 5 songs in a row with no buzz → end the game
+  if (newNoBuzzCount >= 5) {
+    await db.ref(`rooms/${roomCode}/meta`).update({
+      state: 'GAME_OVER',
+      gameOverReason: 'no_buzz',
+      wordTimerTaskName: null,
+    })
+    res.status(200).send('game_over_no_buzz')
     return
   }
 
@@ -554,8 +572,10 @@ export const wordTimerTask = onRequest({ region: LOCATION }, async (req, res) =>
     [`rooms/${roomCode}/meta/wordPointValue`]: 1,
     [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
     [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+    [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: newNoBuzzCount,
     [`rooms/${roomCode}/meta/usedWords/${meta.currentCategory}`]: usedWords,
   })
+  await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
   const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
   await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(taskName)
@@ -613,8 +633,10 @@ export const categoryRevealTask = onRequest({ region: LOCATION }, async (req, re
     [`rooms/${roomCode}/meta/wordPointValue`]: 1,
     [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
     [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+    [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: 0,
     [`rooms/${roomCode}/meta/activeSinger`]: null,
   })
+  await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
   const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
   await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(wordTimerTaskName)
@@ -746,6 +768,8 @@ export const restartGame = onCall(async (request) => {
     [`rooms/${roomCode}/meta/wordPointValue`]: 1,
     [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
     [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+    [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: 0,
+    [`rooms/${roomCode}/meta/gameOverReason`]: null,
     [`rooms/${roomCode}/meta/wordTimerTaskName`]: null,
     [`rooms/${roomCode}/meta/voteCloseTaskName`]: null,
     [`rooms/${roomCode}/meta/usedWords`]: {},
@@ -753,8 +777,66 @@ export const restartGame = onCall(async (request) => {
     [`rooms/${roomCode}/buzzIn`]: null,
     [`rooms/${roomCode}/categoryChoice`]: null,
     [`rooms/${roomCode}/rematchVotes`]: null,
+    [`rooms/${roomCode}/skipVotes`]: null,
   })
 
+  return { ok: true }
+})
+
+// ─── onSkipVote ───────────────────────────────────────────────────────────────
+// All connected players must agree to skip; drops timer to 15s.
+
+export const onSkipVote = onValueCreated(
+  { ref: '/rooms/{roomCode}/skipVotes/{uid}', region: LOCATION },
+  async (event) => {
+    const { roomCode } = event.params
+
+    const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+    const meta = metaSnap.val()
+    if (!meta || meta.state !== 'BUZZER_OPEN') return
+
+    const skipSnap = await db.ref(`rooms/${roomCode}/skipVotes`).once('value')
+    const skipCount = Object.keys(skipSnap.val() ?? {}).length
+
+    const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
+    const players = playersSnap.val() ?? {}
+    const connected = Object.keys(players).filter(
+      (pid) => (players[pid] as { connected: boolean }).connected !== false,
+    )
+
+    if (connected.length === 0 || skipCount < connected.length) return
+
+    // Consensus — jump timer to 15s
+    await cancelTask(meta.wordTimerTaskName)
+    await db.ref(`rooms/${roomCode}/skipVotes`).remove()
+
+    const now = Date.now()
+    const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 15)
+    await db.ref(`rooms/${roomCode}/meta`).update({
+      wordDrawnAt: now,
+      wordTimerTaskName: taskName,
+      timerDurationMs: 15000,
+      timerRemainingMs: null,
+    })
+  },
+)
+
+// ─── endGame ──────────────────────────────────────────────────────────────────
+
+export const endGame = onCall(async (request) => {
+  if (!request.auth) throw new HttpsError('unauthenticated', 'Must be signed in')
+  const { roomCode } = request.data as { roomCode: string }
+  if (!roomCode) throw new HttpsError('invalid-argument', 'roomCode required')
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  if (!meta) throw new HttpsError('not-found', 'Room not found')
+  if (meta.hostId !== request.auth.uid) throw new HttpsError('permission-denied', 'Only host can end')
+
+  await cancelTask(meta.wordTimerTaskName)
+  await cancelTask(meta.voteCloseTaskName)
+
+  await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
   return { ok: true }
 })
 
@@ -797,11 +879,14 @@ export const onRematchVote = onValueCreated(
         [`rooms/${roomCode}/meta/wordPointValue`]: 1,
         [`rooms/${roomCode}/meta/timerDurationMs`]: 120000,
         [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
+        [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: 0,
+        [`rooms/${roomCode}/meta/gameOverReason`]: null,
         [`rooms/${roomCode}/meta/usedWords`]: {},
         [`rooms/${roomCode}/votes`]: null,
         [`rooms/${roomCode}/buzzIn`]: null,
         [`rooms/${roomCode}/categoryChoice`]: null,
         [`rooms/${roomCode}/rematchVotes`]: null,
+        [`rooms/${roomCode}/skipVotes`]: null,
       })
     }
   },

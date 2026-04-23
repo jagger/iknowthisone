@@ -35,7 +35,7 @@ const APP_URL = 'https://iknowthisone.jagger.dev'
 
 export default function TvGameView() {
   const { roomCode } = useParams<{ roomCode: string }>()
-  const { meta, players, categoryChoice, loading, error } = useGameState(roomCode ?? '')
+  const { meta, players, categoryChoice, skipVotes, loading, error } = useGameState(roomCode ?? '')
   const [qrUrl, setQrUrl] = useState<string | null>(null)
 
   useEffect(() => {
@@ -98,7 +98,7 @@ export default function TvGameView() {
         return <CategoryPickTV meta={meta} players={players} categoryChoice={categoryChoice} />
       case 'WORD_REVEAL':
       case 'BUZZER_OPEN':
-        return <WordReveal meta={meta} players={players} />
+        return <WordReveal meta={meta} players={players} skipVotes={skipVotes} />
       case 'SINGING':
         return <Singing meta={meta} players={players} />
       case 'VOTE_CLOSING':

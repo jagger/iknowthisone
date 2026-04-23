@@ -8,10 +8,15 @@ interface Props {
   roomCode: string
   uid: string
   muted: boolean
+  skipVotes: Record<string, boolean>
+  totalPlayers: number
 }
 
-export default function BuzzerScreen({ meta, roomCode, uid, muted }: Props) {
+export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, totalPlayers }: Props) {
   const [buzzing, setBuzzing] = useState(false)
+  const [skipped, setSkipped] = useState(false)
+  const hasSkipped = skipped || !!skipVotes[uid]
+  const skipCount = Object.keys(skipVotes).length
 
   const handleBuzz = async () => {
     if (buzzing || muted) return
@@ -20,6 +25,16 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted }: Props) {
       await set(ref(db, `rooms/${roomCode}/buzzIn/${uid}`), true)
     } catch {
       setBuzzing(false)
+    }
+  }
+
+  const handleSkip = async () => {
+    if (hasSkipped) return
+    setSkipped(true)
+    try {
+      await set(ref(db, `rooms/${roomCode}/skipVotes/${uid}`), true)
+    } catch {
+      setSkipped(false)
     }
   }
 
@@ -61,15 +76,39 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted }: Props) {
             borderRadius: 10,
             fontFamily: 'var(--font-body)',
             fontWeight: 800,
-            fontSize: 22,
-            letterSpacing: '3px',
+            fontSize: 18,
+            letterSpacing: '2px',
             textTransform: 'uppercase',
             cursor: muted ? 'not-allowed' : 'pointer',
             transition: 'transform 0.08s',
           }}
         >
-          {muted ? '🔇 Muted this round' : '🎤 Buzz In'}
+          {muted ? '🔇 Muted this round' : '🎤 I Know That One!'}
         </button>
+        {!muted && (
+          <button
+            onClick={handleSkip}
+            disabled={hasSkipped}
+            style={{
+              position: 'absolute',
+              bottom: 44,
+              right: 20,
+              padding: '6px 12px',
+              background: hasSkipped ? '#ddd' : 'transparent',
+              color: hasSkipped ? '#999' : '#888',
+              border: '2px solid ' + (hasSkipped ? '#ccc' : '#ccc'),
+              borderRadius: 6,
+              fontFamily: 'var(--font-body)',
+              fontWeight: 700,
+              fontSize: 11,
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              cursor: hasSkipped ? 'default' : 'pointer',
+            }}
+          >
+            {hasSkipped ? `Skip ${skipCount}/${totalPlayers}` : 'Skip ⏩'}
+          </button>
+        )}
       </div>
     </div>
   )
@@ -94,4 +133,5 @@ const statusStyle: React.CSSProperties = {
 
 const actionZoneStyle: React.CSSProperties = {
   padding: '16px 20px 40px',
+  position: 'relative',
 }

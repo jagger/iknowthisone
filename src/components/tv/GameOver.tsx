@@ -10,6 +10,7 @@ interface Props {
 export default function GameOver({ meta, players }: Props) {
   const winner = Object.entries(players).sort(([, a], [, b]) => b.score - a.score)[0]
   const [, winnerPlayer] = winner ?? [null, null]
+  const noBuzz = meta.gameOverReason === 'no_buzz'
 
   return (
     <PlayerBg
@@ -24,6 +25,11 @@ export default function GameOver({ meta, players }: Props) {
         padding: '5%',
       }}
     >
+      {noBuzz && (
+        <div style={{ fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: 'clamp(12px, 2vw, 18px)', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.8)', textAlign: 'center' }}>
+          Nobody buzzed in 5 times in a row!
+        </div>
+      )}
       <div
         style={{
           fontFamily: 'var(--font-display)',
@@ -36,22 +42,24 @@ export default function GameOver({ meta, players }: Props) {
           lineHeight: 1,
         }}
       >
-        {winnerPlayer?.name ?? '?'} wins!
+        {noBuzz ? 'Game Over' : `${winnerPlayer?.name ?? '?'} wins!`}
       </div>
 
-      <div
-        style={{
-          fontFamily: 'var(--font-body)',
-          fontWeight: 800,
-          fontSize: 16,
-          letterSpacing: '3px',
-          textTransform: 'uppercase',
-          color: '#fff',
-          textShadow: '1px 1px 0 rgba(0,0,0,0.4)',
-        }}
-      >
-        🏆 {winnerPlayer?.score} points
-      </div>
+      {!noBuzz && (
+        <div
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontWeight: 800,
+            fontSize: 16,
+            letterSpacing: '3px',
+            textTransform: 'uppercase',
+            color: '#fff',
+            textShadow: '1px 1px 0 rgba(0,0,0,0.4)',
+          }}
+        >
+          🏆 {winnerPlayer?.score} points
+        </div>
+      )}
 
       <Scoreboard players={players} pointsToWin={meta.pointsToWin} />
 

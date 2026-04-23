@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import type { User } from 'firebase/auth'
-import { auth } from '../../firebase'
+import { httpsCallable } from 'firebase/functions'
+import { auth, functions } from '../../firebase'
 import { useGameState } from '../../hooks/useGameState'
 import { usePlayerRole } from '../../hooks/usePlayerRole'
 import { usePresence } from '../../hooks/usePresence'
@@ -15,19 +16,39 @@ import CategoryPicker from './CategoryPicker'
 import CategorySpectatorScreen from './CategorySpectatorScreen'
 import GameOverScreen from './GameOverScreen'
 
+const ACTIVE_STATES = ['WORD_REVEAL','BUZZER_OPEN','SINGING','VOTE_CLOSING','MUTED','CATEGORY_PICK','POINT_AWARDED']
+
 export default function PhoneGameView() {
   const { roomCode } = useParams<{ roomCode: string }>()
   const [user, setUser] = useState<User | null>(null)
+  const [endConfirm, setEndConfirm] = useState(false)
+  const endTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => onAuthStateChanged(auth, setUser), [])
 
-  const { meta, players, categoryChoice, loading, error } = useGameState(roomCode ?? '')
+  const { meta, players, categoryChoice, skipVotes, loading, error } = useGameState(roomCode ?? '')
   const role = usePlayerRole(user?.uid ?? null, meta, players)
 
   usePresence(roomCode ?? '', user?.uid ?? null)
 
   const uid = user?.uid ?? ''
   const myPlayer = players[uid]
+  const isHost = meta?.hostId === uid
+  const connectedPlayers = Object.values(players).filter(p => p.connected !== false)
+
+  const handleEndFirst = () => {
+    setEndConfirm(true)
+    if (endTimerRef.current) clearTimeout(endTimerRef.current)
+    endTimerRef.current = setTimeout(() => setEndConfirm(false), 3000)
+  }
+
+  const handleEndConfirm = async () => {
+    if (endTimerRef.current) clearTimeout(endTimerRef.current)
+    setEndConfirm(false)
+    try {
+      await httpsCallable(functions, 'endGame')({ roomCode: roomCode ?? '' })
+    } catch { /* ignore */ }
+  }
 
   if (loading || !user) {
     return (
@@ -56,10 +77,10 @@ export default function PhoneGameView() {
         return <LobbyScreen meta={meta} players={players} uid={uid} />
 
       case 'buzzer':
-        return <BuzzerScreen meta={meta} roomCode={roomCode ?? ''} uid={uid} muted={false} />
+        return <BuzzerScreen meta={meta} roomCode={roomCode ?? ''} uid={uid} muted={false} skipVotes={skipVotes} totalPlayers={connectedPlayers.length} />
 
       case 'muted_buzzer':
-        return <BuzzerScreen meta={meta} roomCode={roomCode ?? ''} uid={uid} muted={true} />
+        return <BuzzerScreen meta={meta} roomCode={roomCode ?? ''} uid={uid} muted={true} skipVotes={skipVotes} totalPlayers={connectedPlayers.length} />
 
       case 'singer':
         return <SingerScreen meta={meta} players={players} />
@@ -89,11 +110,38 @@ export default function PhoneGameView() {
     }
   }
 
+  const showEndBtn = isHost && meta && ACTIVE_STATES.includes(meta.state)
+
   return (
     <div style={containerStyle}>
       <PhoneTopBar player={myPlayer} uid={uid} />
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', position: 'relative' }}>
         {renderScreen()}
+        {showEndBtn && (
+          <button
+            onClick={endConfirm ? handleEndConfirm : handleEndFirst}
+            style={{
+              position: 'absolute',
+              top: 8,
+              right: 8,
+              padding: '5px 10px',
+              background: endConfirm ? 'var(--danger)' : 'rgba(0,0,0,0.12)',
+              color: endConfirm ? '#fff' : '#888',
+              border: endConfirm ? '2px solid var(--danger)' : '2px solid #ccc',
+              borderRadius: 6,
+              fontFamily: 'var(--font-body)',
+              fontWeight: 700,
+              fontSize: 10,
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+              zIndex: 20,
+            }}
+          >
+            {endConfirm ? 'Confirm end?' : 'End'}
+          </button>
+        )}
       </div>
     </div>
   )

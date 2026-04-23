@@ -30,6 +30,8 @@ export interface RoomMeta {
   timerRemainingMs?: number
   inactivityToken?: string
   allMutedPenalty?: number
+  consecutiveNoBuzzCount?: number
+  gameOverReason?: string
 }
 
 
@@ -55,6 +57,7 @@ export interface RoomData {
   meta: RoomMeta
   players: Record<string, Player>
   categoryChoice?: CategoryChoice
+  skipVotes?: Record<string, boolean>
 }
 
 export type PlayerRole =

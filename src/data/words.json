@@ -69,5 +69,7 @@
 
   "Travel": ["road","drive","travel","fly","ride","journey","trip","wander","explore","escape","cruise","sail","roam","venture","navigate","destination","route","highway","path","departure","arrival","drift","embark","backpack","expedition","voyage"],
 
-  "Emotion Expressions": ["cry","smile","laugh","tears","sigh","scream","sob","grin","wail","weep","rejoice","mourn","celebrate","grieve","tremble","shiver","blush","gasp","exhale","breakdown","meltdown","snap","pour","surge","burst","glow"]
+  "Emotion Expressions": ["cry","smile","laugh","tears","sigh","scream","sob","grin","wail","weep","rejoice","mourn","celebrate","grieve","tremble","shiver","blush","gasp","exhale","breakdown","meltdown","snap","pour","surge","burst","glow"],
+
+  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","shimmer","spark","believe","rise","legend","spirit","bloom","float","circle","reflect","honor","enchant","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"]
 }
