@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { ref, get, set, serverTimestamp } from 'firebase/database'
 import { db, auth } from '../../firebase'
+import PhoneGameView from '../phone/PhoneGameView'
+
+const STORAGE_KEY = 'ikto_player'
 
 export default function JoinScreen() {
   const { roomCode } = useParams<{ roomCode: string }>()
-  const navigate = useNavigate()
+  const [ready, setReady] = useState(false)
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -14,33 +17,32 @@ export default function JoinScreen() {
       if (!user || !roomCode) return
 
       try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}')
         const playerRef = ref(db, `rooms/${roomCode}/players/${user.uid}`)
         const snap = await get(playerRef)
 
         if (snap.exists()) {
-          // Reconnecting — just update connected flag
           await set(ref(db, `rooms/${roomCode}/players/${user.uid}/connected`), true)
         } else {
-          // New join — write player record (identityIndex assigned by Cloud Function)
           await set(playerRef, {
-            name: user.displayName ?? user.email ?? 'Player',
+            name: user.displayName ?? 'Player',
+            email: saved.email ?? '',
             score: 0,
             muted: false,
             hasVoted: false,
             connected: true,
-            identityIndex: 0, // CF will overwrite this via onPlayerJoin
+            identityIndex: 0,
             joinedAt: serverTimestamp(),
           })
         }
-
-        navigate(`/play/${roomCode}`)
+        setReady(true)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to join room')
       }
     }
 
     join()
-  }, [roomCode, navigate])
+  }, [roomCode])
 
   if (error) {
     return (
@@ -50,11 +52,15 @@ export default function JoinScreen() {
     )
   }
 
-  return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg)' }}>
-      <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 32, letterSpacing: '0.1em' }}>
-        Joining {roomCode}…
+  if (!ready) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg)' }}>
+        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 32, letterSpacing: '0.1em' }}>
+          Joining {roomCode}…
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+
+  return <PhoneGameView />
 }
