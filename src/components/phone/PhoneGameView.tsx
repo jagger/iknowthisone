@@ -13,7 +13,6 @@ import VotingScreen from './VotingScreen'
 import SingerScreen from './SingerScreen'
 import CategoryPicker from './CategoryPicker'
 import CategorySpectatorScreen from './CategorySpectatorScreen'
-import MutedScreen from './MutedScreen'
 import GameOverScreen from './GameOverScreen'
 
 export default function PhoneGameView() {

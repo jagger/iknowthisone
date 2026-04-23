@@ -16,7 +16,15 @@
       "Bash(npm run *)",
       "Bash(npm install *)",
       "Bash(npx tsc *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(firebase apps:list *)",
+      "Bash(firebase apps:create *)",
+      "Bash(firebase *)",
+      "Bash(gcloud  *)",
+      "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud config *)",
+      "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud services *)",
+      "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud tasks *)",
+      "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud projects *)"
     ]
   }
 }

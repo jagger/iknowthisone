@@ -18,7 +18,7 @@ const getTasksClient = () => {
   return tasksClient
 }
 
-const PROJECT = process.env.GCLOUD_PROJECT ?? 'iknowthisone'
+const PROJECT = process.env.GCLOUD_PROJECT ?? 'iknowthisone-8da5a'
 const LOCATION = 'us-central1'
 const QUEUE = 'game-timers'
 const FUNCTIONS_URL = `https://${LOCATION}-${PROJECT}.cloudfunctions.net`
