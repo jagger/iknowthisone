@@ -6,8 +6,12 @@ import * as admin from 'firebase-admin'
 import { onCall, onRequest, HttpsError } from 'firebase-functions/v2/https'
 import { onValueCreated, onValueWritten } from 'firebase-functions/v2/database'
 import { onSchedule } from 'firebase-functions/v2/scheduler'
+import { defineSecret } from 'firebase-functions/params'
 import { CloudTasksClient } from '@google-cloud/tasks'
+import { Resend } from 'resend'
 import * as wordsData from './words.json'
+
+const resendKey = defineSecret('RESEND_API_KEY')
 
 admin.initializeApp()
 const db = admin.database()
@@ -90,9 +94,10 @@ function randomCategories(count: number, exclude?: string): string[] {
 
 // ─── createRoom ───────────────────────────────────────────────────────────────
 
-export const createRoom = onCall(async (request) => {
+export const createRoom = onCall({ secrets: [resendKey] }, async (request) => {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Must be signed in')
 
+  const { email } = request.data as { email?: string }
   let roomCode = ''
   let attempts = 0
   const hostToken = randomToken()
@@ -135,7 +140,19 @@ export const createRoom = onCall(async (request) => {
   }
 
   if (!roomCode) throw new HttpsError('resource-exhausted', 'Could not generate room code')
-  return { roomCode, hostToken }
+
+  if (email) {
+    const hostLink = `https://iknowthisone.jagger.dev/join/${roomCode}?hostToken=${hostToken}`
+    const resend = new Resend(resendKey.value())
+    await resend.emails.send({
+      from: 'I Know This One <noreply@oznog.org>',
+      to: email,
+      subject: `Your host link — room ${roomCode}`,
+      text: `You created a room!\n\nJoin as host:\n${hostLink}\n\nRoom code: ${roomCode}\n\nThis link lets you control the game. Don't share it — just share the room code.`,
+    })
+  }
+
+  return { roomCode }
 })
 
 // ─── claimHost ────────────────────────────────────────────────────────────────

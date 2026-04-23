@@ -46,13 +46,8 @@ export default function NameScreen() {
     setLoading(true); setError('')
     try {
       await signInAnonymously(auth)
-      const createRoom = httpsCallable<Record<string, never>, { roomCode: string; hostToken: string }>(functions, 'createRoom')
-      const { data } = await createRoom({})
-      const trimEmail = email.trim()
-      if (trimEmail) {
-        const hostLink = `https://iknowthisone.jagger.dev/join/${data.roomCode}?hostToken=${data.hostToken}`
-        window.location.href = `mailto:${trimEmail}?subject=Your%20host%20link%20for%20I%20Know%20This%20One&body=Join%20as%20host%3A%20${encodeURIComponent(hostLink)}`
-      }
+      const createRoom = httpsCallable<{ email?: string }, { roomCode: string }>(functions, 'createRoom')
+      const { data } = await createRoom({ email: email.trim() || undefined })
       navigate(`/screen/${data.roomCode}`, { replace: true })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
