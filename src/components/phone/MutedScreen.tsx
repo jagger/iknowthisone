@@ -7,7 +7,7 @@ interface Props {
 export default function MutedScreen({ meta }: Props) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', alignItems: 'center', justifyContent: 'center', gap: 16, padding: '20px' }}>
-      <div style={{ fontSize: 64 }}>🔇</div>
+      <div style={{ fontSize: 64 }}>❌</div>
       <div
         style={{
           fontFamily: 'var(--font-display)',
@@ -18,7 +18,7 @@ export default function MutedScreen({ meta }: Props) {
           color: 'var(--danger)',
         }}
       >
-        You've been muted
+        You failed!
       </div>
       <div
         style={{

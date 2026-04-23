@@ -5,6 +5,7 @@
 import * as admin from 'firebase-admin'
 import { onCall, onRequest, HttpsError } from 'firebase-functions/v2/https'
 import { onValueCreated, onValueWritten } from 'firebase-functions/v2/database'
+import { onSchedule } from 'firebase-functions/v2/scheduler'
 import { CloudTasksClient } from '@google-cloud/tasks'
 import * as wordsData from './words.json'
 
@@ -889,5 +890,38 @@ export const onRematchVote = onValueCreated(
         [`rooms/${roomCode}/skipVotes`]: null,
       })
     }
+  },
+)
+
+// ─── scheduledCleanup ─────────────────────────────────────────────────────────
+// Runs every 6 hours. Deletes rooms that have been in GAME_OVER for 2+ hours,
+// or any room older than 48 hours regardless of state (safety net).
+
+export const scheduledCleanup = onSchedule(
+  { schedule: 'every 6 hours', region: LOCATION },
+  async () => {
+    const roomsSnap = await db.ref('rooms').once('value')
+    if (!roomsSnap.exists()) return
+
+    const now = Date.now()
+    const TWO_HOURS_MS = 2 * 60 * 60 * 1000
+    const FORTY_EIGHT_HOURS_MS = 48 * 60 * 60 * 1000
+
+    const deletions: Promise<void>[] = []
+    roomsSnap.forEach((roomSnap) => {
+      const meta = roomSnap.child('meta').val()
+      if (!meta) {
+        deletions.push(roomSnap.ref.remove())
+        return
+      }
+      const age = now - (meta.createdAt ?? 0)
+      if (meta.state === 'GAME_OVER' && age > TWO_HOURS_MS) {
+        deletions.push(roomSnap.ref.remove())
+      } else if (age > FORTY_EIGHT_HOURS_MS) {
+        deletions.push(roomSnap.ref.remove())
+      }
+    })
+
+    await Promise.all(deletions)
   },
 )

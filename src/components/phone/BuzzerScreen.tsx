@@ -41,7 +41,7 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
   return (
     <div style={screenStyle}>
       <div style={statusStyle}>
-        {muted ? 'You are muted this round' : 'First to buzz in wins!'}
+        {muted ? 'You failed — sit this one out' : 'First to buzz in wins!'}
       </div>
 
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -83,7 +83,7 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
             transition: 'transform 0.08s',
           }}
         >
-          {muted ? '🔇 Muted this round' : '🎤 I Know That One!'}
+          {muted ? '❌ Failed this round' : '🎤 I Know That One!'}
         </button>
         {!muted && (
           <button

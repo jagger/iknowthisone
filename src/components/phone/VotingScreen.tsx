@@ -31,7 +31,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
     return () => clearInterval(id)
   }, [meta.singingStartedAt])
 
-  const handleVote = async (value: 'point' | 'mute') => {
+  const handleVote = async (value: 'point' | 'fail') => {
     if (voting || hasVoted || countdown > 0) return
     setVoting(true)
     try {
@@ -92,14 +92,14 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
               ✅ Point
             </button>
             <button
-              onClick={() => handleVote('mute')}
+              onClick={() => handleVote('fail')}
               disabled={voting}
               onPointerDown={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
               onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
               onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
               style={{ ...voteBtnStyle, background: 'var(--danger)' }}
             >
-              🔇 Mute
+              ❌ Fail
             </button>
           </div>
         )}
