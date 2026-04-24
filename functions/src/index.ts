@@ -9,9 +9,11 @@ import { onSchedule } from 'firebase-functions/v2/scheduler'
 import { defineSecret } from 'firebase-functions/params'
 import { CloudTasksClient } from '@google-cloud/tasks'
 import { Resend } from 'resend'
+import { randomBytes } from 'crypto'
 import * as wordsData from './words.json'
 
 const resendKey = defineSecret('RESEND_API_KEY')
+const tasksSecret = defineSecret('TASKS_SECRET')
 
 admin.initializeApp()
 const db = admin.database()
@@ -40,8 +42,9 @@ function candidateCode(): string {
 
 function randomToken(len = 8): string {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz0123456789'
+  const bytes = randomBytes(len)
   let t = ''
-  for (let i = 0; i < len; i++) t += chars[Math.floor(Math.random() * chars.length)]
+  for (let i = 0; i < len; i++) t += chars[bytes[i] % chars.length]
   return t
 }
 
@@ -59,13 +62,20 @@ async function enqueueTask(
       httpRequest: {
         httpMethod: 'POST',
         url: `${FUNCTIONS_URL}/${endpoint}`,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Tasks-Secret': tasksSecret.value(),
+        },
         body: Buffer.from(JSON.stringify(payload)).toString('base64'),
       },
       scheduleTime: { seconds: Math.floor(deliverAt) },
     },
   })
   return response.name ?? ''
+}
+
+function verifyTaskSecret(req: import('express').Request): boolean {
+  return req.headers['x-tasks-secret'] === tasksSecret.value()
 }
 
 async function cancelTask(taskName: string | undefined): Promise<void> {
@@ -166,6 +176,10 @@ export const claimHost = onCall(async (request) => {
   const meta = metaSnap.val()
   if (!meta) throw new HttpsError('not-found', 'Room not found')
   if (meta.hostToken !== hostToken) throw new HttpsError('permission-denied', 'Invalid host token')
+  // Prevent a second user from stealing the host role after it's been claimed
+  if (meta.hostId && meta.hostId !== request.auth.uid) {
+    throw new HttpsError('permission-denied', 'Host already claimed')
+  }
 
   await db.ref(`rooms/${roomCode}/meta/hostId`).set(request.auth.uid)
   return { ok: true }
@@ -173,7 +187,7 @@ export const claimHost = onCall(async (request) => {
 
 // ─── startGame ────────────────────────────────────────────────────────────────
 
-export const startGame = onCall(async (request) => {
+export const startGame = onCall({ secrets: [tasksSecret] }, async (request) => {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Must be signed in')
   const { roomCode } = request.data as { roomCode: string }
   if (!roomCode) throw new HttpsError('invalid-argument', 'roomCode required')
@@ -228,6 +242,10 @@ export const onPlayerJoin = onValueCreated(
 
     const updates: Record<string, unknown> = {
       [`rooms/${roomCode}/players/${uid}/identityIndex`]: identityIndex,
+      [`rooms/${roomCode}/players/${uid}/score`]: 0,
+      [`rooms/${roomCode}/players/${uid}/muted`]: false,
+      [`rooms/${roomCode}/players/${uid}/hasVoted`]: false,
+      [`rooms/${roomCode}/players/${uid}/joinedAt`]: admin.database.ServerValue.TIMESTAMP,
     }
 
     // First player to join becomes host if none set yet
@@ -244,7 +262,7 @@ export const onPlayerJoin = onValueCreated(
 // ─── onBuzzIn ─────────────────────────────────────────────────────────────────
 
 export const onBuzzIn = onValueCreated(
-  { ref: '/rooms/{roomCode}/buzzIn/{uid}', region: LOCATION },
+  { ref: '/rooms/{roomCode}/buzzIn/{uid}', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
     const { roomCode, uid } = event.params
 
@@ -287,7 +305,7 @@ export const onBuzzIn = onValueCreated(
 // ─── onVoteWritten ────────────────────────────────────────────────────────────
 
 export const onVoteWritten = onValueWritten(
-  { ref: '/rooms/{roomCode}/votes/{uid}', region: LOCATION },
+  { ref: '/rooms/{roomCode}/votes/{uid}', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
     if (!event.data.after.exists()) return // vote cleared, not cast
     const { roomCode, uid } = event.params
@@ -337,7 +355,8 @@ export const onVoteWritten = onValueWritten(
 
 // ─── voteCloseTask (Cloud Task target) ────────────────────────────────────────
 
-export const voteCloseTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const voteCloseTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode } = req.body as { roomCode: string }
   if (!roomCode) { res.status(400).send('missing roomCode'); return }
 
@@ -447,7 +466,8 @@ export const voteCloseTask = onRequest({ region: LOCATION }, async (req, res) =>
 
 // ─── pointAwardedTask ─────────────────────────────────────────────────────────
 
-export const pointAwardedTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const pointAwardedTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode, winnerId, newScore } = req.body as { roomCode: string; winnerId: string; newScore: number }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -476,7 +496,8 @@ export const pointAwardedTask = onRequest({ region: LOCATION }, async (req, res)
 
 // ─── mutedTransitionTask ──────────────────────────────────────────────────────
 
-export const mutedTransitionTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const mutedTransitionTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode, now } = req.body as { roomCode: string; now: number }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -503,7 +524,8 @@ export const mutedTransitionTask = onRequest({ region: LOCATION }, async (req, r
 
 // ─── allMutedTask ─────────────────────────────────────────────────────────────
 
-export const allMutedTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const allMutedTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode } = req.body as { roomCode: string }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -545,7 +567,8 @@ export const allMutedTask = onRequest({ region: LOCATION }, async (req, res) => 
 
 // ─── wordTimerTask ────────────────────────────────────────────────────────────
 
-export const wordTimerTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode, wordDrawnAt } = req.body as { roomCode: string; wordDrawnAt: number }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -604,7 +627,7 @@ export const wordTimerTask = onRequest({ region: LOCATION }, async (req, res) =>
 // ─── onCategoryChosen ─────────────────────────────────────────────────────────
 
 export const onCategoryChosen = onValueWritten(
-  { ref: '/rooms/{roomCode}/categoryChoice/chosen', region: LOCATION },
+  { ref: '/rooms/{roomCode}/categoryChoice/chosen', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
     const chosen = event.data.after.val()
     if (!chosen) return
@@ -621,7 +644,8 @@ export const onCategoryChosen = onValueWritten(
 
 // ─── categoryRevealTask ───────────────────────────────────────────────────────
 
-export const categoryRevealTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const categoryRevealTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode, category } = req.body as { roomCode: string; category: string }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -665,7 +689,7 @@ export const categoryRevealTask = onRequest({ region: LOCATION }, async (req, re
 // ─── onSingerDisconnect ───────────────────────────────────────────────────────
 
 export const onSingerDisconnect = onValueWritten(
-  { ref: '/rooms/{roomCode}/players/{uid}/connected', region: LOCATION },
+  { ref: '/rooms/{roomCode}/players/{uid}/connected', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
     if (event.data.after.val() !== false) return // only care about disconnects
     const { roomCode, uid } = event.params
@@ -710,7 +734,7 @@ export const onSingerDisconnect = onValueWritten(
 // Uses a token so stale tasks no-op if activity resumes.
 
 export const onGameStateChange = onValueWritten(
-  { ref: '/rooms/{roomCode}/meta/state', region: LOCATION },
+  { ref: '/rooms/{roomCode}/meta/state', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
     const newState = event.data.after.val()
     if (!newState || newState === 'GAME_OVER') return
@@ -724,7 +748,8 @@ export const onGameStateChange = onValueWritten(
 
 // ─── inactivityTask ───────────────────────────────────────────────────────────
 
-export const inactivityTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const inactivityTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode, token } = req.body as { roomCode: string; token: string }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -739,7 +764,8 @@ export const inactivityTask = onRequest({ region: LOCATION }, async (req, res) =
 
 // ─── cleanupTask ──────────────────────────────────────────────────────────────
 
-export const cleanupTask = onRequest({ region: LOCATION }, async (req, res) => {
+export const cleanupTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
   const { roomCode, token } = req.body as { roomCode: string; token: string }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
@@ -805,7 +831,7 @@ export const restartGame = onCall(async (request) => {
 // All connected players must agree to skip; drops timer to 15s.
 
 export const onSkipVote = onValueCreated(
-  { ref: '/rooms/{roomCode}/skipVotes/{uid}', region: LOCATION },
+  { ref: '/rooms/{roomCode}/skipVotes/{uid}', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
     const { roomCode } = event.params
 

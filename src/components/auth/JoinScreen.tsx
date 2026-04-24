@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { ref, get, set, serverTimestamp } from 'firebase/database'
+import { ref, get, set } from 'firebase/database'
 import { httpsCallable } from 'firebase/functions'
 import { db, auth, functions } from '../../firebase'
 import PhoneGameView from '../phone/PhoneGameView'
-
-const STORAGE_KEY = 'ikto_player'
 
 export default function JoinScreen() {
   const { roomCode } = useParams<{ roomCode: string }>()
@@ -20,7 +18,6 @@ export default function JoinScreen() {
       if (!user || !roomCode) return
 
       try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}')
         const playerRef = ref(db, `rooms/${roomCode}/players/${user.uid}`)
         const snap = await get(playerRef)
 
@@ -29,13 +26,7 @@ export default function JoinScreen() {
         } else {
           await set(playerRef, {
             name: user.displayName ?? 'Player',
-            email: saved.email ?? '',
-            score: 0,
-            muted: false,
-            hasVoted: false,
             connected: true,
-            identityIndex: 0,
-            joinedAt: serverTimestamp(),
           })
         }
 

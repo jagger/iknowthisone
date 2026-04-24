@@ -5,10 +5,13 @@
         ".read": true,
         "players": {
           "$uid": {
-            ".write": "auth != null && auth.uid === $uid"
+            "name":           { ".write": "auth != null && auth.uid === $uid" },
+            "connected":      { ".write": "auth != null && auth.uid === $uid" },
+            "disconnectedAt": { ".write": "auth != null && auth.uid === $uid" }
           }
         },
         "votes": {
+          ".read": false,
           "$uid": {
             ".write": "auth != null && auth.uid === $uid && !data.exists()"
           }
@@ -34,6 +37,7 @@
           }
         },
         "meta": {
+          "hostToken": { ".read": false },
           ".write": false
         }
       }
