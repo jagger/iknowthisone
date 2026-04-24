@@ -19,18 +19,6 @@
 
   "Body": ["eyes","heart","head","hands","face","skin","lips","arms","feet","chest","back","shoulders","neck","fingers","tears","breath","bones","blood","veins","soul","tongue","teeth","hips","legs","knees","spine","throat","stomach","wrist","palms"],
 
-  "Perception": ["see","feel","hear","watch","look","notice","sense","taste","smell","observe","witness","recognize","discover","imagine","picture","glimpse","stare","gaze","glance","read","search","spy","track","study","soak"],
-
-  "Cognition": ["think","know","remember","forget","understand","realize","guess","believe","wonder","doubt","decide","choose","learn","dream","expect","figure","plan","reflect","suspect","admit","accept","deny","discover","wish","count"],
-
-  "Possession": ["mine","yours","ours","own","keep","give","take","hold","share","steal","borrow","lose","find","gain","earn","claim","save","spend","trade","grab","surrender","offer","return","owe","receive","pass","store","collect"],
-
-  "Quality": ["good","bad","better","best","perfect","real","true","wrong","right","pure","raw","free","wild","strong","weak","sweet","hard","soft","empty","full","whole","clear","deep","shallow","loud","quiet","sharp","bold","cold","smooth"],
-
-  "Intensity": ["very","too","so","really","enough","much","just","almost","barely","completely","totally","absolutely","deeply","truly","simply","only","even","still","ever","anything","everything","nothing","nearly","dead","straight","flat"],
-
-  "Quantity": ["more","less","all","none","many","few","some","any","every","each","both","most","least","half","once","twice","thousand","million","hundred","single","double","zero","little","loads","either","between"],
-
   "Music Terms": ["song","beat","music","dance","sing","rap","verse","chorus","melody","rhythm","hook","track","bass","flow","lyric","note","tune","vibe","sound","record","album","drop","bridge","sample","remix","groove","riff","bar","tempo","playlist"],
 
   "Performance": ["play","sing","dance","perform","show","rock","tour","act","entertain","practice","debut","headline","freestyle","deliver","spit","drop","release","record","produce","feature","encore","stream","set","open","close"],
@@ -39,15 +27,13 @@
 
   "Conflict": ["fight","break","hurt","lose","war","battle","argue","clash","struggle","attack","defend","resist","confront","challenge","compete","betray","wound","crush","destroy","rebel","survive","endure","stand","bleed","scar","overcome"],
 
-  "Mental State": ["crazy","insane","sane","confused","lost","broken","numb","spinning","focused","paranoid","obsessed","addicted","trapped","restless","haunted","exhausted","drained","overwhelmed","trippin","awake","asleep","consumed","gone","zoned","frantic"],
+  "Mental State": ["crazy","insane","confused","lost","broken","numb","focused","paranoid","obsessed","addicted","trapped","restless","haunted","exhausted","drained","overwhelmed","awake","consumed","frantic","spinning"],
 
   "Life & Existence": ["life","live","alive","die","exist","born","death","survive","breathe","grow","age","fade","begin","end","rise","vanish","remain","bloom","soar","journey","purpose","destiny","meaning","legacy","sacrifice","honor"],
 
   "Spiritual": ["god","heaven","faith","pray","angel","soul","spirit","devil","sin","grace","blessing","curse","sacred","holy","divine","worship","forgive","redeem","salvation","eternal","immortal","karma","fate","surrender","ascend","rise"],
 
   "Weather": ["rain","storm","wind","sun","cold","heat","snow","fog","hail","thunder","lightning","blizzard","flood","rainbow","hurricane","tornado","breeze","mist","frost","showers","cloudy","gust","sunshine","flurry","heavy","dusty"],
-
-  "Temperature": ["hot","cold","warm","cool","freezing","burning","boiling","icy","scorching","chilly","frosty","arctic","tropical","blazing","raw","bitter","heated","fever","smoking","melting","biting","dripping","sticky","smoldering","breezy","crisp"],
 
   "Light & Dark": ["light","dark","shine","bright","glow","shadow","dim","blinding","gleam","gloom","flicker","spark","fade","illuminate","eclipse","silhouette","twilight","dawn","dusk","electric","haze","shimmering","reflection","brilliant","hidden","glare"],
 
@@ -71,5 +57,15 @@
 
   "Emotion Expressions": ["cry","smile","laugh","tears","sigh","scream","sob","grin","wail","weep","rejoice","mourn","celebrate","grieve","tremble","shiver","blush","gasp","exhale","breakdown","meltdown","snap","pour","surge","burst","glow"],
 
-  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","shimmer","spark","believe","rise","legend","spirit","bloom","float","circle","reflect","honor","enchant","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"]
+  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","shimmer","spark","believe","rise","legend","spirit","bloom","float","circle","reflect","honor","enchant","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"],
+
+  "Animals": ["lion","tiger","wolf","eagle","dove","snake","fox","butterfly","bird","horse","dog","cat","whale","crow","hawk","deer","swan","dragon","phoenix","raven","sparrow","owl","stallion","lamb","panther","hound","bear","shark","buffalo","robin"],
+
+  "Food & Drink": ["sugar","honey","candy","cherry","peach","lemon","wine","bread","salt","apple","chocolate","vanilla","cream","coffee","whiskey","beer","cake","strawberry","grape","pepper","cinnamon","caramel","cookie","mango","rum","tequila","bourbon","butter","lime","coconut"],
+
+  "80s Movies": ["footloose","flashdance","ghostbusters","thriller","fame","maverick","danger","paradise","glory","maniac","warrior","rebel","fighter","survivor","hero","rocky","grease","magic","tonight","forever","running","burning","power","champion","jump","cobra","karate","batman"],
+
+  "Seasons": ["spring","summer","autumn","winter","sunshine","snowfall","harvest","bloom","frozen","golden","crisp","frosty","stormy","breezy","rainy","thunder","rainbow","drizzle","melting","thaw","solstice","foggy","dew","pollen","heat","frost","chill","shower"],
+
+  "Musicals": ["tomorrow","phantom","memory","tonight","seasons","defying","popular","roxanne","hamilton","chicago","grease","cats","wicked","rent","mama","sunrise","curtain","spotlight","dancing","theater","broadway","cabaret","master","music","dream","angel","chairs","finale","empty","one"]
 }
