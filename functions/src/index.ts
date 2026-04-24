@@ -89,17 +89,39 @@ async function cancelTask(taskName: string | undefined): Promise<void> {
 
 const WORDS = wordsData as Record<string, string[]>
 
-function drawWord(category: string, usedWords: string[]): string {
-  const categories = Object.keys(WORDS)
-  const pool = WORDS[category] ?? WORDS[categories[0]]
+const ADMIN_ALLOWLIST = ['jagger@oznog.org', 'cewhiney08@gmail.com']
+
+async function getActiveWords(): Promise<Record<string, string[]>> {
+  const snap = await db.ref('adminConfig/words').once('value')
+  return snap.exists() ? (snap.val() as Record<string, string[]>) : WORDS
+}
+
+function drawWord(category: string, usedWords: string[], words: Record<string, string[]>): string {
+  const categories = Object.keys(words)
+  const pool = words[category] ?? words[categories[0]]
   const available = pool.filter((w) => !usedWords.includes(w))
   if (available.length === 0) return pool[Math.floor(Math.random() * pool.length)]
   return available[Math.floor(Math.random() * available.length)]
 }
 
-function randomCategories(count: number, exclude?: string): string[] {
-  const all = Object.keys(WORDS).filter((c) => c !== exclude)
+function randomCategories(count: number, words: Record<string, string[]>, exclude?: string): string[] {
+  const all = Object.keys(words).filter((c) => c !== exclude)
   return all.sort(() => Math.random() - 0.5).slice(0, count)
+}
+
+async function incrementWordAnalytics(
+  category: string,
+  word: string,
+  increments: Partial<{ attempts: number; buzzes: number; skips: number; totalBuzzMs: number; timeouts: number }>,
+): Promise<void> {
+  const key = `analytics/words/${encodeURIComponent(category)}/${encodeURIComponent(word)}`
+  const snap = await db.ref(key).once('value')
+  const cur = snap.val() ?? { attempts: 0, buzzes: 0, skips: 0, totalBuzzMs: 0, timeouts: 0 }
+  const updates: Record<string, number> = {}
+  for (const [k, delta] of Object.entries(increments)) {
+    if (delta != null) updates[k] = (cur[k] ?? 0) + delta
+  }
+  await db.ref(key).update(updates)
 }
 
 // ─── createRoom ───────────────────────────────────────────────────────────────
@@ -205,13 +227,15 @@ export const startGame = onCall({ secrets: [tasksSecret] }, async (request) => {
   const connected = Object.values(players).filter((p: unknown) => (p as { connected: boolean }).connected !== false)
   if (connected.length < 2) throw new HttpsError('failed-precondition', 'Need at least 2 players')
 
-  const word = drawWord('General', [])
+  const activeWords = await getActiveWords()
+  const firstCategory = Object.keys(activeWords)[0]
+  const word = drawWord(firstCategory, [], activeWords)
   const now = Date.now()
 
   await metaRef.update({
     state: 'WORD_REVEAL',
     currentWord: word,
-    currentCategory: 'General',
+    currentCategory: firstCategory,
     wordDrawnAt: now,
     wordMuteCount: 0,
     wordPointValue: 1,
@@ -299,6 +323,13 @@ export const onBuzzIn = onValueCreated(
       timerRemainingMs,
       consecutiveNoBuzzCount: 0,
     })
+
+    if (meta.currentCategory && meta.currentWord) {
+      const buzzElapsed = Date.now() - (meta.wordDrawnAt ?? Date.now())
+      await incrementWordAnalytics(meta.currentCategory, meta.currentWord, {
+        attempts: 1, buzzes: 1, totalBuzzMs: buzzElapsed,
+      })
+    }
   },
 )
 
@@ -480,7 +511,8 @@ export const pointAwardedTask = onRequest({ region: LOCATION, secrets: [tasksSec
     return
   }
 
-  const categories = randomCategories(4, meta.currentCategory)
+  const activeWords = await getActiveWords()
+  const categories = randomCategories(4, activeWords, meta.currentCategory)
   await db.ref().update({
     [`rooms/${roomCode}/meta/state`]: 'CATEGORY_PICK',
     [`rooms/${roomCode}/categoryChoice`]: {
@@ -533,9 +565,10 @@ export const allMutedTask = onRequest({ region: LOCATION, secrets: [tasksSecret]
   if (!meta || meta.state !== 'MUTED' || !meta.allMutedPenalty) { res.status(200).send('stale'); return }
 
   // Pick a fresh category and word — no player choice needed
-  const category = randomCategories(1, meta.currentCategory)[0]
+  const activeWords = await getActiveWords()
+  const category = randomCategories(1, activeWords, meta.currentCategory)[0]
   const usedWords: string[] = meta.usedWords?.[category] ?? []
-  const newWord = drawWord(category, usedWords)
+  const newWord = drawWord(category, usedWords, activeWords)
   const now = Date.now()
 
   const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
@@ -582,6 +615,10 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
 
   const newNoBuzzCount = (meta.consecutiveNoBuzzCount ?? 0) + 1
 
+  await incrementWordAnalytics(meta.currentCategory, meta.currentWord, {
+    attempts: 1, timeouts: 1,
+  })
+
   // 5 songs in a row with no buzz → end the game
   if (newNoBuzzCount >= 5) {
     await db.ref(`rooms/${roomCode}/meta`).update({
@@ -593,8 +630,9 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
     return
   }
 
+  const activeWords = await getActiveWords()
   const usedWords: string[] = (meta.usedWords?.[meta.currentCategory] ?? []).concat(meta.currentWord)
-  const newWord = drawWord(meta.currentCategory, usedWords)
+  const newWord = drawWord(meta.currentCategory, usedWords, activeWords)
   const now = Date.now()
 
   // Reset all muted flags and timers for new word
@@ -652,8 +690,9 @@ export const categoryRevealTask = onRequest({ region: LOCATION, secrets: [tasksS
   const meta = metaSnap.val()
   if (!meta || meta.state !== 'CATEGORY_PICK') { res.status(200).send('stale'); return }
 
+  const activeWords = await getActiveWords()
   const usedWords: string[] = meta.usedWords?.[category] ?? []
-  const newWord = drawWord(category, usedWords)
+  const newWord = drawWord(category, usedWords, activeWords)
   const now = Date.now()
 
   // Reset all muted flags for new word
@@ -854,6 +893,10 @@ export const onSkipVote = onValueCreated(
     await cancelTask(meta.wordTimerTaskName)
     await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
+    if (meta.currentCategory && meta.currentWord) {
+      await incrementWordAnalytics(meta.currentCategory, meta.currentWord, { skips: 1 })
+    }
+
     const now = Date.now()
     const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 15)
     await db.ref(`rooms/${roomCode}/meta`).update({
@@ -880,6 +923,30 @@ export const endGame = onCall(async (request) => {
   await cancelTask(meta.wordTimerTaskName)
   await cancelTask(meta.voteCloseTaskName)
 
+  await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
+  return { ok: true }
+})
+
+// ─── adminEndGame ─────────────────────────────────────────────────────────────
+
+export const adminEndGame = onCall(async (request) => {
+  if (!request.auth) throw new HttpsError('unauthenticated', 'Must be signed in')
+
+  const email = request.auth.token.email as string | undefined
+  const emailVerified = request.auth.token.email_verified as boolean | undefined
+  if (!email || !emailVerified || !ADMIN_ALLOWLIST.includes(email)) {
+    throw new HttpsError('permission-denied', 'Admin access required')
+  }
+
+  const { roomCode } = request.data as { roomCode: string }
+  if (!roomCode) throw new HttpsError('invalid-argument', 'roomCode required')
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  if (!meta) throw new HttpsError('not-found', 'Room not found')
+
+  await cancelTask(meta.wordTimerTaskName)
+  await cancelTask(meta.voteCloseTaskName)
   await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
   return { ok: true }
 })

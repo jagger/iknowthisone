@@ -3,6 +3,8 @@ import NameScreen from './components/auth/NameScreen'
 import JoinScreen from './components/auth/JoinScreen'
 import TvGameView from './components/tv/TvGameView'
 import PrivateRoute from './components/auth/PrivateRoute'
+import AdminRoute from './components/admin/AdminRoute'
+import AdminApp from './components/admin/AdminApp'
 
 export default function App() {
   return (
@@ -20,6 +22,14 @@ export default function App() {
         }
       />
       <Route path="/screen/:roomCode" element={<TvGameView />} />
+      <Route
+        path="/admin"
+        element={
+          <AdminRoute>
+            <AdminApp />
+          </AdminRoute>
+        }
+      />
     </Routes>
   )
 }
