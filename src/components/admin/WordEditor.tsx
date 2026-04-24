@@ -36,10 +36,8 @@ export default function WordEditor() {
       return next
     })
     if (selectedCat === cat) {
-      setSelectedCat((prev) => {
-        const cats = Object.keys(words).filter((c) => c !== cat)
-        return cats[0] ?? ''
-      })
+      const cats = Object.keys(words).filter((c) => c !== cat)
+      setSelectedCat(cats[0] ?? '')
     }
   }
 
