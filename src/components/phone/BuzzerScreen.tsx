@@ -63,6 +63,7 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
         <button
           onClick={handleBuzz}
           disabled={muted || buzzing}
+          aria-label={muted ? 'Failed this round — cannot buzz in' : 'Buzz in — I know this one'}
           onPointerDown={(e) => { if (!muted) (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
           onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
           onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
@@ -89,11 +90,13 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
           <button
             onClick={handleSkip}
             disabled={hasSkipped}
+            aria-label={hasSkipped ? `Skip voted, ${skipCount} of ${totalPlayers} agree` : 'Vote to skip this word'}
             style={{
               position: 'absolute',
               bottom: 44,
               right: 20,
-              padding: '6px 12px',
+              padding: '8px 16px',
+              minHeight: 44,
               background: hasSkipped ? '#ddd' : 'transparent',
               color: hasSkipped ? '#999' : '#888',
               border: '2px solid ' + (hasSkipped ? '#ccc' : '#ccc'),

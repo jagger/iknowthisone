@@ -51,16 +51,32 @@ export default function TvGameView() {
             style={{
               height: '100%',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(40px, 8vw, 80px)',
-              fontWeight: 900,
-              letterSpacing: '0.1em',
-              color: 'var(--ink)',
+              gap: 0,
             }}
           >
-            {roomCode}
+            <div
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(40px, 8vw, 80px)',
+                fontWeight: 900,
+                letterSpacing: '0.1em',
+                color: 'var(--ink)',
+              }}
+            >
+              {roomCode}
+            </div>
+            <div style={{ display: 'flex', gap: 6, marginTop: 16 }}>
+              {[0,1,2].map(i => (
+                <div key={i} style={{
+                  width: 8, height: 8, borderRadius: '50%',
+                  background: 'var(--ink)', opacity: 0.3,
+                  animation: `pulse 1.2s ease-in-out ${i * 0.2}s infinite`,
+                }} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -75,15 +91,22 @@ export default function TvGameView() {
             style={{
               height: '100%',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              fontFamily: 'var(--font-body)',
-              fontSize: 18,
-              fontWeight: 700,
-              color: 'var(--danger)',
             }}
           >
-            {error ?? 'Room not found'}
+            <div
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 18,
+                fontWeight: 700,
+                color: 'var(--danger)',
+              }}
+            >
+              {error ?? 'Room not found'}
+            </div>
+            <div style={{ marginTop: 12, fontFamily: 'var(--font-body)', fontSize: 13, color: '#666' }}>Check the room code and try again.</div>
           </div>
         </div>
       </div>

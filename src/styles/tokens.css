@@ -16,3 +16,19 @@
   --shadow: 5px 5px 0 #141414;
   --shadow-lg: 8px 8px 0 #141414;
 }
+
+/* Focus styles */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}

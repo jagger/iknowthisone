@@ -42,6 +42,7 @@ export default function PlayerGrid({ players, activeSinger, showVotes }: Props) 
               gap: 4,
               opacity: inactive ? 0.35 : 1,
               transition: 'opacity 0.4s',
+              minWidth: 0,
             }}
           >
             <span
@@ -53,6 +54,9 @@ export default function PlayerGrid({ players, activeSinger, showVotes }: Props) 
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
                 whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                minWidth: 0,
               }}
             >
               {player.name}

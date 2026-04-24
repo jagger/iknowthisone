@@ -46,6 +46,7 @@ export default function Scoreboard({ players, pointsToWin }: Props) {
             justifyContent: 'space-between',
             padding: '10px 16px',
             borderBottom: i < sorted.length - 1 ? 'var(--border)' : 'none',
+            minWidth: 0,
           }}
         >
           <span
@@ -55,6 +56,10 @@ export default function Scoreboard({ players, pointsToWin }: Props) {
               fontSize: 16,
               color: '#fff',
               textShadow: '1px 1px 0 rgba(0,0,0,0.4)',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+              minWidth: 0,
             }}
           >
             {player.name}

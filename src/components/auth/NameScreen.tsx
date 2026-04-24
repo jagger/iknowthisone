@@ -79,22 +79,30 @@ export default function NameScreen() {
         <h1 style={titleStyle}>I KNOW THIS ONE</h1>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <input
-            type="text"
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            maxLength={20}
-            autoFocus
-            style={inputStyle}
-          />
-          <input
-            type="email"
-            placeholder="Email (optional)"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={inputStyle}
-          />
+          <div style={{ position: 'relative' }}>
+            <label htmlFor="input-name" style={visuallyHiddenStyle}>Your name</label>
+            <input
+              id="input-name"
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              maxLength={20}
+              autoFocus
+              style={inputStyle}
+            />
+          </div>
+          <div style={{ position: 'relative' }}>
+            <label htmlFor="input-email" style={visuallyHiddenStyle}>Email (optional)</label>
+            <input
+              id="input-email"
+              type="email"
+              placeholder="Email (optional)"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={inputStyle}
+            />
+          </div>
         </div>
 
         {mode === 'choose' && (
@@ -127,14 +135,18 @@ export default function NameScreen() {
                 Joining <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 22, letterSpacing: '0.15em' }}>{codeParam}</span>
               </div>
             ) : (
-              <input
-                type="text"
-                placeholder="Room code"
-                value={roomInput}
-                onChange={(e) => setRoomInput(e.target.value.toUpperCase())}
-                maxLength={20}
-                style={{ ...inputStyle, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 24, letterSpacing: '0.2em', textAlign: 'center' }}
-              />
+              <div style={{ position: 'relative' }}>
+                <label htmlFor="input-room" style={visuallyHiddenStyle}>Room code</label>
+                <input
+                  id="input-room"
+                  type="text"
+                  placeholder="Room code"
+                  value={roomInput}
+                  onChange={(e) => setRoomInput(e.target.value.toUpperCase())}
+                  maxLength={20}
+                  style={{ ...inputStyle, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 24, letterSpacing: '0.2em', textAlign: 'center' }}
+                />
+              </div>
             )}
             {error && <div style={errorStyle}>{error}</div>}
             <button type="submit" disabled={loading} style={btnGoldStyle}>
@@ -184,4 +196,8 @@ const roomBadgeStyle: React.CSSProperties = {
 const errorStyle: React.CSSProperties = {
   color: 'var(--danger)', fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 600,
   padding: '6px 10px', background: '#fee', border: '1px solid var(--danger)', borderRadius: 4,
+}
+const visuallyHiddenStyle: React.CSSProperties = {
+  position: 'absolute', width: 1, height: 1, padding: 0, margin: -1,
+  overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0,
 }

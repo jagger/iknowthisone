@@ -24,7 +24,11 @@
       "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud config *)",
       "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud services *)",
       "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud tasks *)",
-      "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud projects *)"
+      "Bash(/home/jagger/dev/flyers/google-cloud-sdk/bin/gcloud projects *)",
+      "Bash(gh auth *)",
+      "Bash(npm *)",
+      "Bash(curl *)",
+      "Bash(dig *)"
     ]
   }
 }

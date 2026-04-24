@@ -56,6 +56,15 @@ export default function PhoneGameView() {
         <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 32, letterSpacing: '0.1em' }}>
           {roomCode}
         </div>
+        <div style={{ display: 'flex', gap: 6, marginTop: 16 }}>
+          {[0,1,2].map(i => (
+            <div key={i} style={{
+              width: 8, height: 8, borderRadius: '50%',
+              background: 'var(--ink)', opacity: 0.3,
+              animation: `pulse 1.2s ease-in-out ${i * 0.2}s infinite`,
+            }} />
+          ))}
+        </div>
       </div>
     )
   }
@@ -66,6 +75,9 @@ export default function PhoneGameView() {
         <div style={{ fontFamily: 'var(--font-body)', color: 'var(--danger)', fontWeight: 700 }}>
           {error ?? 'Room not found'}
         </div>
+        <button onClick={() => window.location.href = '/'} style={{ marginTop: 16, fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 13, letterSpacing: '2px', textTransform: 'uppercase', background: 'transparent', border: 'var(--border)', padding: '8px 16px', cursor: 'pointer', borderRadius: 6 }}>
+          ← Back to Home
+        </button>
       </div>
     )
   }
@@ -120,11 +132,14 @@ export default function PhoneGameView() {
         {showEndBtn && (
           <button
             onClick={endConfirm ? handleEndConfirm : handleEndFirst}
+            aria-label={endConfirm ? 'Confirm: end the game now' : 'End game (requires confirmation)'}
             style={{
               position: 'absolute',
               top: 8,
               right: 8,
               padding: '5px 10px',
+              minHeight: 44,
+              minWidth: 60,
               background: endConfirm ? 'var(--danger)' : 'rgba(0,0,0,0.12)',
               color: endConfirm ? '#fff' : '#888',
               border: endConfirm ? '2px solid var(--danger)' : '2px solid #ccc',

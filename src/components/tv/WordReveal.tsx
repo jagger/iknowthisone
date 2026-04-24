@@ -68,6 +68,8 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
             lineHeight: 1,
             color: 'var(--ink)',
             textAlign: 'center',
+            wordBreak: 'break-word',
+            overflowWrap: 'break-word',
           }}
         >
           {meta.currentWord.toUpperCase()}

@@ -20,7 +20,7 @@ export default function SingerScreen({ meta, players }: Props) {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 900,
-            fontSize: '18vw',
+            fontSize: 'min(18vw, 96px)',
             letterSpacing: '0.06em',
             color: 'var(--ink)',
             textAlign: 'center',

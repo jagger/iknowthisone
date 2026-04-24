@@ -84,6 +84,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
             <button
               onClick={() => handleVote('point')}
               disabled={voting}
+              aria-label="Vote: they sang it correctly, award a point"
               onPointerDown={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
               onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
               onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
@@ -94,6 +95,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
             <button
               onClick={() => handleVote('fail')}
               disabled={voting}
+              aria-label="Vote: they failed, mute them this round"
               onPointerDown={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
               onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
               onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
