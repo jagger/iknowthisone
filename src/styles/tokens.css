@@ -28,6 +28,11 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
+/* Press scale for buzz button — CSS handles cancel/disabled correctly */
+.buzz-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.3); }

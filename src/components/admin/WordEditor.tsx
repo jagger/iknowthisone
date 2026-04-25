@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ref, get, set } from 'firebase/database'
-import { db } from '../../firebase'
+import { db, auth } from '../../firebase'
 import staticWords from '../../data/words.json'
 
 type WordMap = Record<string, string[]>
@@ -14,6 +14,7 @@ export default function WordEditor() {
   const [savedMsg, setSavedMsg] = useState('')
 
   useEffect(() => {
+    if (!auth.currentUser) return
     get(ref(db, 'adminConfig/words')).then((snap) => {
       const loaded: WordMap = snap.exists() ? snap.val() : (staticWords as WordMap)
       setWords(loaded)

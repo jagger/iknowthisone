@@ -9,6 +9,7 @@ interface Props {
 }
 
 export default function Singing({ meta, players }: Props) {
+  if (!meta.activeSinger) return null
   const singer = meta.activeSinger ? players[meta.activeSinger] : null
   const singerIdentity = singer?.identityIndex ?? 0
   const identity = PLAYER_IDENTITIES[singerIdentity]

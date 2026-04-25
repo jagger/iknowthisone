@@ -272,14 +272,14 @@ export const onPlayerJoin = onValueCreated(
       [`rooms/${roomCode}/players/${uid}/joinedAt`]: admin.database.ServerValue.TIMESTAMP,
     }
 
-    // First player to join becomes host if none set yet
-    const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
-    const meta = metaSnap.val()
-    if (meta && meta.hostId == null) {
-      updates[`rooms/${roomCode}/meta/hostId`] = uid
-    }
-
     await db.ref().update(updates)
+
+    // Atomically claim host if no host yet — transaction prevents two simultaneous
+    // joins both reading null and racing to set themselves as host
+    await db.ref(`rooms/${roomCode}/meta/hostId`).transaction((current) => {
+      if (current !== null && current !== undefined) return // abort — already claimed
+      return uid
+    })
   },
 )
 
@@ -293,6 +293,9 @@ export const onBuzzIn = onValueCreated(
     const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
     const meta = metaSnap.val()
     if (!meta || meta.state !== 'BUZZER_OPEN') return
+
+    const playerSnap = await db.ref(`rooms/${roomCode}/players/${uid}`).once('value')
+    if (playerSnap.val()?.muted) return
 
     // Compute remaining time before cancelling the task
     const elapsed = Date.now() - (meta.wordDrawnAt ?? Date.now())
@@ -499,13 +502,16 @@ export const voteCloseTask = onRequest({ region: LOCATION, secrets: [tasksSecret
 
 export const pointAwardedTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
   if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
-  const { roomCode, winnerId, newScore } = req.body as { roomCode: string; winnerId: string; newScore: number }
+  const { roomCode, winnerId } = req.body as { roomCode: string; winnerId: string; newScore: number }
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
   const meta = metaSnap.val()
   if (!meta || meta.state !== 'POINT_AWARDED') { res.status(200).send('stale'); return }
 
-  if (newScore >= meta.pointsToWin) {
+  // Re-read current score from RTDB rather than trusting the enqueued payload value
+  const currentScore = (await db.ref(`rooms/${roomCode}/players/${winnerId}/score`).once('value')).val() ?? 0
+
+  if (currentScore >= meta.pointsToWin) {
     await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
     res.status(200).send('game_over')
     return

@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function SingerScreen({ meta, players }: Props) {
+  if (!meta.activeSinger) return null
   const eligible = Object.entries(players).filter(
     ([uid, p]) => uid !== meta.activeSinger && p.connected !== false,
   )

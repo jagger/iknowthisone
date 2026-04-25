@@ -64,9 +64,7 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
           onClick={handleBuzz}
           disabled={muted || buzzing}
           aria-label={muted ? 'Failed this round — cannot buzz in' : 'Buzz in — I know this one'}
-          onPointerDown={(e) => { if (!muted) (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
-          onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
-          onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
+          className="buzz-btn"
           style={{
             width: '100%',
             height: 88,

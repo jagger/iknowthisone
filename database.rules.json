@@ -18,7 +18,7 @@
         },
         "buzzIn": {
           "$uid": {
-            ".write": "auth != null && auth.uid === $uid"
+            ".write": "auth != null && auth.uid === $uid && root.child('rooms').child($roomCode).child('players').child($uid).child('muted').val() !== true"
           }
         },
         "categoryChoice": {
@@ -43,7 +43,7 @@
       }
     },
     "adminConfig": {
-      ".read": true,
+      ".read": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')",
       "words": {
         ".write": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')"
       }
