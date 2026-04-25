@@ -3,6 +3,7 @@ import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
 import type { User } from 'firebase/auth'
 import { auth, googleProvider } from '../../firebase'
 
+// Keep in sync with ADMIN_ALLOWLIST in functions/src/index.ts
 const ALLOWLIST = ['jagger@oznog.org', 'cewhiney08@gmail.com']
 
 type AuthState = 'loading' | 'signed-out' | 'wrong-email' | 'ok'

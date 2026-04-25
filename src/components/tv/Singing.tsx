@@ -70,10 +70,12 @@ export default function Singing({ meta, players }: Props) {
         <div
           style={{
             display: 'flex',
+            flexWrap: 'wrap',
             alignItems: 'center',
             gap: 8,
             justifyContent: 'center',
             marginTop: 'auto',
+            maxWidth: '90%',
           }}
         >
           {eligibleVoters.map(([uid, player]) => (
@@ -90,7 +92,11 @@ export default function Singing({ meta, players }: Props) {
                   justifyContent: 'center',
                 }}
               >
-                <span style={{ fontSize: 18 }}>{player.hasVoted ? '✅' : ''}</span>
+                {player.hasVoted && (
+                  <div style={{ width: 22, height: 22, borderRadius: '50%', background: '#00BB44', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ color: '#fff', fontSize: 13, fontWeight: 900, lineHeight: 1 }}>✓</span>
+                  </div>
+                )}
               </PlayerBg>
               <span style={{ fontFamily: 'var(--font-body)', fontSize: 10, fontWeight: 800 }}>
                 {player.name.split(' ')[0]}

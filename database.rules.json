@@ -5,6 +5,7 @@
         ".read": true,
         "players": {
           "$uid": {
+            ".write": false,
             "name":           { ".write": "auth != null && auth.uid === $uid" },
             "connected":      { ".write": "auth != null && auth.uid === $uid" },
             "disconnectedAt": { ".write": "auth != null && auth.uid === $uid" }
@@ -18,7 +19,7 @@
         },
         "buzzIn": {
           "$uid": {
-            ".write": "auth != null && auth.uid === $uid && root.child('rooms').child($roomCode).child('players').child($uid).child('muted').val() !== true"
+            ".write": "auth != null && auth.uid === $uid && root.child('rooms').child($roomCode).child('meta').child('state').val() === 'BUZZER_OPEN' && root.child('rooms').child($roomCode).child('players').child($uid).child('muted').val() !== true"
           }
         },
         "categoryChoice": {

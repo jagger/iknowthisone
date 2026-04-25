@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { ref, get, set } from 'firebase/database'
+import { ref, get, set, update } from 'firebase/database'
 import { httpsCallable } from 'firebase/functions'
 import { db, auth, functions } from '../../firebase'
 import PhoneGameView from '../phone/PhoneGameView'
@@ -24,7 +24,7 @@ export default function JoinScreen() {
         if (snap.exists()) {
           await set(ref(db, `rooms/${roomCode}/players/${user.uid}/connected`), true)
         } else {
-          await set(playerRef, {
+          await update(playerRef, {
             name: user.displayName ?? 'Player',
             connected: true,
           })

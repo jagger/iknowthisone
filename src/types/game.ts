@@ -21,7 +21,6 @@ export interface RoomMeta {
   wordPointValue: number
   pointsToWin: number
   hostId: string | null
-  hostToken?: string
   createdAt: number
   wordTimerTaskName?: string
   voteCloseTaskName?: string

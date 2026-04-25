@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react'
 import { generateQR } from '../../utils/qrCode'
 import PlayerBg from '../shared/PlayerBg'
 import type { Player } from '../../types/game'
+import { APP_URL } from '../../constants'
 
 interface Props {
   roomCode: string
   players: Record<string, Player>
 }
-
-const APP_URL = 'https://iknowthisone.jagger.dev'
 
 export default function Lobby({ roomCode, players }: Props) {
   const [qrUrl, setQrUrl] = useState<string | null>(null)

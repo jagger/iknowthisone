@@ -90,14 +90,14 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
             disabled={hasSkipped}
             aria-label={hasSkipped ? `Skip voted, ${skipCount} of ${totalPlayers} agree` : 'Vote to skip this word'}
             style={{
-              position: 'absolute',
-              bottom: 44,
-              right: 20,
+              display: 'block',
+              width: '100%',
+              marginTop: 8,
               padding: '8px 16px',
               minHeight: 44,
               background: hasSkipped ? '#ddd' : 'transparent',
               color: hasSkipped ? '#999' : '#888',
-              border: '2px solid ' + (hasSkipped ? '#ccc' : '#ccc'),
+              border: '2px solid #ccc',
               borderRadius: 6,
               fontFamily: 'var(--font-body)',
               fontWeight: 700,
@@ -134,5 +134,4 @@ const statusStyle: React.CSSProperties = {
 
 const actionZoneStyle: React.CSSProperties = {
   padding: '16px 20px 40px',
-  position: 'relative',
 }

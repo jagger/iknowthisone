@@ -677,9 +677,15 @@ export const onCategoryChosen = onValueWritten(
     if (!chosen) return
     const { roomCode } = event.params
 
-    const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+    const [metaSnap, optionsSnap] = await Promise.all([
+      db.ref(`rooms/${roomCode}/meta`).once('value'),
+      db.ref(`rooms/${roomCode}/categoryChoice/options`).once('value'),
+    ])
     const meta = metaSnap.val()
     if (!meta || meta.state !== 'CATEGORY_PICK') return
+
+    const options: string[] = optionsSnap.val() ?? []
+    if (!options.includes(chosen)) return
 
     // Enqueue 5s countdown then start WORD_REVEAL → BUZZER_OPEN
     await enqueueTask('categoryRevealTask', { roomCode, category: chosen }, 5)

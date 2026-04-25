@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGameState } from '../../hooks/useGameState'
 import { generateQR } from '../../utils/qrCode'
+import { APP_URL } from '../../constants'
 import Lobby from './Lobby'
 import WordReveal from './WordReveal'
 import Singing from './Singing'
@@ -30,8 +31,6 @@ const wrapStyle: React.CSSProperties = {
   background: '#111',
   padding: 16,
 }
-
-const APP_URL = 'https://iknowthisone.jagger.dev'
 
 export default function TvGameView() {
   const { roomCode } = useParams<{ roomCode: string }>()

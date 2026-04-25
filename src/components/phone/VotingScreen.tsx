@@ -44,6 +44,21 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
     }
   }
 
+  if (meta.state === 'POINT_AWARDED') {
+    return (
+      <div style={screenStyle}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12, padding: '0 20px' }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 48, letterSpacing: '0.04em', textAlign: 'center' }}>
+            🎉 Point Awarded!
+          </div>
+          <div style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 13, color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>
+            {meta.currentWord.toUpperCase()}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div style={screenStyle}>
       <div style={statusStyle}>
@@ -85,9 +100,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
               onClick={() => handleVote('point')}
               disabled={voting}
               aria-label="Vote: they sang it correctly, award a point"
-              onPointerDown={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
-              onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
-              onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
+              className="vote-btn"
               style={{ ...voteBtnStyle, background: '#00BB44' }}
             >
               ✅ Point
@@ -96,9 +109,7 @@ export default function VotingScreen({ meta, players, roomCode, uid }: Props) {
               onClick={() => handleVote('fail')}
               disabled={voting}
               aria-label="Vote: they failed, mute them this round"
-              onPointerDown={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
-              onPointerUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
-              onPointerLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)' }}
+              className="vote-btn"
               style={{ ...voteBtnStyle, background: 'var(--danger)' }}
             >
               ❌ Fail
