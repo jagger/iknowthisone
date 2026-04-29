@@ -1,71 +1,53 @@
 {
-  "Emotions": ["love","happy","sad","lonely","pain","hope","fear","pride","hate","joy","hurt","desire","worry","glad","anger","grief","shame","guilt","envy","rage","bliss","sorrow","regret","missing","satisfied","anxious","bitter","tender","numb","broken","excited","melancholy"],
+  "Love Songs": ["love","heart","kiss","baby","forever","dream","hold","mine","closer","crazy","smile","sweet","tender","true","wild","need","wanted","fire","touch","stay","broken","angel","soul","desire","only","warm","away"],
+
+  "Party Anthems": ["party","floor","move","groove","sing","feel","fun","shake","jump","rock","roll","spin","vibe","sweat","light","alive","bass","high","loud","ready","shot","beats","energy","bounce","crowd"],
+
+  "Emotions": ["happy","sad","angry","lonely","proud","scared","brave","lost","free","numb","empty","strong","weak","hurt","wonder","hope","guilt","shame","peace","joy","envy","regret","fear","rage","bliss","cold","wild"],
 
   "Relationships": ["baby","girl","boy","friend","friends","lover","lovers","lady","women","man","somebody","someone","partner","stranger","enemy","sister","brother","mother","father","husband","wife","crush","soulmate","ex","darling","sweetheart"],
 
   "Romance": ["kiss","touch","holding","loving","loved","hearts","romance","desire","passion","embrace","caress","adore","devotion","cherish","affection","intimacy","flirt","seduce","yearn","butterflies","hooked","infatuation","swept","ache","melt"],
 
+  "Body": ["hands","eyes","legs","back","head","feet","face","arms","lips","bones","skin","hair","blood","tears","voice","breath","knees","shoulder","chest","finger","tongue","spine","soul","mind","smile"],
+
+  "Places": ["home","road","town","river","bridge","city","hill","street","door","wall","south","west","north","field","lane","valley","mountain","yard","shore","corner","ground","window","house","porch","roof"],
+
+  "Nature": ["rain","sun","storm","ice","wind","snow","cloud","thunder","lightning","star","moon","flower","stone","ocean","wave","earth","season","dark","bright","leaf","desert","sky","tide","horizon","cold"],
+
+  "Weather": ["rain","storm","wind","sun","cold","heat","snow","fog","hail","thunder","lightning","blizzard","flood","rainbow","hurricane","tornado","breeze","mist","frost","showers","cloudy","gust","sunshine","flurry","dusty"],
+
+  "Time": ["night","day","tomorrow","now","always","never","soon","late","moment","sunrise","sunset","lifetime","someday","once","again","still","past","future","hour","year","second","early","clock","long","tonight"],
+
+  "Days & Numbers": ["one","two","three","five","ten","sixteen","midnight","noon","morning","evening","sunday","monday","friday","yesterday","forever","second","hour","year","twice","million","first","last","always","never","today","thousand"],
+
+  "Color": ["blue","red","gold","black","white","green","yellow","silver","purple","pink","orange","grey","crimson","brown","golden","scarlet","ivory","ebony","amber","rose","neon","indigo","rust","pale","violet"],
+
+  "Food & Drink": ["sugar","honey","wine","beer","cake","candy","pie","bread","salt","sweet","cherry","peach","lemon","apple","cream","juice","butter","lime","cookie","pepper","coffee","milk","fish","spice","chocolate"],
+
+  "Animals": ["lion","tiger","wolf","eagle","dove","snake","fox","butterfly","bird","horse","dog","cat","whale","crow","hawk","deer","swan","dragon","phoenix","raven","sparrow","owl","stallion","lamb","panther","hound","bear","shark","buffalo","robin"],
+
+  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","shimmer","spark","believe","rise","legend","spirit","bloom","float","circle","reflect","honor","enchant","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"],
+
+  "Musicals": ["tomorrow","phantom","memory","tonight","seasons","defying","popular","roxanne","hamilton","chicago","grease","cats","wicked","rent","mama","sunrise","curtain","spotlight","dancing","theater","broadway","cabaret","master","music","dream","angel","chairs","finale","empty","one"],
+
+  "80s Movies": ["footloose","flashdance","ghostbusters","thriller","fame","maverick","danger","paradise","glory","maniac","warrior","rebel","fighter","survivor","hero","rocky","magic","running","burning","power","champion","jump","cobra","karate","batman"],
+
+  "Seasons": ["spring","summer","autumn","winter","sunshine","snowfall","harvest","bloom","frozen","golden","crisp","frosty","stormy","breezy","rainy","rainbow","drizzle","melting","thaw","solstice","foggy","dew","pollen","heat","frost","chill","shower"],
+
   "Actions": ["run","walk","dance","move","jump","drive","play","stop","start","fight","break","turn","fall","hold","push","pull","reach","chase","catch","throw","climb","crawl","carry","lift","drag","shake","wave","kick","spin"],
 
   "Movement": ["go","come","leave","stay","follow","run","walk","move","travel","drift","float","fly","rush","flee","wander","escape","return","arrive","depart","roam","slip","glide","creep","race","hurry","linger","venture","cross","stride"],
 
-  "Communication": ["say","tell","talk","speak","hear","listen","call","ask","answer","shout","whisper","beg","confess","promise","swear","lie","deny","express","share","warn","scream","question","reveal","plead","declare"],
-
-  "Time": ["night","day","tonight","tomorrow","yesterday","forever","now","then","today","always","never","soon","late","early","moment","second","hour","year","past","future","midnight","sunrise","sunset","lifetime","eternity","someday","once","again","still","already"],
-
-  "Nature": ["sun","moon","stars","sky","rain","wind","fire","earth","water","ocean","river","mountain","forest","desert","valley","flower","tree","stone","cloud","thunder","lightning","snow","ice","sand","grass","wave","tide","dawn","dusk","horizon"],
-
-  "Places": ["home","city","street","room","club","town","world","place","heaven","hell","bar","stage","floor","corner","bridge","highway","beach","rooftop","neighborhood","downtown","alley","bedroom","kitchen","yard","school","church","prison","studio","avenue","block"],
-
-  "Body": ["eyes","heart","head","hands","face","skin","lips","arms","feet","chest","back","shoulders","neck","fingers","tears","breath","bones","blood","veins","soul","tongue","teeth","hips","legs","knees","spine","throat","stomach","wrist","palms"],
-
   "Music Terms": ["song","beat","music","dance","sing","rap","verse","chorus","melody","rhythm","hook","track","bass","flow","lyric","note","tune","vibe","sound","record","album","drop","bridge","sample","remix","groove","riff","bar","tempo","playlist"],
-
-  "Performance": ["play","sing","dance","perform","show","rock","tour","act","entertain","practice","debut","headline","freestyle","deliver","spit","drop","release","record","produce","feature","encore","stream","set","open","close"],
-
-  "Social": ["people","everybody","nobody","family","kids","child","crowd","squad","crew","gang","team","neighbors","community","society","audience","fans","haters","strangers","rivals","generation","circle","streets","voices","nation","peers"],
-
-  "Conflict": ["fight","break","hurt","lose","war","battle","argue","clash","struggle","attack","defend","resist","confront","challenge","compete","betray","wound","crush","destroy","rebel","survive","endure","stand","bleed","scar","overcome"],
-
-  "Mental State": ["crazy","insane","confused","lost","broken","numb","focused","paranoid","obsessed","addicted","trapped","restless","haunted","exhausted","drained","overwhelmed","awake","consumed","frantic","spinning"],
-
-  "Life & Existence": ["life","live","alive","die","exist","born","death","survive","breathe","grow","age","fade","begin","end","rise","vanish","remain","bloom","soar","journey","purpose","destiny","meaning","legacy","sacrifice","honor"],
-
-  "Spiritual": ["god","heaven","faith","pray","angel","soul","spirit","devil","sin","grace","blessing","curse","sacred","holy","divine","worship","forgive","redeem","salvation","eternal","immortal","karma","fate","surrender","ascend","rise"],
-
-  "Weather": ["rain","storm","wind","sun","cold","heat","snow","fog","hail","thunder","lightning","blizzard","flood","rainbow","hurricane","tornado","breeze","mist","frost","showers","cloudy","gust","sunshine","flurry","heavy","dusty"],
-
-  "Light & Dark": ["light","dark","shine","bright","glow","shadow","dim","blinding","gleam","gloom","flicker","spark","fade","illuminate","eclipse","silhouette","twilight","dawn","dusk","electric","haze","shimmering","reflection","brilliant","hidden","glare"],
-
-  "Color": ["black","white","blue","red","gold","green","silver","purple","grey","orange","pink","brown","yellow","crimson","scarlet","navy","ivory","ebony","violet","indigo","bronze","copper","amber","jade","rose","steel","lime","maroon","platinum","aqua"],
-
-  "Objects": ["car","phone","door","bed","table","keys","ring","gun","knife","bottle","mirror","chain","rope","letter","book","map","clock","photo","wallet","lighter","camera","screen","headphones","cigarette","glass","needle","crown","cross","pen","flag"],
-
-  "Clothing": ["dress","jeans","shoes","clothes","shirt","jacket","coat","hood","hat","boots","suit","tie","sneakers","heels","mask","gloves","scarf","belt","chains","jewelry","sweatshirt","leather","gown","veil","cap","fur","uniform","stockings","robe","crown"],
-
-  "Money & Value": ["money","cash","pay","worth","gold","rich","poor","debt","bank","spend","earn","profit","loss","dollar","coin","price","cost","hustle","stack","bread","bills","credit","wealth","treasure","broke","invest"],
-
-  "Work & Effort": ["work","try","help","build","make","grind","push","create","craft","shape","design","labor","strive","pursue","commit","dedicate","sacrifice","struggle","overcome","achieve","focus","deliver","produce","develop","press","sustain"],
-
-  "Success & Failure": ["win","lose","success","fail","top","rise","fall","conquer","achieve","overcome","surrender","quit","persist","triumph","defeat","glory","peak","bottom","climb","comeback","downfall","legend","champion","underdog","prove","stumble"],
-
-  "Sports Terms": ["win","lose","game","play","score","team","love","hustle","grind","compete","train","sweat","bleed","champion","trophy","field","court","ring","league","bench","clutch","overtime","comeback","underdog","dynasty","record"],
-
-  "Entertainment": ["party","club","dance","music","fun","show","concert","festival","gig","rave","vibe","celebrate","toast","cheer","lights","curtain","energy","atmosphere","culture","nightlife","scene","turn up","perform","crowd","event","stage"],
 
   "Travel": ["road","drive","travel","fly","ride","journey","trip","wander","explore","escape","cruise","sail","roam","venture","navigate","destination","route","highway","path","departure","arrival","drift","embark","backpack","expedition","voyage"],
 
-  "Emotion Expressions": ["cry","smile","laugh","tears","sigh","scream","sob","grin","wail","weep","rejoice","mourn","celebrate","grieve","tremble","shiver","blush","gasp","exhale","breakdown","meltdown","snap","pour","surge","burst","glow"],
+  "Light & Dark": ["light","dark","shine","bright","glow","shadow","dim","blinding","gleam","gloom","flicker","spark","fade","illuminate","eclipse","silhouette","twilight","dawn","dusk","electric","haze","shimmering","reflection","brilliant","hidden","glare"],
 
-  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","shimmer","spark","believe","rise","legend","spirit","bloom","float","circle","reflect","honor","enchant","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"],
+  "Objects": ["car","phone","door","bed","table","keys","ring","gun","knife","bottle","mirror","chain","rope","letter","book","map","clock","photo","wallet","lighter","camera","screen","headphones","cigarette","glass","needle","crown","cross","pen","flag"],
 
-  "Animals": ["lion","tiger","wolf","eagle","dove","snake","fox","butterfly","bird","horse","dog","cat","whale","crow","hawk","deer","swan","dragon","phoenix","raven","sparrow","owl","stallion","lamb","panther","hound","bear","shark","buffalo","robin"],
+  "Clothing": ["dress","jeans","shoes","clothes","shirt","jacket","coat","hood","hat","boots","suit","tie","sneakers","heels","mask","gloves","scarf","belt","chains","jewelry","sweatshirt","leather","gown","veil","cap","fur","uniform","stockings","robe"],
 
-  "Food & Drink": ["sugar","honey","candy","cherry","peach","lemon","wine","bread","salt","apple","chocolate","vanilla","cream","coffee","whiskey","beer","cake","strawberry","grape","pepper","cinnamon","caramel","cookie","mango","rum","tequila","bourbon","butter","lime","coconut"],
-
-  "80s Movies": ["footloose","flashdance","ghostbusters","thriller","fame","maverick","danger","paradise","glory","maniac","warrior","rebel","fighter","survivor","hero","rocky","grease","magic","tonight","forever","running","burning","power","champion","jump","cobra","karate","batman"],
-
-  "Seasons": ["spring","summer","autumn","winter","sunshine","snowfall","harvest","bloom","frozen","golden","crisp","frosty","stormy","breezy","rainy","thunder","rainbow","drizzle","melting","thaw","solstice","foggy","dew","pollen","heat","frost","chill","shower"],
-
-  "Musicals": ["tomorrow","phantom","memory","tonight","seasons","defying","popular","roxanne","hamilton","chicago","grease","cats","wicked","rent","mama","sunrise","curtain","spotlight","dancing","theater","broadway","cabaret","master","music","dream","angel","chairs","finale","empty","one"]
+  "Money & Value": ["money","cash","pay","worth","diamond","rich","poor","debt","bank","spend","earn","profit","loss","dollar","coin","price","cost","hustle","stack","bread","bills","credit","wealth","treasure","broke","invest"]
 }
