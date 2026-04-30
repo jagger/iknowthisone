@@ -897,17 +897,13 @@ export const restartGame = onCall(async (request) => {
 // All connected players must agree to skip; shows a 30s hint sequence.
 
 function makePartialTitle(title: string, word: string): string {
-  const cleaned = title
-    .replace(new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi'), '')
-    .replace(/\s+/g, ' ')
-    .trim()
-  const parts = cleaned.split(' ').filter(Boolean)
-  if (parts.length === 0) {
-    // word was the entire title — fall back to first word of original
-    const fallback = title.split(' ').filter(Boolean).slice(0, 1)
-    return fallback.join(' ') + '…'
-  }
-  return parts.slice(0, Math.min(3, parts.length)).join(' ') + '…'
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const replaced = title.replace(
+    new RegExp(`\\b${escaped}\\b`, 'gi'),
+    (match) => '_'.repeat(match.length),
+  )
+  const tokens = replaced.split(/\s+/).filter(Boolean)
+  return tokens.slice(0, Math.min(3, tokens.length)).join(' ') + '…'
 }
 
 export const onSkipVote = onValueCreated(

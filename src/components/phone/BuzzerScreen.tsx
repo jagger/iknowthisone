@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ref, set } from 'firebase/database'
 import { db } from '../../firebase'
 import type { RoomMeta } from '../../types/game'
@@ -16,6 +16,11 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
   const [buzzing, setBuzzing] = useState(false)
   const [skipped, setSkipped] = useState(false)
   const hasSkipped = skipped || !!skipVotes[uid]
+
+  useEffect(() => {
+    setSkipped(false)
+    setBuzzing(false)
+  }, [meta.currentWord])
   const skipCount = Object.keys(skipVotes).length
 
   const handleBuzz = async () => {

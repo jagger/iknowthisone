@@ -96,7 +96,7 @@ export default function Lobby({ roomCode, players }: Props) {
           flexDirection: 'column',
           padding: '5% 6%',
           gap: 12,
-          overflowY: 'auto',
+          overflow: 'hidden',
         }}
       >
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8, overflowY: 'auto' }}>
