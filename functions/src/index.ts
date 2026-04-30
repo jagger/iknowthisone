@@ -11,6 +11,7 @@ import { CloudTasksClient } from '@google-cloud/tasks'
 import { Resend } from 'resend'
 import { randomBytes } from 'crypto'
 import * as wordsData from './words.json'
+import * as wordExamplesData from './data/word-examples.json'
 
 const resendKey = defineSecret('RESEND_API_KEY')
 const tasksSecret = defineSecret('TASKS_SECRET')
@@ -94,6 +95,15 @@ const ADMIN_ALLOWLIST = ['jagger@oznog.org', 'cewhiney08@gmail.com']
 async function getActiveWords(): Promise<Record<string, string[]>> {
   const snap = await db.ref('adminConfig/words').once('value')
   return snap.exists() ? (snap.val() as Record<string, string[]>) : WORDS
+}
+
+type SongExample = { title: string; artist: string; year: number }
+type HintsMap = Record<string, SongExample[]>
+const STATIC_HINTS = wordExamplesData as unknown as HintsMap
+
+async function getActiveHints(): Promise<HintsMap> {
+  const snap = await db.ref('adminConfig/hints').once('value')
+  return snap.exists() ? (snap.val() as HintsMap) : STATIC_HINTS
 }
 
 function drawWord(category: string, usedWords: string[], words: Record<string, string[]>): string {
@@ -325,6 +335,7 @@ export const onBuzzIn = onValueCreated(
       wordTimerTaskName: null,
       timerRemainingMs,
       consecutiveNoBuzzCount: 0,
+      hint: null,
     })
 
     if (meta.currentCategory && meta.currentWord) {
@@ -555,6 +566,7 @@ export const mutedTransitionTask = onRequest({ region: LOCATION, secrets: [tasks
     mutedTaskName: null,
     timerDurationMs,
     timerRemainingMs: null,
+    hint: null,
   })
 
   res.status(200).send('ok')
@@ -595,6 +607,7 @@ export const allMutedTask = onRequest({ region: LOCATION, secrets: [tasksSecret]
     [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: 0,
     [`rooms/${roomCode}/meta/allMutedPenalty`]: null,
     [`rooms/${roomCode}/meta/allMutedTaskName`]: null,
+    [`rooms/${roomCode}/meta/hint`]: null,
   })
   await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
@@ -659,6 +672,7 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
     [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
     [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: newNoBuzzCount,
     [`rooms/${roomCode}/meta/usedWords/${meta.currentCategory}`]: usedWords,
+    [`rooms/${roomCode}/meta/hint`]: null,
   })
   await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
@@ -728,6 +742,7 @@ export const categoryRevealTask = onRequest({ region: LOCATION, secrets: [tasksS
     [`rooms/${roomCode}/meta/timerRemainingMs`]: null,
     [`rooms/${roomCode}/meta/consecutiveNoBuzzCount`]: 0,
     [`rooms/${roomCode}/meta/activeSinger`]: null,
+    [`rooms/${roomCode}/meta/hint`]: null,
   })
   await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
@@ -879,7 +894,21 @@ export const restartGame = onCall(async (request) => {
 })
 
 // ─── onSkipVote ───────────────────────────────────────────────────────────────
-// All connected players must agree to skip; drops timer to 15s.
+// All connected players must agree to skip; shows a 30s hint sequence.
+
+function makePartialTitle(title: string, word: string): string {
+  const cleaned = title
+    .replace(new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi'), '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const parts = cleaned.split(' ').filter(Boolean)
+  if (parts.length === 0) {
+    // word was the entire title — fall back to first word of original
+    const fallback = title.split(' ').filter(Boolean).slice(0, 1)
+    return fallback.join(' ') + '…'
+  }
+  return parts.slice(0, Math.min(3, parts.length)).join(' ') + '…'
+}
 
 export const onSkipVote = onValueCreated(
   { ref: '/rooms/{roomCode}/skipVotes/{uid}', region: LOCATION, secrets: [tasksSecret] },
@@ -901,7 +930,7 @@ export const onSkipVote = onValueCreated(
 
     if (connected.length === 0 || skipCount < connected.length) return
 
-    // Consensus — jump timer to 15s
+    // Consensus — extend timer to 30s and reveal a hint
     await cancelTask(meta.wordTimerTaskName)
     await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
@@ -909,13 +938,29 @@ export const onSkipVote = onValueCreated(
       await incrementWordAnalytics(meta.currentCategory, meta.currentWord, { skips: 1 })
     }
 
+    // Pick a random song hint for this word+category
+    const hints = await getActiveHints()
+    const songs = hints[meta.currentWord?.toLowerCase()] ?? []
+    let hint = null
+    if (songs.length > 0) {
+      const song = songs[Math.floor(Math.random() * songs.length)]
+      hint = {
+        artist: song.artist,
+        year: song.year,
+        partialTitle: makePartialTitle(song.title, meta.currentWord),
+        fullTitle: song.title,
+        startedAt: Date.now(),
+      }
+    }
+
     const now = Date.now()
-    const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 15)
+    const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 30)
     await db.ref(`rooms/${roomCode}/meta`).update({
       wordDrawnAt: now,
       wordTimerTaskName: taskName,
-      timerDurationMs: 15000,
+      timerDurationMs: 30000,
       timerRemainingMs: null,
+      hint,
     })
   },
 )

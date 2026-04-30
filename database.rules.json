@@ -47,6 +47,9 @@
       ".read": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')",
       "words": {
         ".write": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')"
+      },
+      "hints": {
+        ".write": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')"
       }
     },
     "analytics": {

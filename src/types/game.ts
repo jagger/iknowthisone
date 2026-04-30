@@ -31,6 +31,13 @@ export interface RoomMeta {
   allMutedPenalty?: number
   consecutiveNoBuzzCount?: number
   gameOverReason?: string
+  hint?: {
+    artist: string
+    year: number
+    partialTitle: string
+    fullTitle: string
+    startedAt: number
+  } | null
 }
 
 

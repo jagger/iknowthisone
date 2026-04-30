@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import TimerPill from './TimerPill'
 import PlayerGrid from './PlayerGrid'
 import type { RoomMeta, Player } from '../../types/game'
@@ -13,6 +13,7 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
   const connectedCount = Object.values(players).filter(p => p.connected !== false).length
   const skipCount = Object.keys(skipVotes).length
   const wordRef = useRef<HTMLDivElement>(null)
+  const [hintElapsed, setHintElapsed] = useState(0)
 
   useEffect(() => {
     const el = wordRef.current
@@ -24,6 +25,24 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
       })
     })
   }, [meta.currentWord])
+
+  // Tick elapsed time when a hint is active
+  useEffect(() => {
+    if (!meta.hint?.startedAt) {
+      setHintElapsed(0)
+      return
+    }
+    setHintElapsed(Date.now() - meta.hint.startedAt)
+    const id = setInterval(() => {
+      setHintElapsed(Date.now() - meta.hint!.startedAt)
+    }, 500)
+    return () => clearInterval(id)
+  }, [meta.hint?.startedAt])
+
+  const hint = meta.hint ?? null
+  const showYear = hint && hintElapsed >= 5000
+  const showTitle = hint && hintElapsed >= 15000
+  const titleText = hint && hintElapsed >= 25000 ? hint.fullTitle : hint?.partialTitle
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -80,8 +99,8 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
           <TimerPill wordDrawnAt={meta.wordDrawnAt} totalSeconds={Math.round((meta.timerDurationMs ?? 120000) / 1000)} />
         )}
 
-        {/* Skip vote progress */}
-        {meta.state === 'BUZZER_OPEN' && skipCount > 0 && (
+        {/* Skip vote progress (only while no hint yet) */}
+        {meta.state === 'BUZZER_OPEN' && skipCount > 0 && !hint && (
           <div
             style={{
               background: 'rgba(0,0,0,0.08)',
@@ -96,6 +115,60 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
             }}
           >
             ⏩ Skip {skipCount}/{connectedCount}
+          </div>
+        )}
+
+        {/* Progressive hint card */}
+        {hint && (
+          <div
+            style={{
+              background: 'var(--ink)',
+              color: '#fff',
+              border: 'var(--border)',
+              boxShadow: 'var(--shadow)',
+              padding: '10px 24px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 4,
+              minWidth: 260,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 700,
+                fontSize: 10,
+                letterSpacing: '3px',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+                marginBottom: 4,
+              }}
+            >
+              Hint
+            </div>
+            <div style={{ fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: 18, textAlign: 'center' }}>
+              {hint.artist}
+            </div>
+            {showYear && (
+              <div style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 14, color: '#aaa' }}>
+                {hint.year}
+              </div>
+            )}
+            {showTitle && (
+              <div
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 900,
+                  fontSize: 22,
+                  textAlign: 'center',
+                  color: 'var(--gold)',
+                  marginTop: 4,
+                }}
+              >
+                {titleText}
+              </div>
+            )}
           </div>
         )}
 
