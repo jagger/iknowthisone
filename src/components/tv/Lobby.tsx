@@ -99,7 +99,7 @@ export default function Lobby({ roomCode, players }: Props) {
           overflow: 'hidden',
         }}
       >
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8, overflowY: 'auto' }}>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', gap: 8, overflowY: 'auto' }}>
           {playerList.map(([uid, player]) => (
             <PlayerBg
               key={uid}
@@ -139,7 +139,7 @@ export default function Lobby({ roomCode, players }: Props) {
               src={qrUrl}
               alt={`QR code for ${joinUrl}`}
               style={{
-                width: 160,
+                width: 'min(160px, 100%)',
                 border: 'var(--border)',
                 boxShadow: '4px 4px 0 var(--ink)',
                 display: 'block',
