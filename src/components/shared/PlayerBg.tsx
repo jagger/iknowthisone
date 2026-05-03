@@ -152,7 +152,7 @@ const PATTERNS: Record<PatternType, (p: PatternProps) => JSX.Element> = {
 }
 
 export default function PlayerBg({ identityIndex, children, style, className }: Props) {
-  const identity = PLAYER_IDENTITIES[identityIndex % PLAYER_IDENTITIES.length]
+  const identity = PLAYER_IDENTITIES[(identityIndex ?? 0) % PLAYER_IDENTITIES.length]
   const patternId = `pbg-${identity.pattern}-${identityIndex}`
   const PatternEl = PATTERNS[identity.pattern]
 
