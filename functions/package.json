@@ -1,7 +1,7 @@
 {
   "name": "iknowthisone-functions",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
@@ -9,13 +9,13 @@
     "deploy": "firebase deploy --only functions"
   },
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "main": "lib/index.js",
   "dependencies": {
     "@google-cloud/tasks": "^5.5.0",
     "firebase-admin": "^12.7.0",
-    "firebase-functions": "^6.1.2",
+    "firebase-functions": "^7.2.5",
     "resend": "^6.12.2"
   },
   "devDependencies": {
