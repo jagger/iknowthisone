@@ -26,7 +26,7 @@ function formatElapsed(createdAt: number): string {
 }
 
 export default function GameList() {
-  const { rooms, loading } = useAllRooms()
+  const { rooms, loading, error } = useAllRooms()
   const [ending, setEnding] = useState<Set<string>>(new Set())
 
   const handleEnd = async (roomCode: string) => {
@@ -39,6 +39,7 @@ export default function GameList() {
   }
 
   if (loading) return <div style={emptyStyle}>Loading rooms…</div>
+  if (error) return <div style={{ ...emptyStyle, color: 'var(--danger)' }}>Error: {error}</div>
   if (rooms.length === 0) return <div style={emptyStyle}>No active rooms.</div>
 
   return (
