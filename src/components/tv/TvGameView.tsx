@@ -13,23 +13,23 @@ import GameOver from './GameOver'
 import CategoryPickTV from './CategoryPickTV'
 
 const frameStyle: React.CSSProperties = {
-  width: 'min(960px, 100vw)',
+  width: 'min(calc(100vw - 32px), calc((100vh - 32px) * 16 / 9))',
   aspectRatio: '16 / 9',
   border: '4px solid var(--ink)',
   boxShadow: '8px 8px 0 var(--ink)',
   background: 'var(--bg)',
   position: 'relative',
   overflow: 'hidden',
-  margin: 'auto',
 }
 
 const wrapStyle: React.CSSProperties = {
-  minHeight: '100vh',
+  height: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   background: '#111',
   padding: 16,
+  boxSizing: 'border-box',
 }
 
 export default function TvGameView() {
