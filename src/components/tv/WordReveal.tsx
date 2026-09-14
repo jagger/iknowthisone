@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import TimerPill from './TimerPill'
 import PlayerGrid from './PlayerGrid'
+import { useHintReveal } from '../../hooks/useHintReveal'
 import type { RoomMeta, Player } from '../../types/game'
 
 interface Props {
@@ -13,7 +14,6 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
   const connectedCount = Object.values(players).filter(p => p.connected !== false).length
   const skipCount = Object.keys(skipVotes).length
   const wordRef = useRef<HTMLDivElement>(null)
-  const [hintElapsed, setHintElapsed] = useState(0)
 
   useEffect(() => {
     const el = wordRef.current
@@ -26,23 +26,8 @@ export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
     })
   }, [meta.currentWord])
 
-  // Tick elapsed time when a hint is active
-  useEffect(() => {
-    if (!meta.hint?.startedAt) {
-      setHintElapsed(0)
-      return
-    }
-    setHintElapsed(Date.now() - meta.hint.startedAt)
-    const id = setInterval(() => {
-      setHintElapsed(Date.now() - meta.hint!.startedAt)
-    }, 500)
-    return () => clearInterval(id)
-  }, [meta.hint?.startedAt])
-
   const hint = meta.hint ?? null
-  const showYear = hint && hintElapsed >= 5000
-  const showTitle = hint && hintElapsed >= 15000
-  const titleText = hint && hintElapsed >= 25000 ? hint.fullTitle : hint?.partialTitle
+  const { showYear, showTitle, titleText } = useHintReveal(hint)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>

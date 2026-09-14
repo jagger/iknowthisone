@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { ref, set } from 'firebase/database'
 import { db } from '../../firebase'
+import TimerBadge from './TimerBadge'
+import HintCard from './HintCard'
 import type { RoomMeta } from '../../types/game'
 
 interface Props {
@@ -49,7 +51,17 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
         {muted ? 'You failed — sit this one out' : 'First to buzz in wins!'}
       </div>
 
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 16,
+          padding: '0 5%',
+        }}
+      >
         <div
           style={{
             fontFamily: 'var(--font-display)',
@@ -62,6 +74,12 @@ export default function BuzzerScreen({ meta, roomCode, uid, muted, skipVotes, to
         >
           {meta.currentWord.toUpperCase()}
         </div>
+
+        {meta.state === 'BUZZER_OPEN' && (
+          <TimerBadge wordDrawnAt={meta.wordDrawnAt} totalSeconds={Math.round((meta.timerDurationMs ?? 120000) / 1000)} />
+        )}
+
+        {meta.hint && <HintCard hint={meta.hint} />}
       </div>
 
       <div style={actionZoneStyle}>

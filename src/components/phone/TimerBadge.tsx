@@ -5,9 +5,8 @@ interface Props {
   totalSeconds?: number
 }
 
-export default function TimerPill({ wordDrawnAt, totalSeconds = 120 }: Props) {
+export default function TimerBadge({ wordDrawnAt, totalSeconds = 120 }: Props) {
   const seconds = useCountdown(wordDrawnAt, totalSeconds)
-
   const urgent = seconds <= 30
   const mins = Math.floor(seconds / 60)
   const secs = seconds % 60
@@ -18,17 +17,17 @@ export default function TimerPill({ wordDrawnAt, totalSeconds = 120 }: Props) {
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '6px 20px',
+        padding: '4px 14px',
         border: 'var(--border)',
         borderRadius: '100px',
         background: urgent ? 'var(--danger)' : 'var(--bg)',
-        color: urgent ? 'var(--white)' : 'var(--ink)',
+        color: urgent ? '#fff' : 'var(--ink)',
         fontFamily: 'var(--font-display)',
         fontWeight: 900,
-        fontSize: 'clamp(28px, 5vw, 54px)',
+        fontSize: 'clamp(20px, 8vw, 32px)',
         boxShadow: 'var(--shadow)',
         animation: urgent ? 'timerPulse 0.4s ease-in-out infinite alternate' : 'none',
-        minWidth: '5ch',
+        minWidth: '4ch',
         letterSpacing: '0.02em',
       }}
     >
