@@ -4,13 +4,15 @@ import { auth } from '../../firebase'
 import GameList from './GameList'
 import WordEditor from './WordEditor'
 import Analytics from './Analytics'
+import GameLogs from './GameLogs'
 
-type Tab = 'games' | 'words' | 'analytics'
+type Tab = 'games' | 'words' | 'analytics' | 'logs'
 
 const TABS: { id: Tab; label: string }[] = [
   { id: 'games',     label: 'Games'       },
   { id: 'words',     label: 'Word Editor' },
   { id: 'analytics', label: 'Analytics'   },
+  { id: 'logs',      label: 'Logs'        },
 ]
 
 export default function AdminApp() {
@@ -48,6 +50,7 @@ export default function AdminApp() {
         {tab === 'games'     && <GameList />}
         {tab === 'words'     && <WordEditor />}
         {tab === 'analytics' && <Analytics />}
+        {tab === 'logs'      && <GameLogs />}
       </div>
     </div>
   )

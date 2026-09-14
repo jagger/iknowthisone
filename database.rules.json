@@ -55,6 +55,12 @@
     },
     "analytics": {
       ".read": true
+    },
+    "gameLogs": {
+      ".read": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')"
+    },
+    "gameLogIndex": {
+      ".read": "auth != null && auth.token.email_verified === true && (auth.token.email === 'jagger@oznog.org' || auth.token.email === 'cewhiney08@gmail.com')"
     }
   }
 }
