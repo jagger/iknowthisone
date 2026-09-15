@@ -13,6 +13,21 @@ function loadSaved(): { name: string; email: string } {
 
 type Mode = 'choose' | 'create' | 'join'
 
+// Keep in sync with functions/src/index.ts (MIN/MAX/STEP/DEFAULT_TURN_LENGTH_MS) —
+// the server clamps to the same range/step and silently falls back to the
+// same default for anything outside it.
+const MIN_TURN_LENGTH_MS = 60000
+const MAX_TURN_LENGTH_MS = 300000
+const TURN_LENGTH_STEP_MS = 30000
+const DEFAULT_TURN_LENGTH_MS = 120000
+
+function formatTurnLength(ms: number): string {
+  const totalSeconds = Math.round(ms / 1000)
+  const minutes = Math.floor(totalSeconds / 60)
+  const seconds = totalSeconds % 60
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`
+}
+
 export default function NameScreen() {
   const { roomCode: codeParam } = useParams<{ roomCode?: string }>()
   const [searchParams] = useSearchParams()
@@ -26,6 +41,8 @@ export default function NameScreen() {
   const [roomInput, setRoomInput] = useState(codeParam ?? '')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [turnLengthMs, setTurnLengthMs] = useState(DEFAULT_TURN_LENGTH_MS)
+  const [autoHintsEnabled, setAutoHintsEnabled] = useState(true)
 
   useEffect(() => {
     const user = auth.currentUser
@@ -46,8 +63,15 @@ export default function NameScreen() {
     setLoading(true); setError('')
     try {
       await signInAnonymously(auth)
-      const createRoom = httpsCallable<{ email?: string }, { roomCode: string }>(functions, 'createRoom')
-      const { data } = await createRoom({ email: email.trim() || undefined })
+      const createRoom = httpsCallable<
+        { email?: string; turnLengthMs?: number; autoHintsEnabled?: boolean },
+        { roomCode: string }
+      >(functions, 'createRoom')
+      const { data } = await createRoom({
+        email: email.trim() || undefined,
+        turnLengthMs,
+        autoHintsEnabled,
+      })
       navigate(`/screen/${data.roomCode}`, { replace: true })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
@@ -118,6 +142,37 @@ export default function NameScreen() {
 
         {mode === 'create' && (
           <form onSubmit={handleCreate} style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <label htmlFor="input-turn-length" style={statusLabelStyle}>Turn Length</label>
+                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 20 }}>
+                  {formatTurnLength(turnLengthMs)}
+                </span>
+              </div>
+              <input
+                id="input-turn-length"
+                type="range"
+                min={MIN_TURN_LENGTH_MS}
+                max={MAX_TURN_LENGTH_MS}
+                step={TURN_LENGTH_STEP_MS}
+                value={turnLengthMs}
+                onChange={(e) => setTurnLengthMs(Number(e.target.value))}
+                style={sliderStyle}
+              />
+            </div>
+
+            <label style={checkboxRowStyle}>
+              <input
+                type="checkbox"
+                checked={autoHintsEnabled}
+                onChange={(e) => setAutoHintsEnabled(e.target.checked)}
+                style={checkboxStyle}
+              />
+              <span style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 14 }}>
+                Auto hints (reveal clues as the timer runs down)
+              </span>
+            </label>
+
             {error && <div style={errorStyle}>{error}</div>}
             <button type="submit" disabled={loading} style={btnGoldStyle}>
               {loading ? 'Creating…' : 'Create Room'}
@@ -196,6 +251,20 @@ const roomBadgeStyle: React.CSSProperties = {
 const errorStyle: React.CSSProperties = {
   color: 'var(--danger)', fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 600,
   padding: '6px 10px', background: '#fee', border: '1px solid var(--danger)', borderRadius: 4,
+}
+const statusLabelStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 11,
+  letterSpacing: '3px', textTransform: 'uppercase',
+}
+const sliderStyle: React.CSSProperties = {
+  width: '100%', accentColor: 'var(--ink)', cursor: 'pointer',
+}
+const checkboxRowStyle: React.CSSProperties = {
+  display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px',
+  border: 'var(--border)', borderRadius: 6, background: 'var(--bg)', cursor: 'pointer',
+}
+const checkboxStyle: React.CSSProperties = {
+  width: 20, height: 20, flexShrink: 0, accentColor: 'var(--gold)', cursor: 'pointer',
 }
 const visuallyHiddenStyle: React.CSSProperties = {
   position: 'absolute', width: 1, height: 1, padding: 0, margin: -1,

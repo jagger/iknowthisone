@@ -29,6 +29,8 @@ export interface RoomMeta {
   usedWords: Record<string, string[]>
   timerDurationMs?: number
   timerRemainingMs?: number
+  turnLengthMs?: number
+  autoHintsEnabled?: boolean
   inactivityToken?: string
   allMutedPenalty?: number
   consecutiveNoBuzzCount?: number
