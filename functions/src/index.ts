@@ -110,6 +110,10 @@ function normalizeTurnLengthMs(value: unknown): number {
   return value
 }
 
+function getTurnLengthMs(meta: { turnLengthMs?: number }): number {
+  return meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+}
+
 const WORDS = wordsData as Record<string, string[]>
 
 const ADMIN_ALLOWLIST = ['jagger@oznog.org', 'cewhiney08@gmail.com']
@@ -307,7 +311,7 @@ export const startGame = onCall({ secrets: [tasksSecret] }, async (request) => {
   const firstCategory = Object.keys(activeWords)[0]
   const word = drawWord(firstCategory, [], activeWords)
   const now = Date.now()
-  const turnLengthMs = meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+  const turnLengthMs = getTurnLengthMs(meta)
 
   await metaRef.update({
     state: 'WORD_REVEAL',
@@ -664,7 +668,7 @@ export const mutedTransitionTask = onRequest({ region: LOCATION, secrets: [tasks
   if (!meta || meta.state !== 'MUTED') { res.status(200).send('stale'); return }
 
   // Resume remaining timer (not a full reset)
-  const remaining = meta.timerRemainingMs ?? 120000
+  const remaining = meta.timerRemainingMs ?? getTurnLengthMs(meta)
   const delaySec = Math.ceil(Math.max(remaining, 15000) / 1000)
   const timerDurationMs = delaySec * 1000
 
@@ -703,7 +707,7 @@ export const allMutedTask = onRequest({ region: LOCATION, secrets: [tasksSecret]
   const usedWords: string[] = meta.usedWords?.[category] ?? []
   const newWord = drawWord(category, usedWords, activeWords)
   const now = Date.now()
-  const turnLengthMs = meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+  const turnLengthMs = getTurnLengthMs(meta)
 
   const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
   const players = playersSnap.val() ?? {}
@@ -776,7 +780,7 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
   const usedWords: string[] = (meta.usedWords?.[meta.currentCategory] ?? []).concat(meta.currentWord)
   const newWord = drawWord(meta.currentCategory, usedWords, activeWords)
   const now = Date.now()
-  const turnLengthMs = meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+  const turnLengthMs = getTurnLengthMs(meta)
 
   // Reset all muted flags and timers for new word
   const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
@@ -823,8 +827,16 @@ export const hintTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, 
   const meta = metaSnap.val()
   const taskField = tier === 50 ? 'hint50TaskName' : 'hint25TaskName'
 
-  if (!meta || meta.state !== 'BUZZER_OPEN' || meta.wordDrawnAt !== wordDrawnAt || meta.hint) {
-    if (meta?.wordDrawnAt === wordDrawnAt) await db.ref(`rooms/${roomCode}/meta/${taskField}`).set(null)
+  // Word has already moved on — this task's bookkeeping field now belongs
+  // to a different (newer) word, so leave it alone.
+  if (!meta || meta.wordDrawnAt !== wordDrawnAt) {
+    res.status(200).send('stale')
+    return
+  }
+  // Same word, but no longer eligible (buzzed in, or a hint already showing
+  // via this task or skip-vote consensus) — clear our own pending marker.
+  if (meta.state !== 'BUZZER_OPEN' || meta.hint) {
+    await db.ref(`rooms/${roomCode}/meta/${taskField}`).set(null)
     res.status(200).send('stale')
     return
   }
@@ -881,7 +893,7 @@ export const categoryRevealTask = onRequest({ region: LOCATION, secrets: [tasksS
   const usedWords: string[] = meta.usedWords?.[category] ?? []
   const newWord = drawWord(category, usedWords, activeWords)
   const now = Date.now()
-  const turnLengthMs = meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+  const turnLengthMs = getTurnLengthMs(meta)
 
   // Reset all muted flags for new word
   const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
@@ -1035,7 +1047,7 @@ export const restartGame = onCall(async (request) => {
     playerUpdates[`rooms/${roomCode}/players/${pid}/hasVoted`] = false
   }
 
-  const turnLengthMs = meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+  const turnLengthMs = getTurnLengthMs(meta)
 
   await db.ref().update({
     ...playerUpdates,
@@ -1133,12 +1145,15 @@ async function scheduleWordCountdown(
   delaySeconds: number,
   autoHintsEnabled: boolean,
 ): Promise<{ wordTimerTaskName: string; hint50TaskName: string | null; hint25TaskName: string | null }> {
-  const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt }, delaySeconds)
+  const wordTimerPromise = enqueueTask('wordTimerTask', { roomCode, wordDrawnAt }, delaySeconds)
   if (!autoHintsEnabled) {
-    return { wordTimerTaskName, hint50TaskName: null, hint25TaskName: null }
+    return { wordTimerTaskName: await wordTimerPromise, hint50TaskName: null, hint25TaskName: null }
   }
-  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, wordDrawnAt, delaySeconds)
-  return { wordTimerTaskName, hint50TaskName, hint25TaskName }
+  const [wordTimerTaskName, hints] = await Promise.all([
+    wordTimerPromise,
+    scheduleHintTasks(roomCode, wordDrawnAt, delaySeconds),
+  ])
+  return { wordTimerTaskName, hint50TaskName: hints.hint50TaskName, hint25TaskName: hints.hint25TaskName }
 }
 
 export const onSkipVote = onValueCreated(
@@ -1266,7 +1281,7 @@ export const onRematchVote = onValueCreated(
         playerUpdates[`rooms/${roomCode}/players/${pid}/muted`] = false
         playerUpdates[`rooms/${roomCode}/players/${pid}/hasVoted`] = false
       }
-      const turnLengthMs = meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS
+      const turnLengthMs = getTurnLengthMs(meta)
       await db.ref().update({
         ...playerUpdates,
         [`rooms/${roomCode}/meta/state`]: 'LOBBY',

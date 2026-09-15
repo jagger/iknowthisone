@@ -5,6 +5,13 @@ at the top. See `CLAUDE.md` for the convention this file follows.
 
 ## 2026-09-15
 
+- Cleanup from PR review: extracted a `getTurnLengthMs(meta)` helper instead
+  of repeating the `meta.turnLengthMs ?? DEFAULT_TURN_LENGTH_MS` fallback at
+  6 call sites (including `mutedTransitionTask`'s remaining-time fallback,
+  which now falls back to the room's configured turn length instead of a
+  fixed 2 minutes); parallelized the word-timer and hint-task Cloud Tasks
+  enqueue calls in `scheduleWordCountdown`; clarified `hintTask`'s
+  stale-word vs. no-longer-eligible guards.
 - Hosts can now configure turn length (1–5 min, 30s increments, default 2
   min) and an auto-hints on/off toggle (default on) when creating a room;
   these settings flow through `createRoom` and every "fresh word"/resume
