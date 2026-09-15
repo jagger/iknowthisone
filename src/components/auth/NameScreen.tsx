@@ -20,6 +20,8 @@ export default function NameScreen() {
   const navigate = useNavigate()
   const saved = loadSaved()
 
+  // Arriving via /join/:roomCode (QR scan) drops the user straight into the
+  // Join sub-view with the code already set, skipping the chooser.
   const [mode, setMode] = useState<Mode>(codeParam ? 'join' : 'choose')
   const [name, setName] = useState(saved.name ?? '')
   const [email, setEmail] = useState(saved.email ?? '')
@@ -73,63 +75,63 @@ export default function NameScreen() {
     }
   }
 
+  const goBack = () => { setMode('choose'); setError('') }
+
   return (
     <div style={pageStyle}>
       <div style={cardStyle}>
         <h1 style={titleStyle}>I KNOW THIS ONE</h1>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div style={{ position: 'relative' }}>
-            <label htmlFor="input-name" style={visuallyHiddenStyle}>Your name</label>
-            <input
-              id="input-name"
-              type="text"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              maxLength={20}
-              autoFocus
-              style={inputStyle}
-            />
-          </div>
-          <div style={{ position: 'relative' }}>
-            <label htmlFor="input-email" style={visuallyHiddenStyle}>Email (optional)</label>
-            <input
-              id="input-email"
-              type="email"
-              placeholder="Email (optional)"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={inputStyle}
-            />
-          </div>
-        </div>
-
         {mode === 'choose' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 16 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <button onClick={() => setMode('create')} style={btnGoldStyle}>
-              Create a room
+              Create Room
             </button>
             <button onClick={() => setMode('join')} style={btnOutlineStyle}>
-              Join a room
+              Join Room
             </button>
           </div>
         )}
 
         {mode === 'create' && (
-          <form onSubmit={handleCreate} style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <form onSubmit={handleCreate} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ position: 'relative' }}>
+              <label htmlFor="input-email" style={visuallyHiddenStyle}>Email (optional)</label>
+              <input
+                id="input-email"
+                type="email"
+                placeholder="Email (optional)"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoFocus
+                style={inputStyle}
+              />
+            </div>
             {error && <div style={errorStyle}>{error}</div>}
             <button type="submit" disabled={loading} style={btnGoldStyle}>
               {loading ? 'Creating…' : 'Create Room'}
             </button>
-            <button type="button" onClick={() => { setMode('choose'); setError('') }} style={btnOutlineStyle}>
+            <button type="button" onClick={goBack} style={btnOutlineStyle}>
               ← Back
             </button>
           </form>
         )}
 
         {mode === 'join' && (
-          <form onSubmit={handleJoin} style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <form onSubmit={handleJoin} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ position: 'relative' }}>
+              <label htmlFor="input-name" style={visuallyHiddenStyle}>Your name</label>
+              <input
+                id="input-name"
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                maxLength={20}
+                autoFocus
+                style={inputStyle}
+              />
+            </div>
             {codeParam ? (
               <div style={roomBadgeStyle}>
                 Joining <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 22, letterSpacing: '0.15em' }}>{codeParam}</span>
@@ -153,7 +155,7 @@ export default function NameScreen() {
               {loading ? 'Joining…' : 'Join Game'}
             </button>
             {!codeParam && (
-              <button type="button" onClick={() => { setMode('choose'); setError('') }} style={btnOutlineStyle}>
+              <button type="button" onClick={goBack} style={btnOutlineStyle}>
                 ← Back
               </button>
             )}
