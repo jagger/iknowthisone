@@ -28,6 +28,9 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Agent worktrees
+.claude/worktrees/
 npm-debug.log*
 
 # Vite
