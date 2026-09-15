@@ -5,6 +5,11 @@ at the top. See `CLAUDE.md` for the convention this file follows.
 
 ## 2026-09-15
 
+- Hosts can now configure turn length (1–5 min, 30s increments, default 2
+  min) and an auto-hints on/off toggle (default on) when creating a room;
+  these settings flow through `createRoom` and every "fresh word"/resume
+  timer reset instead of the previous hardcoded 120s, via a new shared
+  `scheduleWordCountdown` helper.
 - Redesigned the landing screen (`NameScreen`) into a two-step flow: `/` now
   shows only "Create Room" / "Join Room" buttons, with each choice revealing
   just the fields it needs (email-only for create, name + room code for
@@ -33,6 +38,10 @@ at the top. See `CLAUDE.md` for the convention this file follows.
 
 ## 2026-09-14
 
+- Hosts can now configure turn length (1–5 min, 30s increments, default 2
+  min) and an auto-hints on/off toggle (default on) when creating a room;
+  these settings flow through `createRoom` and every "fresh word" timer
+  reset instead of the previous hardcoded 120s.
 - Fixed: skip-vote hint consensus could become permanently unreachable once
   any player was muted for a word — the backend counted muted players toward
   the required unanimous vote, but the phone UI hides their Skip button, so
