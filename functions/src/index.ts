@@ -297,7 +297,8 @@ export const startGame = onCall({ secrets: [tasksSecret] }, async (request) => {
   await metaRef.update({ state: 'BUZZER_OPEN' })
 
   const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
-  await metaRef.update({ wordTimerTaskName: taskName })
+  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, now, 120)
+  await metaRef.update({ wordTimerTaskName: taskName, hint50TaskName, hint25TaskName })
 
   await logGameEvent(roomCode, 'game_started', { playerCount: connected.length, firstCategory, firstWord: word })
 
@@ -310,10 +311,27 @@ export const onPlayerJoin = onValueCreated(
   { ref: '/rooms/{roomCode}/players/{uid}', region: LOCATION },
   async (event) => {
     const { roomCode, uid } = event.params
-    const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
-    const players = playersSnap.val() ?? {}
-    const existingCount = Object.keys(players).length - 1 // exclude the new player
-    const identityIndex = existingCount % 12
+
+    // Transaction prevents two simultaneous joins both reading the same
+    // player count and being assigned the same identityIndex/color. Retry a
+    // few times if the transaction aborts under heavy contention; if it
+    // never commits, fall back to a deterministic per-uid index rather than
+    // risk a NaN/colliding one.
+    let identityIndex: number | null = null
+    for (let attempt = 0; attempt < 3 && identityIndex === null; attempt++) {
+      const counterResult = await db.ref(`rooms/${roomCode}/meta/nextIdentityIndex`).transaction(
+        (current: number | null) => (current ?? 0) + 1,
+      )
+      if (counterResult.committed) {
+        identityIndex = ((counterResult.snapshot.val() as number) - 1) % 12
+      }
+    }
+    if (identityIndex === null) {
+      let hash = 0
+      for (let i = 0; i < uid.length; i++) hash = (hash * 31 + uid.charCodeAt(i)) % 12
+      identityIndex = hash
+      await logGameEvent(roomCode, 'identity_index_fallback', {}, { actorUid: uid })
+    }
 
     const updates: Record<string, unknown> = {
       [`rooms/${roomCode}/players/${uid}/identityIndex`]: identityIndex,
@@ -356,6 +374,7 @@ export const onBuzzIn = onValueCreated(
     const timerRemainingMs = Math.max(timerDurationMs - elapsed, 15000)
 
     await cancelTask(meta.wordTimerTaskName)
+    await cancelHintTasks(meta)
 
     // Clear buzzIn and skip votes
     await db.ref(`rooms/${roomCode}/buzzIn`).remove()
@@ -376,6 +395,8 @@ export const onBuzzIn = onValueCreated(
       singingStartedAt: admin.database.ServerValue.TIMESTAMP,
       state: 'SINGING',
       wordTimerTaskName: null,
+      hint50TaskName: null,
+      hint25TaskName: null,
       timerRemainingMs,
       consecutiveNoBuzzCount: 0,
       hint: null,
@@ -619,10 +640,13 @@ export const mutedTransitionTask = onRequest({ region: LOCATION, secrets: [tasks
   const timerDurationMs = delaySec * 1000
 
   const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, delaySec)
+  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, now, delaySec)
   await db.ref(`rooms/${roomCode}/meta`).update({
     state: 'BUZZER_OPEN',
     wordDrawnAt: now,
     wordTimerTaskName,
+    hint50TaskName,
+    hint25TaskName,
     mutedTaskName: null,
     timerDurationMs,
     timerRemainingMs: null,
@@ -673,7 +697,8 @@ export const allMutedTask = onRequest({ region: LOCATION, secrets: [tasksSecret]
   await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
   const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
-  await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(taskName)
+  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, now, 120)
+  await db.ref(`rooms/${roomCode}/meta`).update({ wordTimerTaskName: taskName, hint50TaskName, hint25TaskName })
   await logGameEvent(roomCode, 'all_muted_new_word', { category, word: newWord })
 
   res.status(200).send('ok')
@@ -702,10 +727,13 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
 
   // 5 songs in a row with no buzz → end the game
   if (newNoBuzzCount >= 5) {
+    await cancelHintTasks(meta)
     await db.ref(`rooms/${roomCode}/meta`).update({
       state: 'GAME_OVER',
       gameOverReason: 'no_buzz',
       wordTimerTaskName: null,
+      hint50TaskName: null,
+      hint25TaskName: null,
     })
     await logGameEvent(roomCode, 'game_over', { reason: 'no_buzz' })
     res.status(200).send('game_over_no_buzz')
@@ -740,10 +768,42 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
   await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
   const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
-  await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(taskName)
+  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, now, 120)
+  await db.ref(`rooms/${roomCode}/meta`).update({ wordTimerTaskName: taskName, hint50TaskName, hint25TaskName })
   await logGameEvent(roomCode, 'word_timeout', {
     category: meta.currentCategory, oldWord: meta.currentWord, newWord, consecutiveNoBuzzCount: newNoBuzzCount,
   })
+
+  res.status(200).send('ok')
+})
+
+// ─── hintTask ─────────────────────────────────────────────────────────────────
+// Auto-reveals a hint at 50%/25% of the word timer remaining, independent of
+// skip-vote consensus. No-ops if the word has moved on or a hint already showing.
+
+export const hintTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, async (req, res) => {
+  if (!verifyTaskSecret(req)) { res.status(401).send('Unauthorized'); return }
+  const { roomCode, wordDrawnAt, tier } = req.body as { roomCode: string; wordDrawnAt: number; tier: 50 | 25 }
+
+  const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
+  const meta = metaSnap.val()
+  const taskField = tier === 50 ? 'hint50TaskName' : 'hint25TaskName'
+
+  if (!meta || meta.state !== 'BUZZER_OPEN' || meta.wordDrawnAt !== wordDrawnAt || meta.hint) {
+    if (meta?.wordDrawnAt === wordDrawnAt) await db.ref(`rooms/${roomCode}/meta/${taskField}`).set(null)
+    res.status(200).send('stale')
+    return
+  }
+
+  const hint = await pickHint(meta.currentWord)
+  if (!hint) {
+    await db.ref(`rooms/${roomCode}/meta/${taskField}`).set(null)
+    res.status(200).send('no_hint_data')
+    return
+  }
+
+  await db.ref(`rooms/${roomCode}/meta`).update({ hint, [taskField]: null })
+  await logGameEvent(roomCode, 'auto_hint_revealed', { word: meta.currentWord, tier })
 
   res.status(200).send('ok')
 })
@@ -814,7 +874,8 @@ export const categoryRevealTask = onRequest({ region: LOCATION, secrets: [tasksS
   await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
   const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 120)
-  await db.ref(`rooms/${roomCode}/meta/wordTimerTaskName`).set(wordTimerTaskName)
+  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, now, 120)
+  await db.ref(`rooms/${roomCode}/meta`).update({ wordTimerTaskName, hint50TaskName, hint25TaskName })
   await logGameEvent(roomCode, 'word_revealed', { category, word: newWord })
 
   res.status(200).send('ok')
@@ -927,6 +988,7 @@ export const restartGame = onCall(async (request) => {
   // Cancel any pending tasks
   await cancelTask(meta.wordTimerTaskName)
   await cancelTask(meta.voteCloseTaskName)
+  await cancelHintTasks(meta)
 
   const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
   const players = playersSnap.val() ?? {}
@@ -953,6 +1015,8 @@ export const restartGame = onCall(async (request) => {
     [`rooms/${roomCode}/meta/gameOverReason`]: null,
     [`rooms/${roomCode}/meta/wordTimerTaskName`]: null,
     [`rooms/${roomCode}/meta/voteCloseTaskName`]: null,
+    [`rooms/${roomCode}/meta/hint50TaskName`]: null,
+    [`rooms/${roomCode}/meta/hint25TaskName`]: null,
     [`rooms/${roomCode}/meta/usedWords`]: {},
     [`rooms/${roomCode}/votes`]: null,
     [`rooms/${roomCode}/buzzIn`]: null,
@@ -978,6 +1042,50 @@ function makePartialTitle(title: string, word: string): string {
   return tokens.slice(0, Math.min(3, tokens.length)).join(' ') + '…'
 }
 
+type Hint = {
+  artist: string
+  year: number
+  partialTitle: string
+  fullTitle: string
+  startedAt: number
+}
+
+async function pickHint(word: string | undefined | null): Promise<Hint | null> {
+  if (!word) return null
+  const hints = await getActiveHints()
+  const songs = hints[word.toLowerCase()] ?? []
+  if (songs.length === 0) return null
+  const song = songs[Math.floor(Math.random() * songs.length)]
+  return {
+    artist: song.artist,
+    year: song.year,
+    partialTitle: makePartialTitle(song.title, word),
+    fullTitle: song.title,
+    startedAt: Date.now(),
+  }
+}
+
+// Schedules the two auto-hint reveals (at 50% and 25% of time remaining) for
+// a freshly-started BUZZER_OPEN countdown. Returns the task names to persist
+// on meta alongside wordTimerTaskName.
+async function scheduleHintTasks(
+  roomCode: string,
+  wordDrawnAt: number,
+  timerDelaySeconds: number,
+): Promise<{ hint50TaskName: string; hint25TaskName: string }> {
+  const delay50 = Math.max(Math.round(timerDelaySeconds * 0.5), 1)
+  const delay25 = Math.max(Math.round(timerDelaySeconds * 0.75), 1)
+  const [hint50TaskName, hint25TaskName] = await Promise.all([
+    enqueueTask('hintTask', { roomCode, wordDrawnAt, tier: 50 }, delay50),
+    enqueueTask('hintTask', { roomCode, wordDrawnAt, tier: 25 }, delay25),
+  ])
+  return { hint50TaskName, hint25TaskName }
+}
+
+async function cancelHintTasks(meta: { hint50TaskName?: string; hint25TaskName?: string }): Promise<void> {
+  await Promise.all([cancelTask(meta.hint50TaskName), cancelTask(meta.hint25TaskName)])
+}
+
 export const onSkipVote = onValueCreated(
   { ref: '/rooms/{roomCode}/skipVotes/{uid}', region: LOCATION, secrets: [tasksSecret] },
   async (event) => {
@@ -993,33 +1101,22 @@ export const onSkipVote = onValueCreated(
     const playersSnap = await db.ref(`rooms/${roomCode}/players`).once('value')
     const players = playersSnap.val() ?? {}
     const connected = Object.keys(players).filter(
-      (pid) => (players[pid] as { connected: boolean }).connected !== false,
+      (pid) => (players[pid] as { connected: boolean; muted: boolean }).connected !== false &&
+        !(players[pid] as { connected: boolean; muted: boolean }).muted,
     )
 
     if (connected.length === 0 || skipCount < connected.length) return
 
     // Consensus — extend timer to 30s and reveal a hint
     await cancelTask(meta.wordTimerTaskName)
+    await cancelHintTasks(meta)
     await db.ref(`rooms/${roomCode}/skipVotes`).remove()
 
     if (meta.currentCategory && meta.currentWord) {
       await incrementWordAnalytics(meta.currentCategory, meta.currentWord, { skips: 1 })
     }
 
-    // Pick a random song hint for this word+category
-    const hints = await getActiveHints()
-    const songs = hints[meta.currentWord?.toLowerCase()] ?? []
-    let hint = null
-    if (songs.length > 0) {
-      const song = songs[Math.floor(Math.random() * songs.length)]
-      hint = {
-        artist: song.artist,
-        year: song.year,
-        partialTitle: makePartialTitle(song.title, meta.currentWord),
-        fullTitle: song.title,
-        startedAt: Date.now(),
-      }
-    }
+    const hint = await pickHint(meta.currentWord)
 
     const now = Date.now()
     const taskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, 30)
@@ -1029,6 +1126,8 @@ export const onSkipVote = onValueCreated(
       timerDurationMs: 30000,
       timerRemainingMs: null,
       hint,
+      hint50TaskName: null,
+      hint25TaskName: null,
     })
     await logGameEvent(roomCode, 'skip_consensus_hint_revealed', {
       word: meta.currentWord, category: meta.currentCategory, hasHint: !!hint,
@@ -1050,6 +1149,7 @@ export const endGame = onCall(async (request) => {
 
   await cancelTask(meta.wordTimerTaskName)
   await cancelTask(meta.voteCloseTaskName)
+  await cancelHintTasks(meta)
 
   await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
   await logGameEvent(roomCode, 'game_over', { reason: 'host_ended' })
@@ -1076,6 +1176,7 @@ export const adminEndGame = onCall(async (request) => {
 
   await cancelTask(meta.wordTimerTaskName)
   await cancelTask(meta.voteCloseTaskName)
+  await cancelHintTasks(meta)
   await db.ref(`rooms/${roomCode}/meta/state`).set('GAME_OVER')
   await logGameEvent(roomCode, 'game_over', { reason: 'admin_ended', adminEmail: email })
   return { ok: true }

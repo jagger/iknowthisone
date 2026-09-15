@@ -150,3 +150,9 @@ Static JSON at `src/data/words.json` — single dictionary words per category, m
 ## Deployment
 
 Firebase Spark plan covers typical party use (no Cloud Functions). Upgrade to Blaze when adding Functions (required by Firebase). Cost at party scale is negligible (< $0.10/session).
+
+---
+
+## Changelog
+
+Notable changes are logged in `CHANGELOG.md` at the repo root, newest entries first. When you make a notable fix, feature, or behavior change, append a dated bullet there (reuse today's date heading if one already exists) — this is how a day's work gets reconstructed later without digging through commit history.

@@ -17,6 +17,19 @@ function formatTime(ts: number): string {
   return new Date(ts).toLocaleTimeString()
 }
 
+function downloadEventLog(roomCode: string, events: LogEvent[]): void {
+  const blob = new Blob([JSON.stringify(events, null, 2)], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const date = new Date().toISOString().slice(0, 10)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `gamelog-${roomCode}-${date}.json`
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  setTimeout(() => URL.revokeObjectURL(url), 0)
+}
+
 export default function GameLogs() {
   const { entries, loading, error } = useGameLogIndex()
   const [selected, setSelected] = useState<string | null>(null)
@@ -61,7 +74,11 @@ export default function GameLogs() {
           {entries.map(({ key, roomCode, createdAt }) => (
             <tr
               key={key}
-              onClick={() => setSelected(roomCode)}
+              onClick={() => {
+                setSelected(roomCode)
+                setEvents([])
+                setEventsLoading(true)
+              }}
               style={{ ...trStyle, cursor: 'pointer', background: selected === roomCode ? 'var(--gold)' : 'transparent' }}
             >
               <td style={{ ...tdStyle, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 16, letterSpacing: '0.08em' }}>
@@ -78,18 +95,29 @@ export default function GameLogs() {
         {selected && eventsLoading && <div style={emptyStyle}>Loading events…</div>}
         {selected && !eventsLoading && events.length === 0 && <div style={emptyStyle}>No events recorded.</div>}
         {selected && !eventsLoading && events.length > 0 && (
-          <div style={{ maxHeight: '70vh', overflowY: 'auto', border: 'var(--border)', borderRadius: 8 }}>
-            {events.map((e) => (
-              <div key={e.key} style={eventRowStyle}>
-                <span style={eventTimeStyle}>{formatTime(e.ts)}</span>
-                <span style={eventTypeStyle}>{e.type}</span>
-                {e.actorUid && <span style={eventMetaStyle}>uid:{e.actorUid.slice(0, 6)}</span>}
-                {e.data && (
-                  <pre style={eventDataStyle}>{JSON.stringify(e.data)}</pre>
-                )}
-              </div>
-            ))}
-          </div>
+          <>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+              <button
+                type="button"
+                onClick={() => downloadEventLog(selected, events)}
+                style={downloadButtonStyle}
+              >
+                Download Log
+              </button>
+            </div>
+            <div style={{ maxHeight: '70vh', overflowY: 'auto', border: 'var(--border)', borderRadius: 8 }}>
+              {events.map((e) => (
+                <div key={e.key} style={eventRowStyle}>
+                  <span style={eventTimeStyle}>{formatTime(e.ts)}</span>
+                  <span style={eventTypeStyle}>{e.type}</span>
+                  {e.actorUid && <span style={eventMetaStyle}>uid:{e.actorUid.slice(0, 6)}</span>}
+                  {e.data && (
+                    <pre style={eventDataStyle}>{JSON.stringify(e.data)}</pre>
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>
@@ -128,4 +156,9 @@ const eventMetaStyle: React.CSSProperties = {
 }
 const eventDataStyle: React.CSSProperties = {
   margin: 0, color: '#555', whiteSpace: 'pre-wrap', wordBreak: 'break-all', flexBasis: '100%',
+}
+const downloadButtonStyle: React.CSSProperties = {
+  padding: '10px 20px', background: 'var(--gold)', border: 'var(--border)',
+  boxShadow: 'var(--shadow)', fontFamily: 'var(--font-body)', fontWeight: 800,
+  fontSize: 13, letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer', borderRadius: 6,
 }
