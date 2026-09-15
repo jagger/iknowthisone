@@ -75,7 +75,13 @@ export default function NameScreen() {
     }
   }
 
-  const goBack = () => { setMode('choose'); setError('') }
+  const goBack = () => {
+    setMode('choose')
+    setError('')
+    // Email is only meaningful in the create flow — clear it so it can't
+    // silently ride along into an unrelated join session's saved profile.
+    setEmail(saved.email ?? '')
+  }
 
   return (
     <div style={pageStyle}>
@@ -111,7 +117,7 @@ export default function NameScreen() {
             <button type="submit" disabled={loading} style={btnGoldStyle}>
               {loading ? 'Creating…' : 'Create Room'}
             </button>
-            <button type="button" onClick={goBack} style={btnOutlineStyle}>
+            <button type="button" onClick={goBack} disabled={loading} style={btnOutlineStyle}>
               ← Back
             </button>
           </form>
@@ -155,7 +161,7 @@ export default function NameScreen() {
               {loading ? 'Joining…' : 'Join Game'}
             </button>
             {!codeParam && (
-              <button type="button" onClick={goBack} style={btnOutlineStyle}>
+              <button type="button" onClick={goBack} disabled={loading} style={btnOutlineStyle}>
                 ← Back
               </button>
             )}
