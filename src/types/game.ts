@@ -24,6 +24,8 @@ export interface RoomMeta {
   createdAt: number
   wordTimerTaskName?: string
   voteCloseTaskName?: string
+  hint50TaskName?: string
+  hint25TaskName?: string
   usedWords: Record<string, string[]>
   timerDurationMs?: number
   timerRemainingMs?: number

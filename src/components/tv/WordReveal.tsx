@@ -11,7 +11,9 @@ interface Props {
 }
 
 export default function WordReveal({ meta, players, skipVotes = {} }: Props) {
-  const connectedCount = Object.values(players).filter(p => p.connected !== false).length
+  // Matches the backend's skip-vote consensus denominator (onSkipVote
+  // excludes muted players, since they have no way to cast a skip vote).
+  const connectedCount = Object.values(players).filter(p => p.connected !== false && !p.muted).length
   const skipCount = Object.keys(skipVotes).length
   const wordRef = useRef<HTMLDivElement>(null)
 

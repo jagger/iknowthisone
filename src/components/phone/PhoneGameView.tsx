@@ -34,7 +34,9 @@ export default function PhoneGameView() {
   const uid = user?.uid ?? ''
   const myPlayer = players[uid]
   const isHost = meta?.hostId === uid
-  const connectedPlayers = Object.values(players).filter(p => p.connected !== false)
+  // Matches the backend's skip-vote consensus denominator (onSkipVote
+  // excludes muted players, since they have no way to cast a skip vote).
+  const connectedPlayers = Object.values(players).filter(p => p.connected !== false && !p.muted)
 
   const handleEndFirst = () => {
     setEndConfirm(true)
