@@ -313,11 +313,25 @@ export const onPlayerJoin = onValueCreated(
     const { roomCode, uid } = event.params
 
     // Transaction prevents two simultaneous joins both reading the same
-    // player count and being assigned the same identityIndex/color.
-    const counterResult = await db.ref(`rooms/${roomCode}/meta/nextIdentityIndex`).transaction(
-      (current: number | null) => (current ?? 0) + 1,
-    )
-    const identityIndex = ((counterResult.snapshot.val() as number) - 1) % 12
+    // player count and being assigned the same identityIndex/color. Retry a
+    // few times if the transaction aborts under heavy contention; if it
+    // never commits, fall back to a deterministic per-uid index rather than
+    // risk a NaN/colliding one.
+    let identityIndex: number | null = null
+    for (let attempt = 0; attempt < 3 && identityIndex === null; attempt++) {
+      const counterResult = await db.ref(`rooms/${roomCode}/meta/nextIdentityIndex`).transaction(
+        (current: number | null) => (current ?? 0) + 1,
+      )
+      if (counterResult.committed) {
+        identityIndex = ((counterResult.snapshot.val() as number) - 1) % 12
+      }
+    }
+    if (identityIndex === null) {
+      let hash = 0
+      for (let i = 0; i < uid.length; i++) hash = (hash * 31 + uid.charCodeAt(i)) % 12
+      identityIndex = hash
+      await logGameEvent(roomCode, 'identity_index_fallback', {}, { actorUid: uid })
+    }
 
     const updates: Record<string, unknown> = {
       [`rooms/${roomCode}/players/${uid}/identityIndex`]: identityIndex,
@@ -713,10 +727,13 @@ export const wordTimerTask = onRequest({ region: LOCATION, secrets: [tasksSecret
 
   // 5 songs in a row with no buzz → end the game
   if (newNoBuzzCount >= 5) {
+    await cancelHintTasks(meta)
     await db.ref(`rooms/${roomCode}/meta`).update({
       state: 'GAME_OVER',
       gameOverReason: 'no_buzz',
       wordTimerTaskName: null,
+      hint50TaskName: null,
+      hint25TaskName: null,
     })
     await logGameEvent(roomCode, 'game_over', { reason: 'no_buzz' })
     res.status(200).send('game_over_no_buzz')
@@ -770,16 +787,21 @@ export const hintTask = onRequest({ region: LOCATION, secrets: [tasksSecret] }, 
 
   const metaSnap = await db.ref(`rooms/${roomCode}/meta`).once('value')
   const meta = metaSnap.val()
+  const taskField = tier === 50 ? 'hint50TaskName' : 'hint25TaskName'
 
   if (!meta || meta.state !== 'BUZZER_OPEN' || meta.wordDrawnAt !== wordDrawnAt || meta.hint) {
+    if (meta?.wordDrawnAt === wordDrawnAt) await db.ref(`rooms/${roomCode}/meta/${taskField}`).set(null)
     res.status(200).send('stale')
     return
   }
 
   const hint = await pickHint(meta.currentWord)
-  if (!hint) { res.status(200).send('no_hint_data'); return }
+  if (!hint) {
+    await db.ref(`rooms/${roomCode}/meta/${taskField}`).set(null)
+    res.status(200).send('no_hint_data')
+    return
+  }
 
-  const taskField = tier === 50 ? 'hint50TaskName' : 'hint25TaskName'
   await db.ref(`rooms/${roomCode}/meta`).update({ hint, [taskField]: null })
   await logGameEvent(roomCode, 'auto_hint_revealed', { word: meta.currentWord, tier })
 
