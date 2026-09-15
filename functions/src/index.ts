@@ -668,8 +668,9 @@ export const mutedTransitionTask = onRequest({ region: LOCATION, secrets: [tasks
   const delaySec = Math.ceil(Math.max(remaining, 15000) / 1000)
   const timerDurationMs = delaySec * 1000
 
-  const wordTimerTaskName = await enqueueTask('wordTimerTask', { roomCode, wordDrawnAt: now }, delaySec)
-  const { hint50TaskName, hint25TaskName } = await scheduleHintTasks(roomCode, now, delaySec)
+  const { wordTimerTaskName, hint50TaskName, hint25TaskName } = await scheduleWordCountdown(
+    roomCode, now, delaySec, meta.autoHintsEnabled !== false,
+  )
   await db.ref(`rooms/${roomCode}/meta`).update({
     state: 'BUZZER_OPEN',
     wordDrawnAt: now,

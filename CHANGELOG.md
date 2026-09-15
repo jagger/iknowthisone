@@ -3,6 +3,39 @@
 Dated, human-readable log of notable changes to this project. Newest entries
 at the top. See `CLAUDE.md` for the convention this file follows.
 
+## 2026-09-15
+
+- Hosts can now configure turn length (1–5 min, 30s increments, default 2
+  min) and an auto-hints on/off toggle (default on) when creating a room;
+  these settings flow through `createRoom` and every "fresh word"/resume
+  timer reset instead of the previous hardcoded 120s, via a new shared
+  `scheduleWordCountdown` helper.
+- Redesigned the landing screen (`NameScreen`) into a two-step flow: `/` now
+  shows only "Create Room" / "Join Room" buttons, with each choice revealing
+  just the fields it needs (email-only for create, name + room code for
+  join) instead of rendering all fields at once. Fixes the duplicate-looking
+  "Create Room" screen reported in #8.
+- Added a "Download Log" button to the admin Game Logs viewer, letting
+  admins export the currently-selected room's full event log as a
+  pretty-printed JSON file (`gamelog-{roomCode}-{date}.json`) for offline
+  troubleshooting.
+- Fixed: the Skip counter on TV and phone screens showed all connected
+  players as the denominator, but the backend now only requires non-muted
+  players to reach skip consensus (see 2026-09-14 entry below) — the
+  displayed fraction could look like it completed "early." Both now exclude
+  muted players to match (`src/components/tv/WordReveal.tsx`,
+  `src/components/phone/PhoneGameView.tsx`).
+- Fixed: the `identityIndex` join transaction didn't check whether it
+  actually committed before reading its result, so it could produce a
+  `NaN`/colliding index under heavy simultaneous-join contention. Now
+  retries a few times and falls back to a deterministic per-player index if
+  the transaction never commits (`functions/src/index.ts`, `onPlayerJoin`).
+- Fixed: `hintTask`'s early-return paths (hint already showing, or no hint
+  data for the word) didn't clear their own pending task-name field on
+  `meta`, and the 5-consecutive-no-buzz `GAME_OVER` path didn't cancel any
+  still-pending hint tasks — both harmless in practice but inconsistent
+  bookkeeping, now cleaned up.
+
 ## 2026-09-14
 
 - Hosts can now configure turn length (1–5 min, 30s increments, default 2
