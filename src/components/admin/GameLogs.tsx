@@ -27,7 +27,7 @@ function downloadEventLog(roomCode: string, events: LogEvent[]): void {
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
-  URL.revokeObjectURL(url)
+  setTimeout(() => URL.revokeObjectURL(url), 0)
 }
 
 export default function GameLogs() {
@@ -74,7 +74,11 @@ export default function GameLogs() {
           {entries.map(({ key, roomCode, createdAt }) => (
             <tr
               key={key}
-              onClick={() => setSelected(roomCode)}
+              onClick={() => {
+                setSelected(roomCode)
+                setEvents([])
+                setEventsLoading(true)
+              }}
               style={{ ...trStyle, cursor: 'pointer', background: selected === roomCode ? 'var(--gold)' : 'transparent' }}
             >
               <td style={{ ...tdStyle, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 16, letterSpacing: '0.08em' }}>
