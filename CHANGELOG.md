@@ -5,6 +5,11 @@ at the top. See `CLAUDE.md` for the convention this file follows.
 
 ## 2026-09-15
 
+- Redesigned the landing screen (`NameScreen`) into a two-step flow: `/` now
+  shows only "Create Room" / "Join Room" buttons, with each choice revealing
+  just the fields it needs (email-only for create, name + room code for
+  join) instead of rendering all fields at once. Fixes the duplicate-looking
+  "Create Room" screen reported in #8.
 - Added a "Download Log" button to the admin Game Logs viewer, letting
   admins export the currently-selected room's full event log as a
   pretty-printed JSON file (`gamelog-{roomCode}-{date}.json`) for offline
