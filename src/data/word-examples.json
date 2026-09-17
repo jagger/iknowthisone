@@ -17,7 +17,7 @@
     },
     {
       "title": "Crazy in Love",
-      "artist": "Beyonc\u00e9",
+      "artist": "Beyoncé",
       "year": 2003
     },
     {
@@ -250,7 +250,7 @@
     },
     {
       "title": "Crazy in Love",
-      "artist": "Beyonc\u00e9",
+      "artist": "Beyoncé",
       "year": 2003
     },
     {
@@ -400,7 +400,7 @@
     },
     {
       "title": "Wild Side",
-      "artist": "M\u00f6tley Cr\u00fce",
+      "artist": "Mötley Crüe",
       "year": 1987
     }
   ],
@@ -1595,7 +1595,7 @@
   "lost": [
     {
       "title": "Lost",
-      "artist": "Michael Bubl\u00e9",
+      "artist": "Michael Bublé",
       "year": 2005
     },
     {
@@ -1686,7 +1686,7 @@
     },
     {
       "title": "Nothing Compares 2 U",
-      "artist": "Sin\u00e9ad O'Connor",
+      "artist": "Sinéad O'Connor",
       "year": 1990
     },
     {
@@ -1696,7 +1696,7 @@
     },
     {
       "title": "Empty Chairs at Empty Tables",
-      "artist": "Les Mis\u00e9rables",
+      "artist": "Les Misérables",
       "year": 1980
     }
   ],
@@ -1837,29 +1837,14 @@
   ],
   "guilt": [
     {
-      "title": "Guilty",
-      "artist": "Barbra Streisand",
-      "year": 1980
+      "title": "Guilt",
+      "artist": "Nothing But Thieves",
+      "year": 2015
     },
     {
-      "title": "Not Guilty",
-      "artist": "George Harrison",
-      "year": 1979
-    },
-    {
-      "title": "Guilty Conscience",
-      "artist": "Eminem",
-      "year": 1999
-    },
-    {
-      "title": "Guilty",
-      "artist": "Al Green",
-      "year": 1975
-    },
-    {
-      "title": "Not Guilty",
-      "artist": "Beyonc\u00e9",
-      "year": 2013
+      "title": "White Guilt",
+      "artist": "will.i.am ft. Talib Kweli",
+      "year": 2003
     }
   ],
   "shame": [
@@ -1978,7 +1963,7 @@
     },
     {
       "title": "I Regret Nothing",
-      "artist": "\u00c9dith Piaf",
+      "artist": "Édith Piaf",
       "year": 1960
     },
     {
@@ -2113,7 +2098,7 @@
     },
     {
       "title": "Single Ladies (Put a Ring on It)",
-      "artist": "Beyonc\u00e9",
+      "artist": "Beyoncé",
       "year": 2008
     },
     {
@@ -2717,7 +2702,7 @@
     },
     {
       "title": "Irreplaceable",
-      "artist": "Beyonc\u00e9",
+      "artist": "Beyoncé",
       "year": 2006
     },
     {
@@ -2825,7 +2810,7 @@
     },
     {
       "title": "Loving You Forever",
-      "artist": "Expos\u00e9",
+      "artist": "Exposé",
       "year": 1992
     },
     {
@@ -2852,7 +2837,7 @@
     },
     {
       "title": "To Be Loved",
-      "artist": "Michael Bubl\u00e9",
+      "artist": "Michael Bublé",
       "year": 2013
     },
     {
@@ -3025,11 +3010,6 @@
   ],
   "devotion": [
     {
-      "title": "Endless Love",
-      "artist": "Diana Ross & Lionel Richie",
-      "year": 1981
-    },
-    {
       "title": "Devotion",
       "artist": "Earth, Wind & Fire",
       "year": 1974
@@ -3040,14 +3020,19 @@
       "year": 2003
     },
     {
-      "title": "All That She Wants",
-      "artist": "Ace of Base",
-      "year": 1992
+      "title": "Devotion",
+      "artist": "Ten City",
+      "year": 1989
     },
     {
-      "title": "Body and Soul",
-      "artist": "Various Artists",
-      "year": 1930
+      "title": "Devotion",
+      "artist": "Newton Faulkner",
+      "year": 2007
+    },
+    {
+      "title": "True Devotion",
+      "artist": "Bag Raiders",
+      "year": 2010
     }
   ],
   "cherish": [
@@ -3106,29 +3091,14 @@
   ],
   "intimacy": [
     {
-      "title": "Making Love Out of Nothing at All",
-      "artist": "Air Supply",
-      "year": 1983
+      "title": "Intimacy",
+      "artist": "Bryson Tiller",
+      "year": 2020
     },
     {
-      "title": "Close to You",
-      "artist": "The Carpenters",
-      "year": 1970
-    },
-    {
-      "title": "Endless Love",
-      "artist": "Diana Ross & Lionel Richie",
-      "year": 1981
-    },
-    {
-      "title": "Sexual Healing",
-      "artist": "Marvin Gaye",
-      "year": 1982
-    },
-    {
-      "title": "I Touch Myself",
-      "artist": "Divinyls",
-      "year": 1990
+      "title": "Intimacy",
+      "artist": "Alina Baraz",
+      "year": 2018
     }
   ],
   "flirt": [
@@ -3158,58 +3128,11 @@
       "year": 2009
     }
   ],
-  "seduce": [
-    {
-      "title": "Why Do You Have to Go and Make Things So Complicated",
-      "artist": "Avril Lavigne",
-      "year": 2002
-    },
-    {
-      "title": "Seduction",
-      "artist": "Taylor Dayne",
-      "year": 1990
-    },
-    {
-      "title": "Lady Seduction",
-      "artist": "Tom Jones",
-      "year": 2002
-    },
-    {
-      "title": "Voulez-Vous",
-      "artist": "ABBA",
-      "year": 1979
-    },
-    {
-      "title": "Physical",
-      "artist": "Olivia Newton-John",
-      "year": 1981
-    }
-  ],
   "yearn": [
     {
-      "title": "Tears in Heaven",
-      "artist": "Eric Clapton",
-      "year": 1992
-    },
-    {
-      "title": "Still Missing",
-      "artist": "John Mayer",
-      "year": 2006
-    },
-    {
-      "title": "Yearning for You",
-      "artist": "Chet Baker",
-      "year": 1955
-    },
-    {
-      "title": "I Need You",
-      "artist": "America",
-      "year": 1972
-    },
-    {
-      "title": "The Search Is Over",
-      "artist": "Survivor",
-      "year": 1985
+      "title": "Yearn",
+      "artist": "Chris Stapleton",
+      "year": 2023
     }
   ],
   "butterflies": [
@@ -3268,29 +3191,14 @@
   ],
   "infatuation": [
     {
-      "title": "Every Breath You Take",
-      "artist": "The Police",
-      "year": 1983
-    },
-    {
-      "title": "Obsession",
-      "artist": "Animotion",
+      "title": "Infatuation",
+      "artist": "Rod Stewart",
       "year": 1984
     },
     {
-      "title": "Foolish Heart",
-      "artist": "Steve Perry",
-      "year": 1984
-    },
-    {
-      "title": "Can't Get You Out of My Head",
-      "artist": "Kylie Minogue",
-      "year": 2001
-    },
-    {
-      "title": "Right Here Waiting",
-      "artist": "Richard Marx",
-      "year": 1989
+      "title": "Infatuation",
+      "artist": "Bad English",
+      "year": 1991
     }
   ],
   "swept": [
@@ -3511,29 +3419,19 @@
   ],
   "feet": [
     {
-      "title": "Happy Feet",
-      "artist": "Various Artists",
-      "year": 1926
-    },
-    {
-      "title": "These Boots Are Made for Walkin'",
-      "artist": "Nancy Sinatra",
-      "year": 1966
-    },
-    {
       "title": "Dancing Feet",
       "artist": "Bill Haley",
       "year": 1954
     },
     {
-      "title": "Tiny Dancer",
-      "artist": "Elton John",
-      "year": 1971
-    },
-    {
       "title": "Footloose",
       "artist": "Kenny Loggins",
       "year": 1984
+    },
+    {
+      "title": "Cold Feet",
+      "artist": "Kacey Musgraves",
+      "year": 2015
     }
   ],
   "face": [
@@ -4348,29 +4246,9 @@
   ],
   "field": [
     {
-      "title": "Fields of Gold",
-      "artist": "Sting",
-      "year": 1993
-    },
-    {
-      "title": "Strawberry Fields Forever",
-      "artist": "The Beatles",
-      "year": 1967
-    },
-    {
-      "title": "Kansas City",
-      "artist": "Wilbert Harrison",
-      "year": 1959
-    },
-    {
-      "title": "Blowing in the Wind",
-      "artist": "Bob Dylan",
-      "year": 1963
-    },
-    {
-      "title": "Fields of Fire",
-      "artist": "Big Country",
-      "year": 1983
+      "title": "Corn Field",
+      "artist": "Everclear",
+      "year": 1995
     }
   ],
   "lane": [
@@ -4456,29 +4334,14 @@
   ],
   "yard": [
     {
-      "title": "In the Backyard",
-      "artist": "Various Artists",
-      "year": 1976
-    },
-    {
-      "title": "Milkshake",
-      "artist": "Kelis",
-      "year": 2003
-    },
-    {
-      "title": "Backyard",
-      "artist": "J Cole",
-      "year": 2013
-    },
-    {
-      "title": "Front Porch Looking In",
-      "artist": "Lonestar",
-      "year": 2003
-    },
-    {
       "title": "In the Yard",
       "artist": "Blur",
       "year": 1994
+    },
+    {
+      "title": "In My Yard",
+      "artist": "T-Pain",
+      "year": 2008
     }
   ],
   "shore": [
@@ -4969,29 +4832,9 @@
   ],
   "flower": [
     {
-      "title": "Wildflowers",
-      "artist": "Tom Petty",
-      "year": 1994
-    },
-    {
-      "title": "Flowers",
-      "artist": "Miley Cyrus",
-      "year": 2023
-    },
-    {
-      "title": "La Vie en Rose",
-      "artist": "\u00c9dith Piaf",
-      "year": 1945
-    },
-    {
-      "title": "Sunflower",
-      "artist": "Post Malone & Swae Lee",
-      "year": 2018
-    },
-    {
-      "title": "Where Have All the Flowers Gone",
-      "artist": "Pete Seeger",
-      "year": 1961
+      "title": "Flower Duet",
+      "artist": "Léo Delibes",
+      "year": 1883
     }
   ],
   "stone": [
@@ -5110,7 +4953,7 @@
     },
     {
       "title": "Seasons Change",
-      "artist": "Expos\u00e9",
+      "artist": "Exposé",
       "year": 1987
     },
     {
@@ -5299,7 +5142,7 @@
     },
     {
       "title": "Horizon",
-      "artist": "Michael Bubl\u00e9",
+      "artist": "Michael Bublé",
       "year": 2003
     },
     {
@@ -5563,29 +5406,14 @@
   ],
   "mist": [
     {
-      "title": "Misty",
-      "artist": "Erroll Garner",
-      "year": 1954
-    },
-    {
-      "title": "Brume",
-      "artist": "Claude Debussy",
-      "year": 1913
-    },
-    {
-      "title": "Riders on the Storm",
-      "artist": "The Doors",
-      "year": 1971
-    },
-    {
       "title": "Misty Morning",
       "artist": "Bob Marley",
       "year": 1978
     },
     {
-      "title": "Foggy Notion",
-      "artist": "The Velvet Underground",
-      "year": 1969
+      "title": "Mist",
+      "artist": "Novo Amor",
+      "year": 2016
     }
   ],
   "frost": [
@@ -5669,33 +5497,6 @@
       "year": 1966
     }
   ],
-  "gust": [
-    {
-      "title": "Wild Wind",
-      "artist": "John Leyton",
-      "year": 1961
-    },
-    {
-      "title": "The Wind Cries Mary",
-      "artist": "Jimi Hendrix",
-      "year": 1967
-    },
-    {
-      "title": "Windy",
-      "artist": "The Association",
-      "year": 1967
-    },
-    {
-      "title": "It's Only the Wind",
-      "artist": "Crowded House",
-      "year": 1993
-    },
-    {
-      "title": "Spirit of the Wind",
-      "artist": "Chris Rea",
-      "year": 1988
-    }
-  ],
   "sunshine": [
     {
       "title": "You Are My Sunshine",
@@ -5725,29 +5526,14 @@
   ],
   "flurry": [
     {
-      "title": "Let It Snow",
-      "artist": "Frank Sinatra",
-      "year": 1950
+      "title": "Flurry",
+      "artist": "Blackmill",
+      "year": 2013
     },
     {
-      "title": "Winter Wonderland",
-      "artist": "Perry Como",
-      "year": 1946
-    },
-    {
-      "title": "Frosty the Snowman",
-      "artist": "Gene Autry",
-      "year": 1950
-    },
-    {
-      "title": "White Christmas",
-      "artist": "Bing Crosby",
-      "year": 1942
-    },
-    {
-      "title": "Baby, It's Cold Outside",
-      "artist": "Doris Day & Buddy Clark",
-      "year": 1949
+      "title": "Flurry",
+      "artist": "Aphex Twin",
+      "year": 1997
     }
   ],
   "dusty": [
@@ -5838,24 +5624,14 @@
       "year": 1977
     },
     {
-      "title": "She's Always a Woman",
-      "artist": "Billy Joel",
-      "year": 1977
-    },
-    {
       "title": "Don't Stop (Thinking About Tomorrow)",
       "artist": "Fleetwood Mac",
       "year": 1977
     },
     {
-      "title": "Tomorrow Never Knows",
-      "artist": "The Beatles",
-      "year": 1966
-    },
-    {
-      "title": "Living for Today",
-      "artist": "Various",
-      "year": 1965
+      "title": "Tomorrow",
+      "artist": "Silverchair",
+      "year": 1994
     }
   ],
   "now": [
@@ -5924,11 +5700,6 @@
       "year": 2010
     },
     {
-      "title": "We Will Never Sleep",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
       "title": "I Will Never Let You Down",
       "artist": "Rita Ora",
       "year": 2014
@@ -5937,14 +5708,14 @@
       "title": "Never Tear Us Apart",
       "artist": "INXS",
       "year": 1988
+    },
+    {
+      "title": "Never",
+      "artist": "Heart",
+      "year": 1985
     }
   ],
   "soon": [
-    {
-      "title": "Coming Soon",
-      "artist": "Various",
-      "year": 2000
-    },
     {
       "title": "Soon",
       "artist": "My Bloody Valentine",
@@ -5968,11 +5739,6 @@
   ],
   "late": [
     {
-      "title": "Better Late Than Never",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
       "title": "Late in the Evening",
       "artist": "Paul Simon",
       "year": 1980
@@ -5991,6 +5757,11 @@
       "title": "Late Night Alumni",
       "artist": "Empty Streets",
       "year": 2005
+    },
+    {
+      "title": "It's Too Late",
+      "artist": "Carole King",
+      "year": 1971
     }
   ],
   "moment": [
@@ -6221,16 +5992,6 @@
       "year": 1991
     },
     {
-      "title": "In the Past",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Blast from the Past",
-      "artist": "Various",
-      "year": 1999
-    },
-    {
       "title": "Living in the Past",
       "artist": "Jethro Tull",
       "year": 1969
@@ -6265,29 +6026,19 @@
   ],
   "hour": [
     {
-      "title": "Five O'Clock World",
-      "artist": "The Vogues",
-      "year": 1965
+      "title": "Golden Hour",
+      "artist": "JVKE",
+      "year": 2022
     },
     {
-      "title": "Rock Around the Clock",
-      "artist": "Bill Haley & His Comets",
-      "year": 1954
+      "title": "Golden Hour",
+      "artist": "Kacey Musgraves",
+      "year": 2018
     },
     {
-      "title": "25 or 6 to 4",
-      "artist": "Chicago",
-      "year": 1970
-    },
-    {
-      "title": "Hour of the Wolf",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "After Hours",
-      "artist": "The Velvet Underground",
-      "year": 1969
+      "title": "Rush Hour",
+      "artist": "Alexandra Stan",
+      "year": 2014
     }
   ],
   "year": [
@@ -6297,37 +6048,17 @@
       "year": 1983
     },
     {
-      "title": "The Year of the Cat",
-      "artist": "Al Stewart",
-      "year": 1976
-    },
-    {
       "title": "This Year's Love",
       "artist": "David Gray",
       "year": 1998
     },
     {
-      "title": "Year of the Dragon",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "What a Year That Was",
-      "artist": "Various",
-      "year": 2000
+      "title": "Happy New Year",
+      "artist": "ABBA",
+      "year": 1980
     }
   ],
   "second": [
-    {
-      "title": "Second Nature",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Split Second",
-      "artist": "Various",
-      "year": 1992
-    },
     {
       "title": "The Second Time Around",
       "artist": "Shalamar",
@@ -6342,6 +6073,16 @@
       "title": "One Second",
       "artist": "Paradise Lost",
       "year": 1997
+    },
+    {
+      "title": "A Second to Midnight",
+      "artist": "Lady Gaga & Bruno Mars",
+      "year": 2025
+    },
+    {
+      "title": "Every Second Counts",
+      "artist": "Plus One",
+      "year": 2000
     }
   ],
   "early": [
@@ -6356,11 +6097,6 @@
       "year": 1982
     },
     {
-      "title": "Too Early",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
       "title": "Early Mornin' Rain",
       "artist": "Bob Dylan",
       "year": 1963
@@ -6369,6 +6105,11 @@
       "title": "Early One Morning",
       "artist": "Traditional",
       "year": 1800
+    },
+    {
+      "title": "Early in the Morning",
+      "artist": "Vanity Fare",
+      "year": 1969
     }
   ],
   "clock": [
@@ -6378,24 +6119,14 @@
       "year": 1954
     },
     {
-      "title": "Clocks",
-      "artist": "Coldplay",
-      "year": 2002
-    },
-    {
-      "title": "Clock",
-      "artist": "Various",
-      "year": 2005
-    },
-    {
       "title": "Grandfather's Clock",
       "artist": "Various Traditional",
       "year": 1875
     },
     {
-      "title": "Stop the Clock",
-      "artist": "Various",
-      "year": 2000
+      "title": "Cuckoo Clock",
+      "artist": "The B-52's",
+      "year": 1979
     }
   ],
   "long": [
@@ -6469,14 +6200,14 @@
       "year": 1969
     },
     {
-      "title": "We Are One",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
       "title": "One More Time",
       "artist": "Daft Punk",
       "year": 2000
+    },
+    {
+      "title": "You're the One That I Want",
+      "artist": "John Travolta & Olivia Newton-John",
+      "year": 1978
     }
   ],
   "two": [
@@ -6499,11 +6230,6 @@
       "title": "Two Out of Three Ain't Bad",
       "artist": "Meat Loaf",
       "year": 1977
-    },
-    {
-      "title": "For the Two of Us",
-      "artist": "Various",
-      "year": 2000
     }
   ],
   "three": [
@@ -6518,32 +6244,12 @@
       "year": 1977
     },
     {
-      "title": "Three",
-      "artist": "Various",
-      "year": 2001
-    },
-    {
-      "title": "Three's Company",
-      "artist": "Various",
+      "title": "Three Little Birds",
+      "artist": "Bob Marley & the Wailers",
       "year": 1977
-    },
-    {
-      "title": "Band of Gold",
-      "artist": "Freda Payne",
-      "year": 1970
     }
   ],
   "five": [
-    {
-      "title": "High Five",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Five Minutes",
-      "artist": "Various",
-      "year": 1990
-    },
     {
       "title": "Five O'Clock World",
       "artist": "The Vogues",
@@ -6553,11 +6259,6 @@
       "title": "Working Nine to Five",
       "artist": "Dolly Parton",
       "year": 1980
-    },
-    {
-      "title": "Slaughterhouse-Five",
-      "artist": "Various",
-      "year": 1972
     }
   ],
   "ten": [
@@ -6572,19 +6273,19 @@
       "year": 1975
     },
     {
-      "title": "Ten to One",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
       "title": "Perfect Ten",
       "artist": "Beautiful South",
       "year": 1998
     },
     {
-      "title": "Count to Ten",
-      "artist": "Various",
-      "year": 2000
+      "title": "Ten Rounds with Jose Cuervo",
+      "artist": "Tracy Byrd",
+      "year": 2003
+    },
+    {
+      "title": "Ten Feet Tall",
+      "artist": "Afrojack ft. Wrabel",
+      "year": 2013
     }
   ],
   "sixteen": [
@@ -6648,24 +6349,9 @@
       "year": 1952
     },
     {
-      "title": "Noonday Sun",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Before Noon",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "High Noon Noon",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Riding at Noon",
-      "artist": "Various",
-      "year": 1990
+      "title": "High Noon",
+      "artist": "Frankie Laine",
+      "year": 1952
     }
   ],
   "morning": [
@@ -6690,17 +6376,12 @@
       "year": 1981
     },
     {
-      "title": "Morning",
-      "artist": "Various",
-      "year": 1988
+      "title": "Good Morning",
+      "artist": "Kanye West",
+      "year": 2007
     }
   ],
   "evening": [
-    {
-      "title": "Pleasant Valley Sunday",
-      "artist": "The Monkees",
-      "year": 1967
-    },
     {
       "title": "Evening Star",
       "artist": "Crosby Stills and Nash",
@@ -6712,14 +6393,19 @@
       "year": 1979
     },
     {
-      "title": "This Evening",
-      "artist": "Various",
-      "year": 2000
+      "title": "Some Enchanted Evening",
+      "artist": "Ezio Pinza",
+      "year": 1949
     },
     {
-      "title": "Good Evening",
-      "artist": "Various",
-      "year": 1990
+      "title": "Evening Falls",
+      "artist": "Enya",
+      "year": 1987
+    },
+    {
+      "title": "Evening Star",
+      "artist": "Judy Collins",
+      "year": 1972
     }
   ],
   "sunday": [
@@ -6810,11 +6496,6 @@
       "year": 1965
     },
     {
-      "title": "Back in Time",
-      "artist": "Huey Lewis",
-      "year": 1985
-    },
-    {
       "title": "Yesterday Once More",
       "artist": "Carpenters",
       "year": 1973
@@ -6825,17 +6506,17 @@
       "year": 1969
     },
     {
-      "title": "Living for Yesterday",
-      "artist": "Various",
-      "year": 1975
+      "title": "Yesterday Once More",
+      "artist": "The Carpenters",
+      "year": 1973
+    },
+    {
+      "title": "Yesterday's Gone",
+      "artist": "Chad & Jeremy",
+      "year": 1963
     }
   ],
   "twice": [
-    {
-      "title": "Fool Me Once",
-      "artist": "Various",
-      "year": 2000
-    },
     {
       "title": "Twice As Hard",
       "artist": "Black Crowes",
@@ -6847,14 +6528,19 @@
       "year": 1994
     },
     {
-      "title": "I've Been Hurt",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
       "title": "Once Bitten Twice Shy",
       "artist": "Great White",
       "year": 1989
+    },
+    {
+      "title": "Shot Twice",
+      "artist": "The Weeknd",
+      "year": 2011
+    },
+    {
+      "title": "Fool Me Twice",
+      "artist": "Keith Urban",
+      "year": 2003
     }
   ],
   "million": [
@@ -6869,11 +6555,6 @@
       "year": 1996
     },
     {
-      "title": "Million Miles from Home",
-      "artist": "Various",
-      "year": 1998
-    },
-    {
       "title": "A Million Love Songs",
       "artist": "Take That",
       "year": 1992
@@ -6882,6 +6563,11 @@
       "title": "If I Had a Million Dollars",
       "artist": "Barenaked Ladies",
       "year": 1992
+    },
+    {
+      "title": "A Million Dreams",
+      "artist": "Ziv Zaifman",
+      "year": 2017
     }
   ],
   "first": [
@@ -6896,11 +6582,6 @@
       "year": 1988
     },
     {
-      "title": "At First Sight",
-      "artist": "Various",
-      "year": 1992
-    },
-    {
       "title": "First Day of My Life",
       "artist": "Bright Eyes",
       "year": 2005
@@ -6909,6 +6590,11 @@
       "title": "Love at First Sight",
       "artist": "Kylie Minogue",
       "year": 2001
+    },
+    {
+      "title": "First Time",
+      "artist": "Surface",
+      "year": 1990
     }
   ],
   "last": [
@@ -6977,19 +6663,9 @@
       "year": 2011
     },
     {
-      "title": "Thousand Foot Krutch",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
       "title": "A Thousand Suns",
       "artist": "Linkin Park",
       "year": 2010
-    },
-    {
-      "title": "One Thousand Reasons",
-      "artist": "Various",
-      "year": 2002
     }
   ],
   "blue": [
@@ -7014,9 +6690,9 @@
       "year": 1977
     },
     {
-      "title": "Feeling Blue",
-      "artist": "Various",
-      "year": 1985
+      "title": "Am I Blue",
+      "artist": "Ethel Waters",
+      "year": 1929
     }
   ],
   "red": [
@@ -7041,9 +6717,9 @@
       "year": 1967
     },
     {
-      "title": "Seeing Red",
-      "artist": "Various",
-      "year": 1990
+      "title": "Lady in Red",
+      "artist": "Chris de Burgh",
+      "year": 1986
     }
   ],
   "gold": [
@@ -7063,14 +6739,14 @@
       "year": 2005
     },
     {
-      "title": "Pot of Gold",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
       "title": "Good as Gold",
       "artist": "Beautiful South",
       "year": 1994
+    },
+    {
+      "title": "Gold Dust Woman",
+      "artist": "Fleetwood Mac",
+      "year": 1977
     }
   ],
   "black": [
@@ -7193,19 +6869,9 @@
       "year": 1988
     },
     {
-      "title": "Quicksilver Girl",
-      "artist": "Steve Miller Band",
-      "year": 1973
-    },
-    {
       "title": "Silver Threads and Golden Needles",
       "artist": "Springfields",
       "year": 1962
-    },
-    {
-      "title": "Long Silver Lines",
-      "artist": "Various",
-      "year": 1990
     }
   ],
   "purple": [
@@ -7250,16 +6916,6 @@
       "title": "Pink Cadillac",
       "artist": "Natalie Cole",
       "year": 1988
-    },
-    {
-      "title": "Pink Floyd",
-      "artist": "Various",
-      "year": 1975
-    },
-    {
-      "title": "Think Pink",
-      "artist": "Various",
-      "year": 1957
     }
   ],
   "orange": [
@@ -7274,18 +6930,13 @@
       "year": 1965
     },
     {
-      "title": "Orange Is the New Black",
-      "artist": "Various",
-      "year": 2013
+      "title": "Orange Colored Sky",
+      "artist": "Nat King Cole",
+      "year": 1950
     },
     {
-      "title": "Tangerine",
-      "artist": "Led Zeppelin",
-      "year": 1970
-    },
-    {
-      "title": "Peaches & Cream",
-      "artist": "Various",
+      "title": "Little Orange Box",
+      "artist": "Basement Jaxx",
       "year": 2001
     }
   ],
@@ -7294,16 +6945,6 @@
       "title": "Grey Street",
       "artist": "Dave Matthews Band",
       "year": 2001
-    },
-    {
-      "title": "Little Grey Donkey",
-      "artist": "Various",
-      "year": 1980
-    },
-    {
-      "title": "50 Shades of Grey",
-      "artist": "Various",
-      "year": 2015
     },
     {
       "title": "Grey",
@@ -7328,19 +6969,19 @@
       "year": 1969
     },
     {
-      "title": "Crimson Tide",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
       "title": "Crimson",
       "artist": "Alkaline Trio",
       "year": 2005
     },
     {
-      "title": "Scarlet and Grey",
-      "artist": "Various",
-      "year": 1985
+      "title": "Crimson Day",
+      "artist": "Volbeat",
+      "year": 2013
+    },
+    {
+      "title": "Crimson and Clover",
+      "artist": "Joan Jett & the Blackhearts",
+      "year": 1982
     }
   ],
   "brown": [
@@ -7355,19 +6996,19 @@
       "year": 1971
     },
     {
-      "title": "Charlie Brown",
-      "artist": "Coldplay",
-      "year": 2011
-    },
-    {
       "title": "Brown Girl in the Ring",
       "artist": "Boney M",
       "year": 1978
     },
     {
-      "title": "James Brown",
-      "artist": "Various",
-      "year": 1980
+      "title": "Brown Eyed Handsome Man",
+      "artist": "Chuck Berry",
+      "year": 1956
+    },
+    {
+      "title": "Brown Skin Girl",
+      "artist": "Beyoncé",
+      "year": 2019
     }
   ],
   "golden": [
@@ -7412,16 +7053,6 @@
       "title": "The Scarlet Tide",
       "artist": "Allison Krauss",
       "year": 2003
-    },
-    {
-      "title": "Lady in Red",
-      "artist": "Chris de Burgh",
-      "year": 1986
-    },
-    {
-      "title": "Scarlet and Gold",
-      "artist": "Various",
-      "year": 1990
     }
   ],
   "ivory": [
@@ -7432,23 +7063,13 @@
     },
     {
       "title": "Ivory Tower",
-      "artist": "Various",
-      "year": 1956
+      "artist": "Big Sean",
+      "year": 2011
     },
     {
-      "title": "Keys of Life",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Black and Ivory",
-      "artist": "Various",
-      "year": 1992
-    },
-    {
-      "title": "Ivory Madonna",
-      "artist": "Various",
-      "year": 1985
+      "title": "Ivory Tower",
+      "artist": "Omarion",
+      "year": 2005
     }
   ],
   "ebony": [
@@ -7463,11 +7084,6 @@
       "year": 1977
     },
     {
-      "title": "Ebony",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
       "title": "Ebony Woman",
       "artist": "Billy Paul",
       "year": 1970
@@ -7476,6 +7092,11 @@
       "title": "Ebony Eyes",
       "artist": "Everly Brothers",
       "year": 1961
+    },
+    {
+      "title": "Ebony Eyes",
+      "artist": "Rick James",
+      "year": 1983
     }
   ],
   "amber": [
@@ -7485,24 +7106,24 @@
       "year": 2001
     },
     {
-      "title": "Captain Amber",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
       "title": "Amber Waves",
       "artist": "Tori Amos",
       "year": 2002
     },
     {
-      "title": "Yellow",
-      "artist": "Coldplay",
-      "year": 2000
+      "title": "Amber",
+      "artist": "Clint Black",
+      "year": 2003
     },
     {
-      "title": "Amber Is the Color of Your Energy",
-      "artist": "Various",
-      "year": 1998
+      "title": "Amber Waves",
+      "artist": "Josh Turner",
+      "year": 2017
+    },
+    {
+      "title": "Amber",
+      "artist": "Kina Grannis",
+      "year": 2014
     }
   ],
   "rose": [
@@ -7572,18 +7193,13 @@
     },
     {
       "title": "Indigo",
-      "artist": "Various",
-      "year": 2000
+      "artist": "Chris Brown",
+      "year": 2019
     },
     {
-      "title": "Blue Bayou",
-      "artist": "Linda Ronstadt",
-      "year": 1977
-    },
-    {
-      "title": "Shades of Indigo",
-      "artist": "Various",
-      "year": 1995
+      "title": "Indigo Girl",
+      "artist": "Domenico Torti",
+      "year": 2010
     }
   ],
   "rust": [
@@ -7630,14 +7246,9 @@
       "year": 1969
     },
     {
-      "title": "Pale Horse",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Pale Rider",
-      "artist": "Various",
-      "year": 1985
+      "title": "Pale Blue Eyes",
+      "artist": "The Velvet Underground",
+      "year": 1969
     }
   ],
   "violet": [
@@ -7645,21 +7256,6 @@
       "title": "Violet",
       "artist": "Hole",
       "year": 1994
-    },
-    {
-      "title": "Ultra Violet",
-      "artist": "U2",
-      "year": 1991
-    },
-    {
-      "title": "Turning Violet",
-      "artist": "Various",
-      "year": 2005
-    },
-    {
-      "title": "Shrinking Violet",
-      "artist": "Various",
-      "year": 1985
     },
     {
       "title": "Violet Hill",
@@ -7765,41 +7361,41 @@
       "year": 2003
     },
     {
-      "title": "Beer Run",
-      "artist": "Various",
-      "year": 2003
+      "title": "Red Solo Cup",
+      "artist": "Toby Keith",
+      "year": 2011
     },
     {
-      "title": "Cheap Beer",
-      "artist": "Various",
-      "year": 1990
+      "title": "Beer for My Horses",
+      "artist": "Toby Keith ft. Willie Nelson",
+      "year": 2003
     }
   ],
   "cake": [
-    {
-      "title": "The Cake Is a Lie",
-      "artist": "Various",
-      "year": 2007
-    },
-    {
-      "title": "Short Skirt/Long Jacket",
-      "artist": "Cake",
-      "year": 2001
-    },
-    {
-      "title": "Let Them Eat Cake",
-      "artist": "Various",
-      "year": 1985
-    },
     {
       "title": "Birthday Cake",
       "artist": "Rihanna",
       "year": 2012
     },
     {
-      "title": "Piece of My Heart",
-      "artist": "Janis Joplin",
-      "year": 1968
+      "title": "Cake by the Ocean",
+      "artist": "DNCE",
+      "year": 2015
+    },
+    {
+      "title": "MMM Cake",
+      "artist": "OK Go",
+      "year": 2014
+    },
+    {
+      "title": "Piece of Cake",
+      "artist": "Bring Me the Horizon",
+      "year": 2019
+    },
+    {
+      "title": "Piece of Cake",
+      "artist": "Madness",
+      "year": 1981
     }
   ],
   "candy": [
@@ -7858,29 +7454,29 @@
   ],
   "bread": [
     {
-      "title": "If",
-      "artist": "Bread",
-      "year": 1971
-    },
-    {
-      "title": "Everything I Own",
-      "artist": "Bread",
-      "year": 1972
-    },
-    {
-      "title": "Baby I'm-a Want You",
-      "artist": "Bread",
-      "year": 1971
-    },
-    {
       "title": "Bread and Butter",
       "artist": "Newbeats",
       "year": 1964
     },
     {
-      "title": "The Breadwinner",
-      "artist": "Various",
-      "year": 1990
+      "title": "Big Bread",
+      "artist": "Curren$y",
+      "year": 2013
+    },
+    {
+      "title": "Bread and Butter",
+      "artist": "The Newbeats",
+      "year": 1964
+    },
+    {
+      "title": "The Bread Song",
+      "artist": "Lil Yachty",
+      "year": 2020
+    },
+    {
+      "title": "Big Bread",
+      "artist": "Migos",
+      "year": 2018
     }
   ],
   "salt": [
@@ -7890,32 +7486,22 @@
       "year": 1986
     },
     {
-      "title": "Salt and Pepper",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
       "title": "The Salt and the Sea",
       "artist": "The Decemberists",
       "year": 2015
     },
     {
-      "title": "Salty Dog",
-      "artist": "Flogging Molly",
-      "year": 2002
+      "title": "A Pinch of Salt",
+      "artist": "Wishbone Ash",
+      "year": 1970
     },
     {
-      "title": "Too Much Salt",
-      "artist": "Various",
-      "year": 1998
+      "title": "Salt of the Earth",
+      "artist": "The Rolling Stones",
+      "year": 1968
     }
   ],
   "cherry": [
-    {
-      "title": "Cherry",
-      "artist": "Various",
-      "year": 1990
-    },
     {
       "title": "Cherry Pie",
       "artist": "Warrant",
@@ -7932,22 +7518,12 @@
       "year": 1976
     },
     {
-      "title": "Life Is a Bowl of Cherries",
-      "artist": "Various",
-      "year": 1931
+      "title": "Cherry Bomb",
+      "artist": "John Cougar Mellencamp",
+      "year": 1987
     }
   ],
   "peach": [
-    {
-      "title": "Peaches",
-      "artist": "The Stranglers",
-      "year": 1977
-    },
-    {
-      "title": "Georgia Peach",
-      "artist": "Various",
-      "year": 1980
-    },
     {
       "title": "Peaches & Cream",
       "artist": "112",
@@ -7957,11 +7533,6 @@
       "title": "Peach",
       "artist": "Prince",
       "year": 1993
-    },
-    {
-      "title": "Peaches En Regalia",
-      "artist": "Frank Zappa",
-      "year": 1969
     }
   ],
   "lemon": [
@@ -7976,11 +7547,6 @@
       "year": 1995
     },
     {
-      "title": "Lemon Drop",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
       "title": "Lemon Song",
       "artist": "Led Zeppelin",
       "year": 1970
@@ -7989,6 +7555,11 @@
       "title": "Lemon Parade",
       "artist": "Tonic",
       "year": 1996
+    },
+    {
+      "title": "Lemon",
+      "artist": "N.E.R.D & Rihanna",
+      "year": 2017
     }
   ],
   "apple": [
@@ -8030,19 +7601,9 @@
       "year": 2001
     },
     {
-      "title": "Clotted Cream",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Ice Cream",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "She Loves You",
-      "artist": "The Beatles",
-      "year": 1963
+      "title": "Whipped Cream",
+      "artist": "Herb Alpert",
+      "year": 1965
     }
   ],
   "juice": [
@@ -8055,21 +7616,6 @@
       "title": "Juice Box",
       "artist": "The Strokes",
       "year": 2005
-    },
-    {
-      "title": "Jungle Juice",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Orange Juice",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "Wake Up and Smell the Coffee",
-      "artist": "Pretenders",
-      "year": 2002
     }
   ],
   "butter": [
@@ -8087,70 +7633,50 @@
       "title": "Butter",
       "artist": "BTS",
       "year": 2021
-    },
-    {
-      "title": "Land of Milk and Honey",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Fly Like an Eagle",
-      "artist": "Steve Miller Band",
-      "year": 1976
     }
   ],
   "lime": [
-    {
-      "title": "Margaritaville",
-      "artist": "Jimmy Buffett",
-      "year": 1977
-    },
-    {
-      "title": "Limes and Coconut",
-      "artist": "Harry Nilsson",
-      "year": 1971
-    },
-    {
-      "title": "Key Lime Pie",
-      "artist": "Various",
-      "year": 1998
-    },
     {
       "title": "Lime Tree",
       "artist": "Bright Eyes",
       "year": 2004
     },
     {
-      "title": "Tequila Sunrise",
-      "artist": "Eagles",
-      "year": 1973
+      "title": "Key Lime Pie",
+      "artist": "Camp Rock Cast",
+      "year": 2008
+    },
+    {
+      "title": "Key Lime Pie",
+      "artist": "Camper Van Beethoven",
+      "year": 1989
+    },
+    {
+      "title": "Coconut",
+      "artist": "Harry Nilsson",
+      "year": 1971
     }
   ],
   "cookie": [
     {
-      "title": "Cookie Monster",
-      "artist": "Various",
-      "year": 1970
-    },
-    {
-      "title": "Afternoon Delight",
-      "artist": "Starland Vocal Band",
-      "year": 1976
+      "title": "C Is for Cookie",
+      "artist": "Cookie Monster (Sesame Street)",
+      "year": 1969
     },
     {
       "title": "Cookie Jar",
-      "artist": "Jack Johnson",
-      "year": 2005
+      "artist": "Gym Class Heroes ft. The-Dream",
+      "year": 2007
     },
     {
-      "title": "Fortune Cookie",
-      "artist": "Various",
-      "year": 1980
+      "title": "Cookie",
+      "artist": "Odd Squad",
+      "year": 1999
     },
     {
-      "title": "Who Stole the Cookie",
-      "artist": "Various",
-      "year": 1985
+      "title": "C Is for Cookie",
+      "artist": "Cookie Monster",
+      "year": 1969
     }
   ],
   "pepper": [
@@ -8158,26 +7684,6 @@
       "title": "Sgt. Pepper's Lonely Hearts Club Band",
       "artist": "The Beatles",
       "year": 1967
-    },
-    {
-      "title": "Salt-N-Pepa",
-      "artist": "Salt-N-Pepa",
-      "year": 1986
-    },
-    {
-      "title": "Chili Pepper",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Dr. Pepper",
-      "artist": "Various",
-      "year": 1975
-    },
-    {
-      "title": "Pepper",
-      "artist": "Butthole Surfers",
-      "year": 1996
     }
   ],
   "coffee": [
@@ -8209,56 +7715,31 @@
   ],
   "milk": [
     {
-      "title": "Got Milk",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
       "title": "Milk It",
       "artist": "Nirvana",
       "year": 1993
     },
     {
-      "title": "Milk and Honey",
-      "artist": "Various",
-      "year": 1986
+      "title": "Got Milk",
+      "artist": "Commercial Jingle",
+      "year": 1993
     },
     {
-      "title": "Land of Milk and Honey",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Milky Way",
-      "artist": "Various",
-      "year": 1988
+      "title": "Milk",
+      "artist": "Kings of Leon",
+      "year": 2010
     }
   ],
   "fish": [
     {
-      "title": "Fish On",
-      "artist": "Various",
-      "year": 1985
+      "title": "Fish",
+      "artist": "Craig David",
+      "year": 2000
     },
     {
-      "title": "Little Fishy",
-      "artist": "Various",
-      "year": 1975
-    },
-    {
-      "title": "Red Snapper",
-      "artist": "Various",
-      "year": 1998
-    },
-    {
-      "title": "Fisherman's Blues",
-      "artist": "The Waterboys",
-      "year": 1988
-    },
-    {
-      "title": "Yellow Fin",
-      "artist": "Various",
-      "year": 1995
+      "title": "Big Fish",
+      "artist": "Kirin J Callinan",
+      "year": 2017
     }
   ],
   "spice": [
@@ -8271,21 +7752,6 @@
       "title": "Sugar and Spice",
       "artist": "The Cryin' Shames",
       "year": 1966
-    },
-    {
-      "title": "Spiceworld",
-      "artist": "Spice Girls",
-      "year": 1997
-    },
-    {
-      "title": "Spice",
-      "artist": "Various",
-      "year": 1999
-    },
-    {
-      "title": "Old Spice",
-      "artist": "Various",
-      "year": 1990
     }
   ],
   "chocolate": [
@@ -8310,9 +7776,9 @@
       "year": 2007
     },
     {
-      "title": "Box of Chocolates",
-      "artist": "Various",
-      "year": 1994
+      "title": "Chocolate",
+      "artist": "Kylie Minogue",
+      "year": 2004
     }
   ],
   "lion": [
@@ -8327,19 +7793,9 @@
       "year": 2012
     },
     {
-      "title": "Heart of a Lion",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Cowardly Lion",
-      "artist": "Various",
-      "year": 1983
-    },
-    {
-      "title": "Courage (Superchick)",
-      "artist": "Superchick",
-      "year": 2001
+      "title": "Roar of the Lion",
+      "artist": "David Rodigan",
+      "year": 2013
     }
   ],
   "tiger": [
@@ -8354,11 +7810,6 @@
       "year": 1975
     },
     {
-      "title": "Flying Tiger",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
       "title": "Paper Tiger",
       "artist": "Beck",
       "year": 2002
@@ -8371,29 +7822,14 @@
   ],
   "wolf": [
     {
-      "title": "Who's Afraid of the Big Bad Wolf",
-      "artist": "Various",
-      "year": 1933
-    },
-    {
       "title": "Hungry Like the Wolf",
       "artist": "Duran Duran",
       "year": 1982
     },
     {
-      "title": "Wolf Like Me",
-      "artist": "TV on the Radio",
-      "year": 2006
-    },
-    {
-      "title": "Werewolves of London",
-      "artist": "Warren Zevon",
-      "year": 1978
-    },
-    {
-      "title": "Black Wolfe",
-      "artist": "Various",
-      "year": 1985
+      "title": "The Wolf",
+      "artist": "Mumford & Sons",
+      "year": 2015
     }
   ],
   "eagle": [
@@ -8425,56 +7861,46 @@
   ],
   "dove": [
     {
-      "title": "When Doves Cry",
-      "artist": "Prince",
-      "year": 1984
+      "title": "Dove",
+      "artist": "Cigarettes After Sex",
+      "year": 2019
     },
     {
-      "title": "White Dove",
-      "artist": "Various",
-      "year": 1960
+      "title": "Wounded Dove",
+      "artist": "The Rolling Stones",
+      "year": 1997
     },
     {
-      "title": "Like a Dove",
-      "artist": "Various",
-      "year": 1985
+      "title": "Dove",
+      "artist": "Lisa Loeb",
+      "year": 1997
     },
     {
-      "title": "Fly Like a Bird",
-      "artist": "Mariah Carey",
-      "year": 2005
+      "title": "Turtle Dove",
+      "artist": "Fleet Foxes",
+      "year": 2011
     },
     {
-      "title": "Peace Like a River",
-      "artist": "Paul Simon",
-      "year": 1971
+      "title": "Wounded Dove",
+      "artist": "Mick Jagger",
+      "year": 1997
     }
   ],
   "snake": [
-    {
-      "title": "Shake Your Tail Feather",
-      "artist": "Ray Charles",
-      "year": 1963
-    },
-    {
-      "title": "Snake Eyes",
-      "artist": "Various",
-      "year": 1990
-    },
     {
       "title": "The Snake",
       "artist": "Al Wilson",
       "year": 1968
     },
     {
-      "title": "Snakes on a Plane",
-      "artist": "Cobra Starship",
-      "year": 2006
+      "title": "Snake",
+      "artist": "Ke$ha",
+      "year": 2012
     },
     {
-      "title": "Snake Charmer",
-      "artist": "Various",
-      "year": 1985
+      "title": "Coiled Snake",
+      "artist": "Deftones",
+      "year": 2016
     }
   ],
   "fox": [
@@ -8484,19 +7910,9 @@
       "year": 2013
     },
     {
-      "title": "Foxy Lady",
-      "artist": "Jimi Hendrix",
-      "year": 1967
-    },
-    {
       "title": "Fox on the Run",
       "artist": "Sweet",
       "year": 1975
-    },
-    {
-      "title": "Crazy Like a Fox",
-      "artist": "Various",
-      "year": 1984
     },
     {
       "title": "Silver Fox",
@@ -8597,36 +8013,16 @@
       "year": 1956
     },
     {
-      "title": "Old Shep",
-      "artist": "Elvis Presley",
-      "year": 1956
-    },
-    {
       "title": "How Much Is That Doggie in the Window",
       "artist": "Patti Page",
       "year": 1952
-    },
-    {
-      "title": "Snoop Dogg",
-      "artist": "Various",
-      "year": 1992
     }
   ],
   "cat": [
     {
-      "title": "What's New Pussycat",
-      "artist": "Tom Jones",
-      "year": 1965
-    },
-    {
       "title": "Cat Scratch Fever",
       "artist": "Ted Nugent",
       "year": 1977
-    },
-    {
-      "title": "The Cat Came Back",
-      "artist": "Various",
-      "year": 1893
     },
     {
       "title": "Year of the Cat",
@@ -8637,33 +8033,18 @@
       "title": "Stray Cat Strut",
       "artist": "Stray Cats",
       "year": 1981
+    },
+    {
+      "title": "Black Cat",
+      "artist": "Janet Jackson",
+      "year": 1989
     }
   ],
   "whale": [
     {
-      "title": "Whale Song",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Moby Dick",
-      "artist": "Led Zeppelin",
-      "year": 1969
-    },
-    {
-      "title": "Humpback Whale",
-      "artist": "Various",
-      "year": 1982
-    },
-    {
-      "title": "Swimming with the Whales",
-      "artist": "Various",
-      "year": 1993
-    },
-    {
-      "title": "The Whales",
-      "artist": "Various",
-      "year": 1986
+      "title": "Whale",
+      "artist": "Phish",
+      "year": 1994
     }
   ],
   "crow": [
@@ -8673,78 +8054,43 @@
       "year": 1976
     },
     {
-      "title": "Three Crows",
-      "artist": "Various",
-      "year": 1985
+      "title": "Crow",
+      "artist": "Volbeat",
+      "year": 2016
     },
     {
-      "title": "Murder on the Dancefloor",
-      "artist": "Sophie Ellis-Bextor",
-      "year": 2001
-    },
-    {
-      "title": "Counting Crows",
-      "artist": "Various",
-      "year": 1993
-    },
-    {
-      "title": "When the Crow Flies",
-      "artist": "Various",
-      "year": 1990
+      "title": "Crow on the Cradle",
+      "artist": "Judy Collins",
+      "year": 1975
     }
   ],
   "hawk": [
     {
-      "title": "Hawkwind",
-      "artist": "Various",
-      "year": 1970
+      "title": "Sparrow and the Hawk",
+      "artist": "Zac Brown Band",
+      "year": 2019
     },
     {
-      "title": "Sailing",
-      "artist": "Rod Stewart",
-      "year": 1975
-    },
-    {
-      "title": "Nighthawks at the Diner",
-      "artist": "Tom Waits",
-      "year": 1975
-    },
-    {
-      "title": "Hawk the Slayer",
-      "artist": "Various",
-      "year": 1980
-    },
-    {
-      "title": "Spirit in the Sky",
-      "artist": "Norman Greenbaum",
-      "year": 1969
+      "title": "Black Hawk",
+      "artist": "Two Steps from Hell",
+      "year": 2010
     }
   ],
   "deer": [
     {
-      "title": "Oh Deer",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "Rudolph the Red-Nosed Reindeer",
-      "artist": "Gene Autry",
-      "year": 1949
-    },
-    {
-      "title": "Dancing with the Wolves",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Bambi",
-      "artist": "Various",
-      "year": 1942
-    },
-    {
       "title": "Deer Dance",
       "artist": "System of a Down",
       "year": 2001
+    },
+    {
+      "title": "Deer in the Headlights",
+      "artist": "Owl City",
+      "year": 2009
+    },
+    {
+      "title": "Run Like a Deer",
+      "artist": "Corb Lund",
+      "year": 2007
     }
   ],
   "swan": [
@@ -8770,7 +8116,7 @@
     },
     {
       "title": "The Swan",
-      "artist": "Saint-Sa\u00ebns",
+      "artist": "Saint-Saëns",
       "year": 1886
     }
   ],
@@ -8786,32 +8132,17 @@
       "year": 1980
     },
     {
-      "title": "Here Be Dragons",
-      "artist": "Various",
-      "year": 1998
+      "title": "Puff, the Magic Dragon",
+      "artist": "Peter, Paul and Mary",
+      "year": 1963
     },
     {
-      "title": "Year of the Dragon",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Rock You Like a Hurricane",
-      "artist": "Scorpions",
-      "year": 1984
+      "title": "Enter Sandman",
+      "artist": "Metallica",
+      "year": 1991
     }
   ],
   "phoenix": [
-    {
-      "title": "Flight of the Phoenix",
-      "artist": "Various",
-      "year": 1965
-    },
-    {
-      "title": "Bring Me to Life",
-      "artist": "Evanescence",
-      "year": 2003
-    },
     {
       "title": "Rise Like a Phoenix",
       "artist": "Conchita Wurst",
@@ -8823,17 +8154,17 @@
       "year": 2013
     },
     {
-      "title": "From the Ashes",
-      "artist": "Various",
-      "year": 1998
+      "title": "Phoenix",
+      "artist": "Asking Alexandria",
+      "year": 2020
+    },
+    {
+      "title": "Phoenix",
+      "artist": "Wilkinson",
+      "year": 2014
     }
   ],
   "raven": [
-    {
-      "title": "Raven",
-      "artist": "Various",
-      "year": 1988
-    },
     {
       "title": "The Raven",
       "artist": "The Alan Parsons Project",
@@ -8845,22 +8176,12 @@
       "year": 2003
     },
     {
-      "title": "Black Bird",
-      "artist": "The Beatles",
-      "year": 1968
-    },
-    {
-      "title": "Ravenous",
-      "artist": "Various",
-      "year": 1999
+      "title": "Raven",
+      "artist": "Rise Against",
+      "year": 2011
     }
   ],
   "sparrow": [
-    {
-      "title": "Captain Jack Sparrow",
-      "artist": "Various",
-      "year": 2003
-    },
     {
       "title": "Sparrow",
       "artist": "Simon & Garfunkel",
@@ -8875,11 +8196,6 @@
       "title": "Little Sparrow",
       "artist": "Dolly Parton",
       "year": 2001
-    },
-    {
-      "title": "Sparrows Over Birmingham",
-      "artist": "Various",
-      "year": 1985
     }
   ],
   "owl": [
@@ -8889,51 +8205,9 @@
       "year": 2009
     },
     {
-      "title": "Night Owl",
-      "artist": "Gerry Rafferty",
-      "year": 1979
-    },
-    {
-      "title": "Wise Old Owl",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "The Owl and the Pussycat",
-      "artist": "Various",
-      "year": 1871
-    },
-    {
-      "title": "Owls",
-      "artist": "Various",
-      "year": 2000
-    }
-  ],
-  "stallion": [
-    {
-      "title": "Gangnam Style",
-      "artist": "PSY",
-      "year": 2012
-    },
-    {
-      "title": "My Humps",
-      "artist": "Black Eyed Peas",
-      "year": 2005
-    },
-    {
-      "title": "Mustang Sally",
-      "artist": "Wilson Pickett",
-      "year": 1966
-    },
-    {
-      "title": "Horse With No Name",
-      "artist": "America",
-      "year": 1971
-    },
-    {
-      "title": "Old Town Road",
-      "artist": "Lil Nas X",
-      "year": 2019
+      "title": "Owl",
+      "artist": "Sleeping at Last",
+      "year": 2014
     }
   ],
   "lamb": [
@@ -8943,24 +8217,9 @@
       "year": 1983
     },
     {
-      "title": "Lamb of God",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Silence of the Lambs",
-      "artist": "Various",
-      "year": 1991
-    },
-    {
-      "title": "As Gentle as a Lamb",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Lay Down Sally",
-      "artist": "Eric Clapton",
-      "year": 1977
+      "title": "Mary Had a Little Lamb",
+      "artist": "Paul McCartney and Wings",
+      "year": 1972
     }
   ],
   "panther": [
@@ -8970,24 +8229,14 @@
       "year": 1963
     },
     {
-      "title": "Black Panther",
-      "artist": "Various",
-      "year": 2018
+      "title": "Pink Panther Theme",
+      "artist": "Henry Mancini",
+      "year": 1963
     },
     {
       "title": "Panther",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "The Jungle Book",
-      "artist": "Various",
-      "year": 1967
-    },
-    {
-      "title": "Panthers and Lions",
-      "artist": "Various",
-      "year": 1988
+      "artist": "Bikini Kill",
+      "year": 1993
     }
   ],
   "hound": [
@@ -8995,26 +8244,6 @@
       "title": "Hound Dog",
       "artist": "Elvis Presley",
       "year": 1956
-    },
-    {
-      "title": "Hounds of Love",
-      "artist": "Kate Bush",
-      "year": 1985
-    },
-    {
-      "title": "Hound Dog Taylor",
-      "artist": "Various",
-      "year": 1970
-    },
-    {
-      "title": "Running with the Hounds",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Baskerville Hound",
-      "artist": "Various",
-      "year": 1988
     }
   ],
   "bear": [
@@ -9029,19 +8258,19 @@
       "year": 1957
     },
     {
-      "title": "Grizzly Bear",
-      "artist": "Various",
+      "title": "The Bear Necessities",
+      "artist": "Phil Harris",
+      "year": 1967
+    },
+    {
+      "title": "I Can't Bear to Be Without You",
+      "artist": "Cliff Richard",
+      "year": 1978
+    },
+    {
+      "title": "Bear Cage",
+      "artist": "The Cure",
       "year": 1985
-    },
-    {
-      "title": "Bear Claws",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Polar Bear",
-      "artist": "Ride",
-      "year": 1990
     }
   ],
   "shark": [
@@ -9051,24 +8280,9 @@
       "year": 2016
     },
     {
-      "title": "Jaws Theme",
-      "artist": "John Williams",
-      "year": 1975
-    },
-    {
       "title": "Shark in the Water",
       "artist": "V V Brown",
       "year": 2009
-    },
-    {
-      "title": "White Shark",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Great White Shark",
-      "artist": "Various",
-      "year": 1990
     }
   ],
   "buffalo": [
@@ -9106,23 +8320,13 @@
     },
     {
       "title": "Round Robin",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Robin Hood",
-      "artist": "Various",
-      "year": 1973
-    },
-    {
-      "title": "Christopher Robin",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Round Robin",
       "artist": "Bobby Day",
       "year": 1959
+    },
+    {
+      "title": "When the Red, Red Robin",
+      "artist": "Al Jolson",
+      "year": 1926
     }
   ],
   "wish": [
@@ -9137,19 +8341,9 @@
       "year": 1975
     },
     {
-      "title": "Make a Wish",
-      "artist": "Various",
-      "year": 1996
-    },
-    {
       "title": "I Wish",
       "artist": "Stevie Wonder",
       "year": 1976
-    },
-    {
-      "title": "Wishing Well",
-      "artist": "Terence Trent D'Arby",
-      "year": 1987
     }
   ],
   "shine": [
@@ -9181,29 +8375,9 @@
   ],
   "glow": [
     {
-      "title": "Glowing",
-      "artist": "Nikki Williams",
-      "year": 2014
-    },
-    {
-      "title": "You Give Love a Bad Name",
-      "artist": "Bon Jovi",
-      "year": 1986
-    },
-    {
-      "title": "Inner City Blues",
-      "artist": "Marvin Gaye",
-      "year": 1971
-    },
-    {
-      "title": "Electric Feel",
-      "artist": "MGMT",
-      "year": 2007
-    },
-    {
       "title": "Glow",
-      "artist": "Various",
-      "year": 2000
+      "artist": "Drake",
+      "year": 2016
     }
   ],
   "soar": [
@@ -9213,24 +8387,9 @@
       "year": 1996
     },
     {
-      "title": "Fly Away",
-      "artist": "Lenny Kravitz",
-      "year": 1998
-    },
-    {
-      "title": "Learning to Fly",
-      "artist": "Tom Petty",
-      "year": 1991
-    },
-    {
       "title": "Soar",
-      "artist": "Various",
-      "year": 2001
-    },
-    {
-      "title": "Rise Up",
-      "artist": "Andra Day",
-      "year": 2015
+      "artist": "Christina Aguilera",
+      "year": 2018
     }
   ],
   "dance": [
@@ -9326,19 +8485,14 @@
       "year": 2011
     },
     {
-      "title": "Call Me",
-      "artist": "Various",
-      "year": 1983
+      "title": "Hotline Bling",
+      "artist": "Drake",
+      "year": 2015
     },
     {
-      "title": "The Call",
-      "artist": "Various",
-      "year": 1997
-    },
-    {
-      "title": "Call Me Baby",
-      "artist": "Various",
-      "year": 1991
+      "title": "Call on Me",
+      "artist": "Eric Prydz",
+      "year": 2004
     }
   ],
   "open": [
@@ -9348,19 +8502,9 @@
       "year": 1981
     },
     {
-      "title": "An Open Letter to NYC",
-      "artist": "Beastie Boys",
-      "year": 2004
-    },
-    {
       "title": "Wide Open Spaces",
       "artist": "Dixie Chicks",
       "year": 1998
-    },
-    {
-      "title": "Open Book",
-      "artist": "Various",
-      "year": 1988
     },
     {
       "title": "Open Your Heart",
@@ -9368,58 +8512,21 @@
       "year": 1986
     }
   ],
-  "shimmer": [
+  "spark": [
     {
-      "title": "Shimmer",
-      "artist": "Fuel",
-      "year": 2000
-    },
-    {
-      "title": "Starlight",
-      "artist": "Muse",
-      "year": 2006
-    },
-    {
-      "title": "Glimmer",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "Sparkle and Shine",
-      "artist": "Various",
+      "title": "Spark",
+      "artist": "Tori Amos",
       "year": 1998
     },
     {
-      "title": "Shimmer and Shine",
-      "artist": "Various",
-      "year": 2002
-    }
-  ],
-  "spark": [
-    {
-      "title": "Sparks",
-      "artist": "Coldplay",
-      "year": 2000
-    },
-    {
-      "title": "Sparks Fly",
-      "artist": "Taylor Swift",
+      "title": "You're the Spark",
+      "artist": "Delta Goodrem",
       "year": 2010
     },
     {
-      "title": "Electric Spark",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Start a Fire",
-      "artist": "Various",
-      "year": 1993
-    },
-    {
-      "title": "Sparky",
-      "artist": "Various",
-      "year": 1988
+      "title": "Spark the Fire",
+      "artist": "Nas ft. will.i.am",
+      "year": 2012
     }
   ],
   "believe": [
@@ -9439,13 +8546,13 @@
       "year": 2003
     },
     {
-      "title": "We Believe",
-      "artist": "Various",
-      "year": 2002
+      "title": "I Believe",
+      "artist": "Fantasia",
+      "year": 2004
     },
     {
-      "title": "Still I Believe",
-      "artist": "Various",
+      "title": "Do You Believe in Life After Love",
+      "artist": "Cher",
       "year": 1998
     }
   ],
@@ -9483,24 +8590,14 @@
       "year": 1984
     },
     {
-      "title": "Living Legend",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Are You Gonna Go My Way",
-      "artist": "Lenny Kravitz",
-      "year": 1993
-    },
-    {
       "title": "The Legend of Billie Jean",
       "artist": "Pat Benatar",
       "year": 1985
     },
     {
-      "title": "Legendary",
-      "artist": "Welshly Arms",
-      "year": 2017
+      "title": "Legend",
+      "artist": "Drake",
+      "year": 2016
     }
   ],
   "spirit": [
@@ -9510,51 +8607,41 @@
       "year": 1969
     },
     {
-      "title": "Free Spirit",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "Wild Spirit",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
       "title": "The Spirit of Radio",
       "artist": "Rush",
       "year": 1980
     },
     {
       "title": "Spirit",
-      "artist": "Beyonc\u00e9",
+      "artist": "Beyoncé",
       "year": 2019
     }
   ],
   "bloom": [
     {
       "title": "Bloom",
-      "artist": "Radiohead",
-      "year": 2011
-    },
-    {
-      "title": "Spring Flowers",
-      "artist": "Various",
-      "year": 1975
-    },
-    {
-      "title": "Bloom",
       "artist": "Beach House",
       "year": 2012
     },
     {
-      "title": "Desert Rose",
-      "artist": "Sting",
-      "year": 1999
+      "title": "In Bloom",
+      "artist": "Nirvana",
+      "year": 1992
     },
     {
-      "title": "Wildflower",
-      "artist": "Skylark",
-      "year": 1972
+      "title": "Bloom",
+      "artist": "The Paper Kites",
+      "year": 2010
+    },
+    {
+      "title": "Bloom",
+      "artist": "ZAYN",
+      "year": 2021
+    },
+    {
+      "title": "In Bloom",
+      "artist": "The Turtles",
+      "year": 1969
     }
   ],
   "float": [
@@ -9562,26 +8649,6 @@
       "title": "Float On",
       "artist": "Modest Mouse",
       "year": 2004
-    },
-    {
-      "title": "Floating",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "On a Cloud",
-      "artist": "Various",
-      "year": 1992
-    },
-    {
-      "title": "Drifting",
-      "artist": "Jimi Hendrix",
-      "year": 1971
-    },
-    {
-      "title": "Float Like a Butterfly",
-      "artist": "Various",
-      "year": 1988
     }
   ],
   "circle": [
@@ -9591,213 +8658,79 @@
       "year": 1994
     },
     {
-      "title": "Circle",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
       "title": "The Circle Game",
       "artist": "Joni Mitchell",
       "year": 1966
     },
     {
       "title": "Full Circle",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "Coming Full Circle",
-      "artist": "Various",
-      "year": 2000
-    }
-  ],
-  "reflect": [
-    {
-      "title": "Reflection",
-      "artist": "Christina Aguilera",
-      "year": 1998
-    },
-    {
-      "title": "Reflection",
-      "artist": "Various",
-      "year": 1995
-    },
-    {
-      "title": "Mirror Mirror",
-      "artist": "Various",
-      "year": 1982
-    },
-    {
-      "title": "Looking Glass",
-      "artist": "Various",
-      "year": 1973
-    },
-    {
-      "title": "All I See Is You",
-      "artist": "Various",
-      "year": 1967
+      "artist": "Hoobastank",
+      "year": 2006
     }
   ],
   "honor": [
-    {
-      "title": "Friends in Low Places",
-      "artist": "Garth Brooks",
-      "year": 1990
-    },
     {
       "title": "Honor to Us All",
       "artist": "Mulan Cast",
       "year": 1998
     },
     {
+      "title": "Honor Bound",
+      "artist": "Delta Rae",
+      "year": 2013
+    },
+    {
       "title": "Man of Honor",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Code of Honor",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "With Honor",
-      "artist": "Various",
-      "year": 1988
-    }
-  ],
-  "enchant": [
-    {
-      "title": "Enchanted",
-      "artist": "Taylor Swift",
-      "year": 2010
-    },
-    {
-      "title": "Bewitched",
-      "artist": "Bill Snyder",
-      "year": 1947
-    },
-    {
-      "title": "Under Your Spell",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Spellbound",
-      "artist": "AC/DC",
-      "year": 1981
-    },
-    {
-      "title": "Magical Mystery Tour",
-      "artist": "The Beatles",
-      "year": 1967
+      "artist": "MC Hammer",
+      "year": 1994
     }
   ],
   "discover": [
     {
       "title": "Discover",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Brave New World",
-      "artist": "Iron Maiden",
-      "year": 2000
-    },
-    {
-      "title": "New Sensation",
-      "artist": "INXS",
-      "year": 1987
-    },
-    {
-      "title": "A Whole New World",
-      "artist": "Peabo Bryson",
-      "year": 1992
-    },
-    {
-      "title": "Come Away With Me",
-      "artist": "Norah Jones",
-      "year": 2002
+      "artist": "Daft Punk",
+      "year": 2001
     }
   ],
   "quest": [
     {
-      "title": "Don't Stop Me Now",
-      "artist": "Queen",
+      "title": "The Impossible Dream (The Quest)",
+      "artist": "Richard Kiley",
+      "year": 1965
+    },
+    {
+      "title": "Quest for Love",
+      "artist": "Teddy Pendergrass",
       "year": 1978
-    },
-    {
-      "title": "Quest",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "The Quest",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "On the Road Again",
-      "artist": "Willie Nelson",
-      "year": 1980
-    },
-    {
-      "title": "Searching",
-      "artist": "Various",
-      "year": 1975
     }
   ],
   "journey": [
     {
-      "title": "Don't Stop Believin'",
-      "artist": "Journey",
-      "year": 1981
+      "title": "The Journey",
+      "artist": "Lea Salonga",
+      "year": 1998
     },
     {
-      "title": "Long Road",
-      "artist": "Eddie Vedder",
-      "year": 1995
-    },
-    {
-      "title": "The Road You Leave Behind",
-      "artist": "David Lee Murphy",
-      "year": 1997
-    },
-    {
-      "title": "Life is a Highway",
-      "artist": "Tom Cochrane",
-      "year": 1991
-    },
-    {
-      "title": "Keep on Runnin'",
-      "artist": "Various",
-      "year": 1965
+      "title": "The Journey",
+      "artist": "James Blake",
+      "year": 2013
     }
   ],
   "lantern": [
-    {
-      "title": "Chinese Lanterns",
-      "artist": "Various",
-      "year": 1988
-    },
     {
       "title": "Lantern",
       "artist": "Matisyahu",
       "year": 2006
     },
     {
-      "title": "Red Paper Lantern",
-      "artist": "Various",
-      "year": 1990
+      "title": "Lantern",
+      "artist": "Hammock",
+      "year": 2012
     },
     {
-      "title": "Magic Lantern",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Carry Your Candle",
-      "artist": "Various",
-      "year": 2000
+      "title": "Lantern",
+      "artist": "Rilo Kiley",
+      "year": 2007
     }
   ],
   "pride": [
@@ -9807,24 +8740,14 @@
       "year": 1984
     },
     {
-      "title": "Lions Pride",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "The Pride",
-      "artist": "Various",
-      "year": 2012
-    },
-    {
-      "title": "Standing Proud",
-      "artist": "Various",
-      "year": 1987
-    },
-    {
       "title": "My Pride and Joy",
       "artist": "Stevie Ray Vaughan",
       "year": 1983
+    },
+    {
+      "title": "Swallow Your Pride",
+      "artist": "Green Day",
+      "year": 1990
     }
   ],
   "kingdom": [
@@ -9834,32 +8757,27 @@
       "year": 1996
     },
     {
-      "title": "Welcome to the Kingdom",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "The Kingdom",
-      "artist": "Various",
-      "year": 1994
-    },
-    {
       "title": "Kingdom Come",
       "artist": "Jay-Z",
       "year": 2006
     },
     {
-      "title": "Land of Confusion",
-      "artist": "Genesis",
-      "year": 1986
+      "title": "Kingdom Come",
+      "artist": "Jay-Z ft. Chris Martin",
+      "year": 2006
+    },
+    {
+      "title": "My Kingdom",
+      "artist": "Metallica",
+      "year": 2003
+    },
+    {
+      "title": "Kingdom",
+      "artist": "Downhere",
+      "year": 2008
     }
   ],
   "remember": [
-    {
-      "title": "Remember Me",
-      "artist": "Various",
-      "year": 2017
-    },
     {
       "title": "I Will Remember You",
       "artist": "Sarah McLachlan",
@@ -9879,6 +8797,11 @@
       "title": "Remember the Time",
       "artist": "Michael Jackson",
       "year": 1991
+    },
+    {
+      "title": "Remember the Name",
+      "artist": "Fort Minor",
+      "year": 2005
     }
   ],
   "surrender": [
@@ -9930,9 +8853,9 @@
       "year": 1987
     },
     {
-      "title": "There's a Place for Us",
-      "artist": "Various",
-      "year": 1980
+      "title": "Somewhere I Belong",
+      "artist": "Linkin Park",
+      "year": 2003
     }
   ],
   "beyond": [
@@ -9957,9 +8880,9 @@
       "year": 1939
     },
     {
-      "title": "Beyond the Pale",
-      "artist": "Various",
-      "year": 1988
+      "title": "To Infinity and Beyond",
+      "artist": "Randy Newman",
+      "year": 1995
     }
   ],
   "phantom": [
@@ -9969,24 +8892,24 @@
       "year": 1986
     },
     {
-      "title": "Phantom Rider",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Music of the Night",
-      "artist": "Michael Crawford",
-      "year": 1986
-    },
-    {
       "title": "Phantom 309",
       "artist": "Tom Waits",
       "year": 1974
     },
     {
-      "title": "Phantom Stranger",
-      "artist": "Various",
-      "year": 1988
+      "title": "Phantom of the Opera",
+      "artist": "Sarah Brightman & Steve Harley",
+      "year": 1986
+    },
+    {
+      "title": "Phantom",
+      "artist": "Justice",
+      "year": 2007
+    },
+    {
+      "title": "Phantom of the Opera",
+      "artist": "Michael Crawford & Sarah Brightman",
+      "year": 1986
     }
   ],
   "memory": [
@@ -10028,19 +8951,9 @@
       "year": 1725
     },
     {
-      "title": "For Good Seasons",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
       "title": "Seasons of Love",
       "artist": "Rent Cast",
       "year": 1996
-    },
-    {
-      "title": "Autumn Leaves",
-      "artist": "Nat King Cole",
-      "year": 1956
     }
   ],
   "defying": [
@@ -10078,23 +8991,13 @@
     },
     {
       "title": "Popular",
-      "artist": "Nada Surf",
-      "year": 1996
-    },
-    {
-      "title": "Most Popular",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Popular",
       "artist": "The Weeknd",
       "year": 2023
     },
     {
-      "title": "With a Little Help from My Friends",
-      "artist": "The Beatles",
-      "year": 1967
+      "title": "Popular Song",
+      "artist": "MIKA ft. Ariana Grande",
+      "year": 2013
     }
   ],
   "roxanne": [
@@ -10112,16 +9015,6 @@
       "title": "Roxanne from Moulin Rouge",
       "artist": "Moulin Rouge Cast",
       "year": 2001
-    },
-    {
-      "title": "Wrong Place Wrong Time",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Rox in the Box",
-      "artist": "Decemberists",
-      "year": 2011
     }
   ],
   "hamilton": [
@@ -10212,78 +9105,53 @@
       "year": 1981
     },
     {
-      "title": "Cats in the Cradle",
-      "artist": "Harry Chapin",
-      "year": 1974
+      "title": "Cool for Cats",
+      "artist": "Squeeze",
+      "year": 1979
     },
     {
-      "title": "Old Possum's Book of Practical Cats",
-      "artist": "Various",
-      "year": 1939
-    },
-    {
-      "title": "Meow",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Cool Cats",
-      "artist": "Various",
-      "year": 1990
+      "title": "Cats and Dogs",
+      "artist": "Def Leppard",
+      "year": 2015
     }
   ],
   "wicked": [
     {
-      "title": "What Is This Feeling?",
-      "artist": "Wicked Cast",
-      "year": 2003
+      "title": "Wicked Game",
+      "artist": "Chris Isaak",
+      "year": 1989
     },
     {
-      "title": "Popular",
-      "artist": "Wicked Cast",
-      "year": 2003
+      "title": "Wicked",
+      "artist": "Ice Spice",
+      "year": 2023
     },
     {
-      "title": "Defying Gravity",
-      "artist": "Wicked Cast",
-      "year": 2003
+      "title": "Wicked Game",
+      "artist": "James Vincent McMorrow",
+      "year": 2013
     },
     {
-      "title": "For Good",
-      "artist": "Wicked Cast",
-      "year": 2003
+      "title": "Wicked",
+      "artist": "Future",
+      "year": 2015
     },
     {
-      "title": "The Wizard and I",
-      "artist": "Wicked Cast",
+      "title": "Wicked Game",
+      "artist": "HIM",
       "year": 2003
     }
   ],
   "rent": [
     {
-      "title": "Seasons of Love",
-      "artist": "Rent Cast",
-      "year": 1996
+      "title": "Rent",
+      "artist": "Pet Shop Boys",
+      "year": 1987
     },
     {
-      "title": "La Vie Boheme",
-      "artist": "Rent Cast",
-      "year": 1996
-    },
-    {
-      "title": "One Song Glory",
-      "artist": "Rent Cast",
-      "year": 1996
-    },
-    {
-      "title": "Take Me or Leave Me",
-      "artist": "Rent Cast",
-      "year": 1996
-    },
-    {
-      "title": "Without You",
-      "artist": "Rent Cast",
-      "year": 1996
+      "title": "Rent Money",
+      "artist": "Future ft. Young Thug",
+      "year": 2016
     }
   ],
   "mama": [
@@ -10298,11 +9166,6 @@
       "year": 1975
     },
     {
-      "title": "Oh Mama",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
       "title": "Mama Said",
       "artist": "Metallica",
       "year": 1991
@@ -10311,60 +9174,45 @@
       "title": "Mama Told Me Not to Come",
       "artist": "Three Dog Night",
       "year": 1970
+    },
+    {
+      "title": "Mama",
+      "artist": "Genesis",
+      "year": 1983
     }
   ],
   "curtain": [
     {
       "title": "Behind the Curtain",
-      "artist": "Various",
-      "year": 1985
+      "artist": "Godsmack",
+      "year": 2003
     },
     {
-      "title": "Final Curtain",
-      "artist": "Various",
-      "year": 1990
+      "title": "Curtain Call",
+      "artist": "Eminem",
+      "year": 2005
     },
     {
       "title": "Iron Curtain",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Beyond the Curtain",
-      "artist": "Various",
-      "year": 1992
-    },
-    {
-      "title": "The Curtain Falls",
-      "artist": "Various",
-      "year": 1995
+      "artist": "Snowy White",
+      "year": 1985
     }
   ],
   "spotlight": [
     {
       "title": "Spotlight",
-      "artist": "Various",
-      "year": 1985
+      "artist": "Jennifer Hudson",
+      "year": 2008
     },
     {
-      "title": "In the Spotlight",
-      "artist": "Various",
-      "year": 1990
+      "title": "Spotlight",
+      "artist": "Mutemath",
+      "year": 2006
     },
     {
-      "title": "Steal My Girl",
-      "artist": "One Direction",
-      "year": 2014
-    },
-    {
-      "title": "Fame",
-      "artist": "Irene Cara",
-      "year": 1980
-    },
-    {
-      "title": "Center Stage",
-      "artist": "Various",
-      "year": 1988
+      "title": "Spotlight",
+      "artist": "Madonna",
+      "year": 1997
     }
   ],
   "dancing": [
@@ -10384,11 +9232,6 @@
       "year": 1971
     },
     {
-      "title": "Let's Start Dancing",
-      "artist": "Various",
-      "year": 1983
-    },
-    {
       "title": "Dancing in the Moonlight",
       "artist": "King Harvest",
       "year": 1972
@@ -10396,29 +9239,9 @@
   ],
   "theater": [
     {
-      "title": "Comedy Tonight",
-      "artist": "A Funny Thing Happened on the Way to the Forum Cast",
-      "year": 1962
-    },
-    {
-      "title": "On Broadway",
-      "artist": "The Drifters",
-      "year": 1963
-    },
-    {
-      "title": "Showbiz",
-      "artist": "Muse",
-      "year": 1999
-    },
-    {
-      "title": "Magic to Do",
-      "artist": "Pippin Cast",
-      "year": 1972
-    },
-    {
-      "title": "Entertain",
-      "artist": "Sleater-Kinney",
-      "year": 2005
+      "title": "Theater",
+      "artist": "Danny Elfman",
+      "year": 1990
     }
   ],
   "broadway": [
@@ -10492,14 +9315,14 @@
       "year": 1984
     },
     {
-      "title": "Puppet Master",
-      "artist": "Various",
-      "year": 1989
+      "title": "Master of the House",
+      "artist": "Les Misérables Cast",
+      "year": 1985
     },
     {
-      "title": "Master of the House",
-      "artist": "Les Mis\u00e9rables Cast",
-      "year": 1985
+      "title": "The Master",
+      "artist": "Andrew Lloyd Webber",
+      "year": 1986
     }
   ],
   "music": [
@@ -10532,28 +9355,13 @@
   "chairs": [
     {
       "title": "Empty Chairs at Empty Tables",
-      "artist": "Les Mis\u00e9rables Cast",
+      "artist": "Les Misérables Cast",
       "year": 1985
-    },
-    {
-      "title": "Sit Down",
-      "artist": "James",
-      "year": 1989
-    },
-    {
-      "title": "Two Chairs",
-      "artist": "Various",
-      "year": 1988
     },
     {
       "title": "Musical Chairs",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Game of Chairs",
-      "artist": "Various",
-      "year": 1990
+      "artist": "Tokio Hotel",
+      "year": 2010
     }
   ],
   "finale": [
@@ -10563,24 +9371,14 @@
       "year": 1987
     },
     {
+      "title": "Finale",
+      "artist": "Madison Beer",
+      "year": 2018
+    },
+    {
       "title": "Grand Finale",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "The Finale",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Overture and Finale",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "The Beginning of the End",
-      "artist": "Various",
-      "year": 1992
+      "artist": "Beach Bunny",
+      "year": 2022
     }
   ],
   "footloose": [
@@ -10590,24 +9388,14 @@
       "year": 1984
     },
     {
-      "title": "Let's Hear It for the Boy",
-      "artist": "Deniece Williams",
+      "title": "Footloose (Kenny Loggins reprise)",
+      "artist": "Kenny Loggins",
       "year": 1984
     },
     {
-      "title": "Almost Paradise",
-      "artist": "Mike Reno & Ann Wilson",
-      "year": 1984
-    },
-    {
-      "title": "Holding Out for a Hero",
-      "artist": "Bonnie Tyler",
-      "year": 1984
-    },
-    {
-      "title": "I Need a Hero",
-      "artist": "Various",
-      "year": 1984
+      "title": "Footloose",
+      "artist": "Blake Shelton",
+      "year": 2011
     }
   ],
   "flashdance": [
@@ -10669,26 +9457,6 @@
       "title": "Thriller",
       "artist": "Michael Jackson",
       "year": 1982
-    },
-    {
-      "title": "Zombie",
-      "artist": "The Cranberries",
-      "year": 1994
-    },
-    {
-      "title": "Thriller Night",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Fright Night",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Halloween Theme",
-      "artist": "John Carpenter",
-      "year": 1978
     }
   ],
   "fame": [
@@ -10703,46 +9471,21 @@
       "year": 1975
     },
     {
-      "title": "I'm Gonna Live Forever",
-      "artist": "Irene Cara",
-      "year": 1980
-    },
-    {
-      "title": "Name of the Game",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Stars",
-      "artist": "Various",
-      "year": 1988
+      "title": "The Fame",
+      "artist": "Lady Gaga",
+      "year": 2008
     }
   ],
   "maverick": [
     {
-      "title": "Danger Zone",
-      "artist": "Kenny Loggins",
-      "year": 1986
+      "title": "Maverick",
+      "artist": "Camila Cabello",
+      "year": 2024
     },
     {
-      "title": "Top Gun Anthem",
-      "artist": "Harold Faltermeyer",
-      "year": 1986
-    },
-    {
-      "title": "Take My Breath Away",
-      "artist": "Berlin",
-      "year": 1986
-    },
-    {
-      "title": "Playing With the Boys",
-      "artist": "Kenny Loggins",
-      "year": 1986
-    },
-    {
-      "title": "Mighty Wings",
-      "artist": "Cheap Trick",
-      "year": 1986
+      "title": "Maverick",
+      "artist": "Kizz Daniel",
+      "year": 2023
     }
   ],
   "danger": [
@@ -10760,16 +9503,6 @@
       "title": "Danger! High Voltage",
       "artist": "Electric Six",
       "year": 2002
-    },
-    {
-      "title": "Stranger Danger",
-      "artist": "Various",
-      "year": 1990
-    },
-    {
-      "title": "Living on the Edge",
-      "artist": "Aerosmith",
-      "year": 1993
     }
   ],
   "paradise": [
@@ -10806,24 +9539,14 @@
       "year": 1984
     },
     {
-      "title": "In the Glory of the Son",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
       "title": "Glory of Love",
       "artist": "Peter Cetera",
       "year": 1986
     },
     {
-      "title": "Golden Years",
-      "artist": "David Bowie",
-      "year": 1975
-    },
-    {
-      "title": "Rock the Boat",
-      "artist": "Various",
-      "year": 1974
+      "title": "Glory",
+      "artist": "Common & John Legend",
+      "year": 2014
     }
   ],
   "maniac": [
@@ -10833,51 +9556,26 @@
       "year": 1983
     },
     {
-      "title": "Manic Monday",
-      "artist": "The Bangles",
-      "year": 1986
-    },
-    {
-      "title": "Maniac 2000",
-      "artist": "Various",
-      "year": 2000
-    },
-    {
-      "title": "Psycho Killer",
-      "artist": "Talking Heads",
-      "year": 1977
-    },
-    {
-      "title": "Basket Case",
-      "artist": "Green Day",
-      "year": 1994
+      "title": "Maniac",
+      "artist": "Conan Gray",
+      "year": 2020
     }
   ],
   "warrior": [
-    {
-      "title": "I Am a Warrior",
-      "artist": "Various",
-      "year": 1985
-    },
     {
       "title": "Warrior",
       "artist": "Ke$ha",
       "year": 2012
     },
     {
-      "title": "Rainbow Warrior",
-      "artist": "Various",
-      "year": 1985
+      "title": "Warrior",
+      "artist": "Demi Lovato",
+      "year": 2009
     },
     {
-      "title": "Warrior of the World",
-      "artist": "Various",
-      "year": 1988
-    },
-    {
-      "title": "Burning Heart",
-      "artist": "Survivor",
-      "year": 1985
+      "title": "Warrior",
+      "artist": "Kesha",
+      "year": 2012
     }
   ],
   "rebel": [
@@ -10892,19 +9590,9 @@
       "year": 1983
     },
     {
-      "title": "Rebel Without a Cause",
-      "artist": "Various",
-      "year": 1955
-    },
-    {
       "title": "Rebel Rouser",
       "artist": "Duane Eddy",
       "year": 1958
-    },
-    {
-      "title": "Renegade",
-      "artist": "Styx",
-      "year": 1979
     }
   ],
   "fighter": [
@@ -10914,24 +9602,9 @@
       "year": 2002
     },
     {
-      "title": "Eye of the Tiger",
-      "artist": "Survivor",
-      "year": 1982
-    },
-    {
-      "title": "Street Fighter",
-      "artist": "Various",
-      "year": 1994
-    },
-    {
-      "title": "Foo Fighters",
-      "artist": "Everlong",
-      "year": 1997
-    },
-    {
-      "title": "Prizefighter",
-      "artist": "Various",
-      "year": 1985
+      "title": "Soul Fighter",
+      "artist": "Metallica ft. Ice-T",
+      "year": 2023
     }
   ],
   "survivor": [
@@ -10978,41 +9651,9 @@
       "year": 1996
     },
     {
-      "title": "I Need a Hero",
-      "artist": "Various",
-      "year": 1984
-    },
-    {
-      "title": "Superman (It's Not Easy)",
-      "artist": "Five for Fighting",
-      "year": 2000
-    }
-  ],
-  "rocky": [
-    {
-      "title": "Gonna Fly Now (Rocky Theme)",
-      "artist": "Bill Conti",
-      "year": 1977
-    },
-    {
-      "title": "Eye of the Tiger",
-      "artist": "Survivor",
-      "year": 1982
-    },
-    {
-      "title": "Living in America",
-      "artist": "James Brown",
-      "year": 1985
-    },
-    {
-      "title": "Hearts on Fire",
-      "artist": "John Cafferty",
-      "year": 1985
-    },
-    {
-      "title": "Take You Back",
-      "artist": "Various",
-      "year": 1986
+      "title": "Hero",
+      "artist": "Enrique Iglesias",
+      "year": 2001
     }
   ],
   "running": [
@@ -11086,11 +9727,6 @@
       "year": 1971
     },
     {
-      "title": "Electric Power",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
       "title": "The Power",
       "artist": "Snap!",
       "year": 1990
@@ -11098,83 +9734,58 @@
   ],
   "champion": [
     {
-      "title": "We Are the Champions",
-      "artist": "Queen",
-      "year": 1977
-    },
-    {
-      "title": "Champion",
-      "artist": "Various",
-      "year": 1985
-    },
-    {
-      "title": "Eye of the Tiger",
-      "artist": "Survivor",
-      "year": 1982
-    },
-    {
-      "title": "The Greatest",
-      "artist": "Cat Power",
-      "year": 2006
-    },
-    {
       "title": "Hall of Fame",
       "artist": "The Script",
       "year": 2012
+    },
+    {
+      "title": "Champion",
+      "artist": "Kanye West",
+      "year": 2007
+    },
+    {
+      "title": "Champion",
+      "artist": "Fall Out Boy",
+      "year": 2017
+    },
+    {
+      "title": "Champion",
+      "artist": "Carrie Underwood ft. Ludacris",
+      "year": 2018
+    },
+    {
+      "title": "Champion",
+      "artist": "Bonnie Tyler",
+      "year": 1986
     }
   ],
   "cobra": [
     {
-      "title": "Cobra Kai",
-      "artist": "Various",
-      "year": 2018
-    },
-    {
-      "title": "Danger Zone",
-      "artist": "Kenny Loggins",
-      "year": 1986
-    },
-    {
-      "title": "Snake Eater",
-      "artist": "Various",
-      "year": 1964
-    },
-    {
       "title": "King Cobra",
-      "artist": "Various",
-      "year": 1985
+      "artist": "Elle King",
+      "year": 2015
     },
     {
-      "title": "Apache",
-      "artist": "The Sugarhill Gang",
-      "year": 1981
+      "title": "Cobra",
+      "artist": "Kesha",
+      "year": 2023
+    },
+    {
+      "title": "Cobra Style",
+      "artist": "Awesome 3",
+      "year": 2005
     }
   ],
   "karate": [
     {
-      "title": "You're the Best Around",
-      "artist": "Joe Esposito",
-      "year": 1984
+      "title": "Karate Chop",
+      "artist": "Future",
+      "year": 2013
     },
     {
-      "title": "Glory of Love",
-      "artist": "Peter Cetera",
-      "year": 1986
-    },
-    {
-      "title": "Fight Song",
-      "artist": "Rachel Platten",
-      "year": 2015
-    },
-    {
-      "title": "Training Montage",
-      "artist": "Various",
-      "year": 1984
-    },
-    {
-      "title": "Push It to the Limit",
-      "artist": "Paul Engemann",
-      "year": 1983
+      "title": "Karate",
+      "artist": "System of a Down",
+      "year": 2005
     }
   ],
   "batman": [
@@ -11189,19 +9800,9 @@
       "year": 1989
     },
     {
-      "title": "Partyman",
-      "artist": "Prince",
-      "year": 1989
-    },
-    {
-      "title": "The Batman",
-      "artist": "Various",
-      "year": 2022
-    },
-    {
-      "title": "Superhero",
-      "artist": "Various",
-      "year": 1997
+      "title": "Na Na Na",
+      "artist": "My Chemical Romance",
+      "year": 2010
     }
   ],
   "spring": [
@@ -11327,11 +9928,6 @@
       "title": "Snowfall",
       "artist": "Elvis Costello",
       "year": 2003
-    },
-    {
-      "title": "Let It Snow! Let It Snow! Let It Snow!",
-      "artist": "Dean Martin",
-      "year": 1959
     }
   ],
   "harvest": [
@@ -11390,29 +9986,9 @@
   ],
   "crisp": [
     {
-      "title": "Crisp Air",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "October",
-      "artist": "U2",
-      "year": 1981
-    },
-    {
-      "title": "Barely Breathing",
-      "artist": "Duncan Sheik",
-      "year": 1996
-    },
-    {
-      "title": "Cold",
-      "artist": "Annie Lennox",
-      "year": 1992
-    },
-    {
-      "title": "Sharp Dressed Man",
-      "artist": "ZZ Top",
-      "year": 1983
+      "title": "Crisp",
+      "artist": "Kississippi",
+      "year": 2018
     }
   ],
   "frosty": [
@@ -11422,19 +9998,24 @@
       "year": 1950
     },
     {
-      "title": "Jack Frost",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Cold as Ice",
-      "artist": "Foreigner",
-      "year": 1977
-    },
-    {
       "title": "Frosty",
-      "artist": "Various Artists",
+      "artist": "Various",
       "year": 2005
+    },
+    {
+      "title": "Frosty Morning",
+      "artist": "Various",
+      "year": 1998
+    },
+    {
+      "title": "Frosty the Snowman",
+      "artist": "Jimmy Durante",
+      "year": 1950
+    },
+    {
+      "title": "Frosty the Snowman",
+      "artist": "Nat King Cole",
+      "year": 1950
     }
   ],
   "stormy": [
@@ -11520,29 +10101,9 @@
   ],
   "drizzle": [
     {
-      "title": "Little Drops of Rain",
-      "artist": "Robert Goulet",
-      "year": 1962
-    },
-    {
-      "title": "November Rain",
-      "artist": "Guns N' Roses",
-      "year": 1992
-    },
-    {
-      "title": "Purple Rain",
-      "artist": "Prince",
-      "year": 1984
-    },
-    {
       "title": "Drizzle",
-      "artist": "Various Artists",
+      "artist": "Novo Amor",
       "year": 2017
-    },
-    {
-      "title": "It's Raining Men",
-      "artist": "The Weather Girls",
-      "year": 1982
     }
   ],
   "melting": [
@@ -11552,51 +10113,21 @@
       "year": 2018
     },
     {
-      "title": "Melt with You",
-      "artist": "Modern English",
-      "year": 1982
-    },
-    {
-      "title": "Burnin' for You",
-      "artist": "Blue \u00d6yster Cult",
-      "year": 1981
-    },
-    {
-      "title": "Melting Point",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Burn",
-      "artist": "Usher",
-      "year": 2004
+      "title": "Melting",
+      "artist": "The Marías",
+      "year": 2018
     }
   ],
   "thaw": [
     {
-      "title": "The Thaw",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Thaw",
+      "artist": "State Champs",
+      "year": 2018
     },
     {
-      "title": "Here Comes the Sun",
-      "artist": "The Beatles",
-      "year": 1969
-    },
-    {
-      "title": "Spring Is Here",
-      "artist": "Various Artists",
-      "year": 1938
-    },
-    {
-      "title": "Defrost",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Warm",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Spring Thaw",
+      "artist": "Various Classical",
+      "year": 1900
     }
   ],
   "solstice": [
@@ -11606,24 +10137,14 @@
       "year": 1987
     },
     {
+      "title": "Summer Solstice",
+      "artist": "Ray LaMontagne",
+      "year": 2010
+    },
+    {
       "title": "Solstice",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Song to the Siren",
-      "artist": "Tim Buckley",
-      "year": 1983
-    },
-    {
-      "title": "Longest Day",
-      "artist": "Various Artists",
-      "year": 2018
-    },
-    {
-      "title": "Equinox",
-      "artist": "John Coltrane",
-      "year": 1965
+      "artist": "Jai Paul",
+      "year": 2013
     }
   ],
   "foggy": [
@@ -11665,73 +10186,43 @@
       "year": 1967
     },
     {
+      "title": "Morning Dew",
+      "artist": "Bonnie Dobson",
+      "year": 1962
+    },
+    {
       "title": "Dew",
-      "artist": "Various Artists",
-      "year": 2012
+      "artist": "Lisa Loeb",
+      "year": 1995
     },
     {
-      "title": "Dewdrop",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Morning Has Broken",
-      "artist": "Cat Stevens",
-      "year": 1972
+      "title": "Morning Dew",
+      "artist": "Lulu",
+      "year": 1967
     }
   ],
   "pollen": [
     {
       "title": "Pollen",
-      "artist": "Various Artists",
-      "year": 2015
+      "artist": "Beach House",
+      "year": 2010
     },
     {
-      "title": "Blowin' in the Wind",
-      "artist": "Bob Dylan",
-      "year": 1963
-    },
-    {
-      "title": "Fields of Gold",
-      "artist": "Sting",
-      "year": 1993
-    },
-    {
-      "title": "Nature Boy",
-      "artist": "Nat King Cole",
-      "year": 1948
-    },
-    {
-      "title": "Breathing",
-      "artist": "Kate Bush",
-      "year": 1980
+      "title": "Pollen Path",
+      "artist": "Various",
+      "year": 2000
     }
   ],
   "chill": [
     {
-      "title": "Ice Ice Baby",
-      "artist": "Vanilla Ice",
-      "year": 1990
+      "title": "Ain't No Chill",
+      "artist": "Chris Brown",
+      "year": 2018
     },
     {
-      "title": "Chilling",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Chill Out Zone",
-      "artist": "Various Artists",
-      "year": 2001
-    },
-    {
-      "title": "Cold as Ice",
-      "artist": "Foreigner",
-      "year": 1977
-    },
-    {
-      "title": "Coldplay",
-      "artist": "Clocks",
-      "year": 2002
+      "title": "Just Chill",
+      "artist": "Brooke Hogan",
+      "year": 2006
     }
   ],
   "shower": [
@@ -11769,7 +10260,7 @@
     },
     {
       "title": "Run the World (Girls)",
-      "artist": "Beyonc\u00e9",
+      "artist": "Beyoncé",
       "year": 2011
     },
     {
@@ -11854,19 +10345,9 @@
       "year": 1994
     },
     {
-      "title": "Child's Play",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Play",
       "artist": "Jennifer Lopez",
       "year": 2001
-    },
-    {
-      "title": "Let Me Entertain You",
-      "artist": "Robbie Williams",
-      "year": 1998
     }
   ],
   "stop": [
@@ -11903,24 +10384,14 @@
       "year": 1981
     },
     {
-      "title": "Start Again",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "A Brand New Start",
-      "artist": "Various Artists",
-      "year": 2001
-    },
-    {
       "title": "From the Start",
       "artist": "Laufey",
       "year": 2023
     },
     {
-      "title": "Starting Over",
-      "artist": "Chris Stapleton",
-      "year": 2020
+      "title": "Fresh Start",
+      "artist": "Switchfoot",
+      "year": 2006
     }
   ],
   "fight": [
@@ -11984,11 +10455,6 @@
       "year": 1965
     },
     {
-      "title": "Every Little Thing She Does Is Magic",
-      "artist": "The Police",
-      "year": 1981
-    },
-    {
       "title": "Turn Me On",
       "artist": "Norah Jones",
       "year": 2002
@@ -11999,9 +10465,14 @@
       "year": 1973
     },
     {
-      "title": "Turn Around",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Turn Down for What",
+      "artist": "DJ Snake & Lil Jon",
+      "year": 2013
+    },
+    {
+      "title": "Turn Me On",
+      "artist": "Norah Jones ft. Belle & Sebastian",
+      "year": 2007
     }
   ],
   "fall": [
@@ -12021,14 +10492,14 @@
       "year": 1961
     },
     {
-      "title": "Waterfall",
-      "artist": "TLC",
-      "year": 1994
+      "title": "Fallin'",
+      "artist": "Alicia Keys",
+      "year": 2001
     },
     {
-      "title": "Niagara Falls",
-      "artist": "Various Artists",
-      "year": 2002
+      "title": "Autumn Leaves",
+      "artist": "Nat King Cole",
+      "year": 1955
     }
   ],
   "push": [
@@ -12051,27 +10522,12 @@
       "title": "Push It to the Limit",
       "artist": "Paul Engemann",
       "year": 1983
-    },
-    {
-      "title": "Don't Push Me",
-      "artist": "Various Artists",
-      "year": 2011
     }
   ],
   "pull": [
     {
       "title": "Pull Shapes",
       "artist": "The Pipettes",
-      "year": 2006
-    },
-    {
-      "title": "Push and Pull",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Pullin' Me Back",
-      "artist": "Chingy",
       "year": 2006
     },
     {
@@ -12083,6 +10539,11 @@
       "title": "Don't Pull Your Love",
       "artist": "Hamilton, Joe Frank & Reynolds",
       "year": 1971
+    },
+    {
+      "title": "Pull Up to the Bumper",
+      "artist": "Grace Jones",
+      "year": 1981
     }
   ],
   "reach": [
@@ -12090,11 +10551,6 @@
       "title": "Reach",
       "artist": "S Club 7",
       "year": 2000
-    },
-    {
-      "title": "I Can Reach",
-      "artist": "Various Artists",
-      "year": 2008
     },
     {
       "title": "Reach Out I'll Be There",
@@ -12107,44 +10563,29 @@
       "year": 1970
     },
     {
-      "title": "Touch the Sky",
-      "artist": "Kanye West",
-      "year": 2005
+      "title": "Reach Out I'll Be There",
+      "artist": "The Four Tops",
+      "year": 1966
     }
   ],
   "chase": [
     {
-      "title": "Chase",
-      "artist": "Giorgio Moroder",
-      "year": 1978
+      "title": "Chase the Sun",
+      "artist": "Planet Funk",
+      "year": 2001
     },
     {
-      "title": "Wild Thing",
-      "artist": "The Troggs",
-      "year": 1966
+      "title": "Chase the Morning",
+      "artist": "Ambrosia",
+      "year": 1975
     },
     {
-      "title": "Chasing Cars",
-      "artist": "Snow Patrol",
-      "year": 2006
-    },
-    {
-      "title": "Chasing Pavements",
-      "artist": "Adele",
-      "year": 2008
-    },
-    {
-      "title": "The Chase Is On",
-      "artist": "Various Artists",
+      "title": "Give Chase",
+      "artist": "The Ting Tings",
       "year": 2010
     }
   ],
   "catch": [
-    {
-      "title": "Catch Me If You Can",
-      "artist": "Various Artists",
-      "year": 2002
-    },
     {
       "title": "Catch a Fire",
       "artist": "Bob Marley",
@@ -12164,19 +10605,14 @@
       "title": "Catch the Wind",
       "artist": "Donovan",
       "year": 1965
+    },
+    {
+      "title": "Catch My Breath",
+      "artist": "Kelly Clarkson",
+      "year": 2012
     }
   ],
   "throw": [
-    {
-      "title": "Throw Your Hands Up",
-      "artist": "Various Artists",
-      "year": 2001
-    },
-    {
-      "title": "Turn Down for What",
-      "artist": "DJ Snake & Lil Jon",
-      "year": 2013
-    },
     {
       "title": "Throw It in the Bag",
       "artist": "Fabolous",
@@ -12191,6 +10627,16 @@
       "title": "Throw Ya Gunz",
       "artist": "Onyx",
       "year": 1993
+    },
+    {
+      "title": "Throw Sum Mo",
+      "artist": "Rae Sremmurd",
+      "year": 2016
+    },
+    {
+      "title": "Throw It Away",
+      "artist": "En Vogue",
+      "year": 1992
     }
   ],
   "climb": [
@@ -12227,24 +10673,9 @@
       "year": 2009
     },
     {
-      "title": "Crawling",
-      "artist": "Linkin Park",
-      "year": 2000
-    },
-    {
-      "title": "Crawl Back",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Baby's Got Back",
-      "artist": "Sir Mix-a-Lot",
-      "year": 1992
-    },
-    {
-      "title": "Creep",
-      "artist": "Radiohead",
-      "year": 1992
+      "title": "Learning to Crawl",
+      "artist": "The Pretenders",
+      "year": 1984
     }
   ],
   "carry": [
@@ -12276,11 +10707,6 @@
   ],
   "lift": [
     {
-      "title": "Lift Every Voice and Sing",
-      "artist": "Various Artists",
-      "year": 1900
-    },
-    {
       "title": "Lift Me Up",
       "artist": "Rihanna",
       "year": 2022
@@ -12291,14 +10717,9 @@
       "year": 2011
     },
     {
-      "title": "Higher Love",
-      "artist": "Steve Winwood",
-      "year": 1986
-    },
-    {
-      "title": "Lifted",
-      "artist": "Lighthouse Family",
-      "year": 1995
+      "title": "Lift Off",
+      "artist": "Kanye West ft. Beyoncé",
+      "year": 2011
     }
   ],
   "drag": [
@@ -12308,51 +10729,36 @@
       "year": 2015
     },
     {
-      "title": "Dragula",
-      "artist": "Rob Zombie",
-      "year": 1998
-    },
-    {
-      "title": "Down in the Valley",
-      "artist": "Various Artists",
+      "title": "Drag You Down",
+      "artist": "The Wombats",
       "year": 2011
     },
     {
-      "title": "Drag It Out",
-      "artist": "Various Artists",
+      "title": "Don't Drag Me Down",
+      "artist": "Tegan and Sara",
       "year": 2013
     },
     {
-      "title": "Six Days on the Road",
-      "artist": "Dave Dudley",
-      "year": 1963
+      "title": "Drag Queen",
+      "artist": "Bring Me the Horizon",
+      "year": 2020
     }
   ],
   "kick": [
-    {
-      "title": "Kickstart My Heart",
-      "artist": "M\u00f6tley Cr\u00fce",
-      "year": 1989
-    },
     {
       "title": "Kick",
       "artist": "INXS",
       "year": 1987
     },
     {
-      "title": "Sidekick",
-      "artist": "Various Artists",
-      "year": 2021
+      "title": "Kick, Push",
+      "artist": "Lupe Fiasco",
+      "year": 2006
     },
     {
-      "title": "These Boots Are Made for Walkin'",
-      "artist": "Nancy Sinatra",
-      "year": 1966
-    },
-    {
-      "title": "Kung Fu Fighting",
-      "artist": "Carl Douglas",
-      "year": 1974
+      "title": "Kick the Dust Up",
+      "artist": "Luke Bryan",
+      "year": 2015
     }
   ],
   "go": [
@@ -12458,36 +10864,9 @@
       "year": 1963
     },
     {
-      "title": "Follow the River",
-      "artist": "Various Artists",
-      "year": 2017
-    }
-  ],
-  "travel": [
-    {
-      "title": "Traveling Wilburys",
-      "artist": "Traveling Wilburys",
-      "year": 1988
-    },
-    {
-      "title": "Travel",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "On the Road Again",
-      "artist": "Willie Nelson",
-      "year": 1980
-    },
-    {
-      "title": "Travelin' Man",
-      "artist": "Ricky Nelson",
-      "year": 1961
-    },
-    {
-      "title": "Around the World",
-      "artist": "Daft Punk",
-      "year": 1997
+      "title": "Follow You",
+      "artist": "Imagine Dragons",
+      "year": 2021
     }
   ],
   "drift": [
@@ -12497,24 +10876,9 @@
       "year": 1973
     },
     {
-      "title": "Drifting",
-      "artist": "Jimi Hendrix",
-      "year": 1971
-    },
-    {
-      "title": "Drifter",
-      "artist": "Various Artists",
-      "year": 2007
-    },
-    {
-      "title": "Driftin'",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
       "title": "Drift",
-      "artist": "Various Artists",
-      "year": 2015
+      "artist": "The Japanese House",
+      "year": 2019
     }
   ],
   "fly": [
@@ -12547,87 +10911,37 @@
   "rush": [
     {
       "title": "Rush",
-      "artist": "Various Artists",
-      "year": 2013
+      "artist": "Big Audio Dynamite",
+      "year": 1991
     },
     {
-      "title": "Gold Digger",
-      "artist": "Kanye West",
-      "year": 2005
+      "title": "Rush Rush",
+      "artist": "Paula Abdul",
+      "year": 1991
     },
     {
-      "title": "Hurry Up",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Rush Hour",
-      "artist": "Various Artists",
-      "year": 2000
-    },
-    {
-      "title": "Running with the Night",
-      "artist": "Lionel Richie",
-      "year": 1983
+      "title": "Adrenaline Rush",
+      "artist": "Twista",
+      "year": 1997
     }
   ],
   "flee": [
     {
-      "title": "Runaway",
-      "artist": "Del Shannon",
-      "year": 1961
-    },
-    {
-      "title": "Run for Your Life",
-      "artist": "The Beatles",
-      "year": 1965
-    },
-    {
-      "title": "Runaway Train",
-      "artist": "Soul Asylum",
-      "year": 1993
-    },
-    {
-      "title": "Escape (The Pi\u00f1a Colada Song)",
-      "artist": "Rupert Holmes",
-      "year": 1979
-    },
-    {
-      "title": "Running Scared",
-      "artist": "Roy Orbison",
-      "year": 1961
+      "title": "Flee",
+      "artist": "Chelsea Wolfe",
+      "year": 2017
     }
   ],
   "wander": [
     {
-      "title": "Wanderer",
-      "artist": "Dion",
-      "year": 1961
-    },
-    {
-      "title": "I Am a Wanderer",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
       "title": "Wander",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Rambling Man",
-      "artist": "The Allman Brothers Band",
-      "year": 1973
-    },
-    {
-      "title": "The Wandering Kind",
-      "artist": "Various Artists",
-      "year": 2014
+      "artist": "Beach House",
+      "year": 2015
     }
   ],
   "escape": [
     {
-      "title": "Escape (The Pi\u00f1a Colada Song)",
+      "title": "Escape (The Piña Colada Song)",
       "artist": "Rupert Holmes",
       "year": 1979
     },
@@ -12664,73 +10978,33 @@
       "year": 1962
     },
     {
-      "title": "I Keep Comin' Back",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Return of the Prodigal Son",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Welcome Back",
-      "artist": "John Sebastian",
-      "year": 1976
+      "title": "The Return",
+      "artist": "Godsmack",
+      "year": 2003
     }
   ],
   "arrive": [
     {
-      "title": "Arrival",
-      "artist": "ABBA",
-      "year": 1976
+      "title": "Arrive",
+      "artist": "Priestess",
+      "year": 2009
     },
     {
-      "title": "Arrivals & Departures",
-      "artist": "Various Artists",
-      "year": 2007
+      "title": "Arrive",
+      "artist": "Chase Rice",
+      "year": 2014
     },
     {
-      "title": "Dock of the Bay",
-      "artist": "Otis Redding",
-      "year": 1968
-    },
-    {
-      "title": "Homecoming",
-      "artist": "Kanye West",
-      "year": 2007
-    },
-    {
-      "title": "Welcome to the Machine",
-      "artist": "Pink Floyd",
-      "year": 1975
+      "title": "Arrive Unknown",
+      "artist": "Streetlight Manifesto",
+      "year": 2013
     }
   ],
   "depart": [
     {
-      "title": "Departure",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Time to Say Goodbye",
-      "artist": "Andrea Bocelli & Sarah Brightman",
-      "year": 1996
-    },
-    {
-      "title": "Don't Let the Sun Catch You Crying",
-      "artist": "Gerry and the Pacemakers",
-      "year": 1964
-    },
-    {
-      "title": "Travelin' Man",
-      "artist": "Ricky Nelson",
-      "year": 1961
-    },
-    {
-      "title": "Last Train to Clarksville",
-      "artist": "The Monkees",
-      "year": 1966
+      "title": "Depart",
+      "artist": "Killswitch Engage",
+      "year": 2009
     }
   ],
   "roam": [
@@ -12794,24 +11068,9 @@
       "year": 2022
     },
     {
-      "title": "Slip Slidin'",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Smooth",
-      "artist": "Santana feat. Rob Thomas",
-      "year": 1999
-    },
-    {
-      "title": "Gliding",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Easy Like Sunday Morning",
-      "artist": "Lionel Richie",
-      "year": 1977
+      "title": "Glide",
+      "artist": "Pleasure",
+      "year": 1979
     }
   ],
   "creep": [
@@ -12824,21 +11083,6 @@
       "title": "Creep",
       "artist": "TLC",
       "year": 1994
-    },
-    {
-      "title": "Sneakin' Around",
-      "artist": "Various Artists",
-      "year": 2008
-    },
-    {
-      "title": "Private Dancer",
-      "artist": "Tina Turner",
-      "year": 1984
-    },
-    {
-      "title": "The Creeps",
-      "artist": "Various Artists",
-      "year": 2007
     }
   ],
   "race": [
@@ -12883,16 +11127,6 @@
       "title": "Can't Hurry Love",
       "artist": "The Supremes",
       "year": 1966
-    },
-    {
-      "title": "Hurry Home",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Haste Makes Waste",
-      "artist": "Various Artists",
-      "year": 2008
     }
   ],
   "linger": [
@@ -12900,107 +11134,52 @@
       "title": "Linger",
       "artist": "The Cranberries",
       "year": 1993
-    },
-    {
-      "title": "Stay Awhile",
-      "artist": "Dusty Springfield",
-      "year": 1964
-    },
-    {
-      "title": "Don't Go Away",
-      "artist": "Oasis",
-      "year": 1997
-    },
-    {
-      "title": "Hanging Around",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "A Little Time",
-      "artist": "Beautiful South",
-      "year": 1990
     }
   ],
   "venture": [
     {
-      "title": "Wild Blue Yonder",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Venture Bros. Theme",
+      "artist": "J.G. Thirlwell",
+      "year": 2004
     },
     {
-      "title": "New Adventures in Hi-Fi",
-      "artist": "R.E.M.",
-      "year": 1996
-    },
-    {
-      "title": "Brave",
-      "artist": "Sara Bareilles",
-      "year": 2013
-    },
-    {
-      "title": "Dare",
-      "artist": "Gorillaz",
+      "title": "New Venture",
+      "artist": "Various",
       "year": 2005
-    },
-    {
-      "title": "Across the Universe",
-      "artist": "The Beatles",
-      "year": 1970
     }
   ],
   "cross": [
-    {
-      "title": "Cross Road Blues",
-      "artist": "Robert Johnson",
-      "year": 1937
-    },
-    {
-      "title": "Crossroads",
-      "artist": "Cream",
-      "year": 1968
-    },
-    {
-      "title": "The Old Rugged Cross",
-      "artist": "Various Artists",
-      "year": 1913
-    },
     {
       "title": "Cross My Heart",
       "artist": "George Strait",
       "year": 1992
     },
     {
-      "title": "Don't Cross Me",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Take It to the Cross",
+      "artist": "Kirk Franklin",
+      "year": 2005
+    },
+    {
+      "title": "Cross My Heart",
+      "artist": "8Ball & MJG",
+      "year": 1998
+    },
+    {
+      "title": "Old Rugged Cross",
+      "artist": "Alan Jackson",
+      "year": 2013
+    },
+    {
+      "title": "Old Rugged Cross",
+      "artist": "Willie Nelson",
+      "year": 1976
     }
   ],
   "stride": [
     {
-      "title": "Stride",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Long Tall Sally",
-      "artist": "Little Richard",
-      "year": 1956
-    },
-    {
-      "title": "Walk Tall",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Step by Step",
-      "artist": "New Kids on the Block",
-      "year": 1990
-    },
-    {
-      "title": "Footsteps",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Hit My Stride",
+      "artist": "K.C. Porter",
+      "year": 2000
     }
   ],
   "song": [
@@ -13037,78 +11216,33 @@
       "year": 1983
     },
     {
-      "title": "Can't Beat the Real Thing",
-      "artist": "Various Artists",
-      "year": 2006
-    },
-    {
       "title": "The Beat Goes On",
       "artist": "Sonny & Cher",
       "year": 1967
     },
     {
-      "title": "Heart of the Beat",
-      "artist": "Various Artists",
-      "year": 2008
+      "title": "Boom Boom Pow",
+      "artist": "The Black Eyed Peas",
+      "year": 2009
     },
     {
-      "title": "Boom Shack-A-Lak",
-      "artist": "Apache Indian",
-      "year": 1993
+      "title": "This Beat Is Sick",
+      "artist": "Fatman Scoop",
+      "year": 2007
     }
   ],
   "rap": [
     {
-      "title": "Rapper's Delight",
-      "artist": "Sugarhill Gang",
-      "year": 1979
-    },
-    {
       "title": "Rap God",
       "artist": "Eminem",
       "year": 2013
-    },
-    {
-      "title": "Rap Game",
-      "artist": "Various Artists",
-      "year": 2006
-    },
-    {
-      "title": "Rapture",
-      "artist": "Blondie",
-      "year": 1981
-    },
-    {
-      "title": "The Rap",
-      "artist": "Various Artists",
-      "year": 2010
     }
   ],
   "verse": [
     {
-      "title": "Verse and Chorus",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Verse 2",
-      "artist": "Various Artists",
-      "year": 2016
-    },
-    {
-      "title": "Chapter and Verse",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Bible Verse",
-      "artist": "Various Artists",
-      "year": 2018
-    },
-    {
-      "title": "Another Brick in the Wall",
-      "artist": "Pink Floyd",
-      "year": 1979
+      "title": "Cypher Verse",
+      "artist": "Big Sean",
+      "year": 2015
     }
   ],
   "chorus": [
@@ -13118,24 +11252,14 @@
       "year": 1991
     },
     {
-      "title": "Chorus Line",
-      "artist": "Various Artists",
-      "year": 1975
-    },
-    {
       "title": "Hallelujah Chorus",
       "artist": "George Frideric Handel",
       "year": 1741
     },
     {
-      "title": "Chorus",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Anthem",
-      "artist": "Various Artists",
-      "year": 2001
+      "title": "Chorus Girl",
+      "artist": "The Wombats",
+      "year": 2011
     }
   ],
   "melody": [
@@ -13155,14 +11279,14 @@
       "year": 2007
     },
     {
-      "title": "Play That Melody",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Melody",
+      "artist": "Serge Gainsbourg",
+      "year": 1971
     },
     {
-      "title": "The Sound of Music",
-      "artist": "Julie Andrews",
-      "year": 1965
+      "title": "Melody of Life",
+      "artist": "Various Broadway",
+      "year": 1990
     }
   ],
   "rhythm": [
@@ -13187,9 +11311,9 @@
       "year": 1991
     },
     {
-      "title": "The Rhythm of Life",
-      "artist": "Various Artists",
-      "year": 1996
+      "title": "Rhythm Is a Dancer",
+      "artist": "Snap!",
+      "year": 1992
     }
   ],
   "hook": [
@@ -13199,105 +11323,50 @@
       "year": 1994
     },
     {
-      "title": "Peter Pan (Hook)",
-      "artist": "Various Artists",
-      "year": 1991
+      "title": "The Hook",
+      "artist": "Blues Traveler",
+      "year": 1994
     },
     {
-      "title": "Hooked on a Feeling",
-      "artist": "Blue Swede",
-      "year": 1974
-    },
-    {
-      "title": "Hooked on Classics",
-      "artist": "Louis Clark",
-      "year": 1981
-    },
-    {
-      "title": "Caught on a Hook",
-      "artist": "Various Artists",
-      "year": 2007
+      "title": "Off the Hook",
+      "artist": "The Weeknd",
+      "year": 2015
     }
   ],
   "track": [
     {
-      "title": "On the Right Track",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "One Track Mind",
+      "artist": "The Knack",
+      "year": 1979
     },
     {
-      "title": "Keep on Track",
-      "artist": "Various Artists",
-      "year": 2008
-    },
-    {
-      "title": "Railroad",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Fast Train",
-      "artist": "Solomon Burke",
-      "year": 1964
-    },
-    {
-      "title": "Tracks of My Tears",
-      "artist": "The Miracles",
-      "year": 1965
+      "title": "Fast Track",
+      "artist": "Fatboy Slim",
+      "year": 2000
     }
   ],
   "flow": [
-    {
-      "title": "Flow",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Let the Music Flow",
-      "artist": "Various Artists",
-      "year": 2009
-    },
     {
       "title": "Go with the Flow",
       "artist": "Queens of the Stone Age",
       "year": 2003
     },
     {
-      "title": "Flow So Beautiful",
-      "artist": "Various Artists",
-      "year": 2016
-    },
-    {
-      "title": "Overflow",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Flow",
+      "artist": "Sasha Alex Sloan",
+      "year": 2020
     }
   ],
   "lyric": [
     {
-      "title": "Lyrics to Go",
-      "artist": "A Tribe Called Quest",
-      "year": 1993
-    },
-    {
       "title": "Lyric",
-      "artist": "Various Artists",
-      "year": 2015
+      "artist": "Dashboard Confessional",
+      "year": 2001
     },
     {
-      "title": "The Power of the Word",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Lyrically Yours",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "My Words",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "The Lyric",
+      "artist": "Coheed and Cambria",
+      "year": 2018
     }
   ],
   "note": [
@@ -13305,53 +11374,18 @@
       "title": "Note to God",
       "artist": "Charice",
       "year": 2009
-    },
-    {
-      "title": "High Note",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Love Note",
-      "artist": "Various Artists",
-      "year": 2008
-    },
-    {
-      "title": "Take Note",
-      "artist": "Various Artists",
-      "year": 2016
-    },
-    {
-      "title": "A Few Small Repairs",
-      "artist": "Shawn Colvin",
-      "year": 1996
     }
   ],
   "tune": [
     {
-      "title": "Fine Tune",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Tiny Dancer",
+      "artist": "Elton John",
+      "year": 1971
     },
     {
-      "title": "Tune Up",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Carry That Weight",
-      "artist": "The Beatles",
-      "year": 1969
-    },
-    {
-      "title": "Ol' Man River",
-      "artist": "Paul Robeson",
-      "year": 1936
-    },
-    {
-      "title": "That Old Black Magic",
-      "artist": "Frank Sinatra",
-      "year": 1961
+      "title": "Timeless Tune",
+      "artist": "Various Jazz",
+      "year": 1955
     }
   ],
   "sound": [
@@ -13383,29 +11417,14 @@
   ],
   "record": [
     {
-      "title": "Record Machine",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Broken Record",
+      "artist": "Rag'n'Bone Man",
+      "year": 2017
     },
     {
-      "title": "Hit the Record",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Record Breaker",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "On the Record",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "For the Record",
-      "artist": "Various Artists",
-      "year": 2016
+      "title": "Broken Record",
+      "artist": "The Format",
+      "year": 2003
     }
   ],
   "album": [
@@ -13431,7 +11450,7 @@
     },
     {
       "title": "Debut",
-      "artist": "Bj\u00f6rk",
+      "artist": "Björk",
       "year": 1993
     }
   ],
@@ -13442,51 +11461,36 @@
       "year": 2004
     },
     {
-      "title": "Tear It Up (Drop the Bass)",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Bomb Diggy",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
       "title": "Drop",
       "artist": "Pharcyde",
       "year": 1995
     },
     {
-      "title": "Let the Drop Hit the Floor",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Let It Drop",
+      "artist": "Waylon Jennings",
+      "year": 1996
+    },
+    {
+      "title": "Drop It Like It's Hot",
+      "artist": "Snoop Dogg ft. Pharrell",
+      "year": 2004
+    },
+    {
+      "title": "Drop It Like It's Hot",
+      "artist": "Snoop Dogg",
+      "year": 2004
     }
   ],
   "sample": [
     {
+      "title": "Sample in a Jar",
+      "artist": "Phish",
+      "year": 1994
+    },
+    {
       "title": "Sample This",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Sampling the Classics",
-      "artist": "Various Artists",
-      "year": 2008
-    },
-    {
-      "title": "Original or Sample?",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Can I Kick It?",
-      "artist": "A Tribe Called Quest",
-      "year": 1990
-    },
-    {
-      "title": "Boom! Shake the Room",
-      "artist": "DJ Jazzy Jeff & The Fresh Prince",
-      "year": 1993
+      "artist": "Big Daddy Kane",
+      "year": 1989
     }
   ],
   "remix": [
@@ -13496,105 +11500,55 @@
       "year": 2003
     },
     {
-      "title": "Thriller (Remix)",
-      "artist": "Michael Jackson",
-      "year": 1983
-    },
-    {
-      "title": "Take That (Remix)",
-      "artist": "Various Artists",
-      "year": 2007
-    },
-    {
       "title": "Pump Up the Volume (Remix)",
       "artist": "M/A/R/R/S",
       "year": 1987
     },
     {
-      "title": "Smells Like Teen Spirit (Remix)",
-      "artist": "Nirvana",
-      "year": 1991
+      "title": "Rockstar (Remix)",
+      "artist": "Post Malone ft. Morgan Wallen",
+      "year": 2019
     }
   ],
   "riff": [
     {
-      "title": "Whole Lotta Love",
-      "artist": "Led Zeppelin",
-      "year": 1969
-    },
-    {
-      "title": "Smoke on the Water",
-      "artist": "Deep Purple",
-      "year": 1972
-    },
-    {
-      "title": "Iron Man",
-      "artist": "Black Sabbath",
-      "year": 1971
-    },
-    {
-      "title": "Back in Black",
+      "title": "Riff Raff",
       "artist": "AC/DC",
-      "year": 1980
+      "year": 1978
     },
     {
-      "title": "Come as You Are",
-      "artist": "Nirvana",
-      "year": 1992
+      "title": "That Riff",
+      "artist": "Halestorm",
+      "year": 2018
     }
   ],
   "bar": [
-    {
-      "title": "One for the Road",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "The Piano Man",
-      "artist": "Billy Joel",
-      "year": 1973
-    },
-    {
-      "title": "Closing Time",
-      "artist": "Semisonic",
-      "year": 1998
-    },
     {
       "title": "Bar Room Hero",
       "artist": "Dropkick Murphys",
       "year": 2003
     },
     {
-      "title": "Cheers",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Copacabana (At the Copa)",
+      "artist": "Barry Manilow",
+      "year": 1978
     }
   ],
   "tempo": [
-    {
-      "title": "Accelerate",
-      "artist": "REM",
-      "year": 2008
-    },
     {
       "title": "Tempo",
       "artist": "Lizzo feat. Missy Elliott",
       "year": 2019
     },
     {
-      "title": "Faster",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Tempo",
+      "artist": "Lizzo ft. Missy Elliott",
+      "year": 2019
     },
     {
-      "title": "Speed of Light",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Full Speed Ahead",
-      "artist": "Various Artists",
-      "year": 2007
+      "title": "Tempo",
+      "artist": "Chris Brown ft. Lil Wayne",
+      "year": 2012
     }
   ],
   "playlist": [
@@ -13604,32 +11558,17 @@
       "year": 2007
     },
     {
-      "title": "Songs for the Road",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "My Mix Tape",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Playlist: The Very Best of Tiffany",
       "artist": "Tiffany",
       "year": 2007
     },
     {
-      "title": "Party Playlist",
-      "artist": "Various Artists",
+      "title": "Playlist",
+      "artist": "Sabrina Carpenter",
       "year": 2015
     }
   ],
   "ride": [
-    {
-      "title": "Take a Ride on My Shoulders",
-      "artist": "Various Artists",
-      "year": 2009
-    },
     {
       "title": "Ride Like the Wind",
       "artist": "Christopher Cross",
@@ -13646,63 +11585,38 @@
       "year": 2015
     },
     {
-      "title": "Midnight Rider",
-      "artist": "The Allman Brothers Band",
-      "year": 1970
+      "title": "Ride Wit Me",
+      "artist": "Nelly",
+      "year": 2000
+    },
+    {
+      "title": "Ride Wit Me",
+      "artist": "Nelly ft. City Spud",
+      "year": 2000
     }
   ],
   "trip": [
-    {
-      "title": "Take a Trip",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Road Trip",
-      "artist": "Various Artists",
-      "year": 2011
-    },
     {
       "title": "Trip",
       "artist": "Ella Mai",
       "year": 2018
     },
     {
-      "title": "Day Tripper",
-      "artist": "The Beatles",
-      "year": 1965
+      "title": "Trip Around the Sun",
+      "artist": "Kenny Chesney & Uncle Kracker",
+      "year": 2015
     },
     {
-      "title": "Psychedelic Trip",
-      "artist": "Various Artists",
-      "year": 2006
+      "title": "The Trip",
+      "artist": "Still Woozy",
+      "year": 2019
     }
   ],
   "explore": [
     {
-      "title": "Explorer",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Brave New World",
-      "artist": "Iron Maiden",
-      "year": 2000
-    },
-    {
-      "title": "Discover",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "On the Discovery",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Wide Open Spaces",
-      "artist": "Dixie Chicks",
-      "year": 1998
+      "title": "Explore",
+      "artist": "Globus",
+      "year": 2007
     }
   ],
   "cruise": [
@@ -13717,46 +11631,21 @@
       "year": 1979
     },
     {
-      "title": "Cruising",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Life is a Cruise",
-      "artist": "Various Artists",
-      "year": 2007
-    },
-    {
-      "title": "Sailing",
-      "artist": "Christopher Cross",
-      "year": 1980
+      "title": "Cruise Control",
+      "artist": "Zac Brown Band",
+      "year": 2015
     }
   ],
   "navigate": [
     {
       "title": "Navigate",
-      "artist": "Various Artists",
-      "year": 2013
+      "artist": "Cheat Codes",
+      "year": 2019
     },
     {
-      "title": "Compass",
-      "artist": "Various Artists",
+      "title": "Navigate",
+      "artist": "Yellowcard",
       "year": 2011
-    },
-    {
-      "title": "Find My Way",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Navigator",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Wayfaring Stranger",
-      "artist": "Johnny Cash",
-      "year": 2000
     }
   ],
   "destination": [
@@ -13766,24 +11655,14 @@
       "year": 1982
     },
     {
-      "title": "Destiny",
-      "artist": "Destiny's Child",
-      "year": 1998
+      "title": "Final Destination",
+      "artist": "Lupe Fiasco",
+      "year": 2006
     },
     {
-      "title": "The Final Destination",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Reach Your Destination",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "We Shall Overcome",
-      "artist": "Pete Seeger",
-      "year": 1963
+      "title": "Destination Anywhere",
+      "artist": "Jon Bon Jovi",
+      "year": 1997
     }
   ],
   "route": [
@@ -13793,24 +11672,14 @@
       "year": 1946
     },
     {
-      "title": "On Route",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Highway to Hell",
-      "artist": "AC/DC",
-      "year": 1979
-    },
-    {
       "title": "Route 66",
       "artist": "The Rolling Stones",
       "year": 1964
     },
     {
-      "title": "No Particular Place to Go",
+      "title": "Get Your Kicks on Route 66",
       "artist": "Chuck Berry",
-      "year": 1964
+      "year": 1961
     }
   ],
   "highway": [
@@ -13842,164 +11711,89 @@
   ],
   "path": [
     {
-      "title": "Path of Least Resistance",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "The Path",
+      "artist": "Kirk Franklin",
+      "year": 2005
     },
     {
-      "title": "Follow the Yellow Brick Road",
-      "artist": "Various Artists",
-      "year": 1939
-    },
-    {
-      "title": "The Road Not Taken",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Path to Righteousness",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "New Paths of Freedom",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "The Path",
+      "artist": "Jamiroquai",
+      "year": 2017
     }
   ],
   "departure": [
     {
-      "title": "Arrivals and Departures",
-      "artist": "Various Artists",
-      "year": 2008
+      "title": "Departure",
+      "artist": "Ludovico Einaudi",
+      "year": 2004
     },
     {
-      "title": "Gate Departure",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Platform Goodbye",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Ready for Departure",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Bon Voyage",
-      "artist": "Various Artists",
+      "title": "Departure",
+      "artist": "Bruno Coulais",
       "year": 2003
+    },
+    {
+      "title": "Final Departure",
+      "artist": "Kamelot",
+      "year": 1998
+    },
+    {
+      "title": "Grand Departure",
+      "artist": "Kate Bush",
+      "year": 1985
+    },
+    {
+      "title": "The Departure",
+      "artist": "Hans Zimmer",
+      "year": 2010
     }
   ],
   "arrival": [
     {
-      "title": "Arrival",
-      "artist": "ABBA",
-      "year": 1976
+      "title": "The Arrival",
+      "artist": "Whodini",
+      "year": 1986
     },
     {
-      "title": "When We Arrive",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Grand Arrival",
+      "artist": "Kate Bush",
+      "year": 1985
     },
     {
-      "title": "A Glorious Arrival",
-      "artist": "Various Artists",
+      "title": "New Arrival",
+      "artist": "Fleet Foxes",
       "year": 2011
-    },
-    {
-      "title": "Final Arrival",
-      "artist": "Various Artists",
-      "year": 2007
-    },
-    {
-      "title": "Where Do We Go from Here",
-      "artist": "Various Artists",
-      "year": 2015
     }
   ],
   "embark": [
     {
       "title": "Embark",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "The Great Voyage",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Launch",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Get on Board",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "We're All in This Together",
-      "artist": "Various Artists",
-      "year": 2006
+      "artist": "Enter Shikari",
+      "year": 2007
     }
   ],
   "backpack": [
     {
-      "title": "Back Pack",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Backpack",
+      "artist": "Wallows",
+      "year": 2019
     },
     {
-      "title": "Backpacker",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Backpack Kid",
+      "artist": "Lil Yachty",
+      "year": 2018
     },
     {
-      "title": "World Traveler",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Vagabond",
-      "artist": "Wolfmother",
-      "year": 2009
-    },
-    {
-      "title": "The Backpack Song",
-      "artist": "Various Artists",
-      "year": 2008
+      "title": "Backpack",
+      "artist": "G-Eazy",
+      "year": 2011
     }
   ],
   "expedition": [
     {
       "title": "Expedition",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Explorer",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Into the Wild",
-      "artist": "Eddie Vedder",
-      "year": 2007
-    },
-    {
-      "title": "First Steps",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Break the Ice",
-      "artist": "Britney Spears",
-      "year": 2008
+      "artist": "Two Steps from Hell",
+      "year": 2010
     }
   ],
   "voyage": [
@@ -14009,24 +11803,14 @@
       "year": 2021
     },
     {
+      "title": "Voyage, Voyage",
+      "artist": "Desireless",
+      "year": 1986
+    },
+    {
       "title": "Bon Voyage",
-      "artist": "Various Artists",
-      "year": 2002
-    },
-    {
-      "title": "The Voyager",
-      "artist": "Jenny Lewis",
-      "year": 2014
-    },
-    {
-      "title": "Magic Voyage",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Set Sail",
-      "artist": "Various Artists",
-      "year": 2009
+      "artist": "Vitamin C",
+      "year": 2000
     }
   ],
   "shadow": [
@@ -14036,24 +11820,9 @@
       "year": 1946
     },
     {
-      "title": "Shadow of a Doubt",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Shaddup You Face",
-      "artist": "Joe Dolce",
-      "year": 1981
-    },
-    {
-      "title": "Shadow Boxing",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Living in the Shadow",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Shadow of the Day",
+      "artist": "Linkin Park",
+      "year": 2007
     }
   ],
   "dim": [
@@ -14063,105 +11832,16 @@
       "year": 1979
     },
     {
-      "title": "Dim Lights, Thick Smoke",
-      "artist": "Various Artists",
-      "year": 1980
-    },
-    {
-      "title": "Dimming of the Day",
-      "artist": "Richard Thompson",
-      "year": 1974
-    },
-    {
-      "title": "Pale Blue Dot",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Candle in the Wind",
-      "artist": "Elton John",
-      "year": 1973
-    }
-  ],
-  "blinding": [
-    {
-      "title": "Blinding Lights",
-      "artist": "The Weeknd",
-      "year": 2019
-    },
-    {
-      "title": "Blinded by the Light",
-      "artist": "Manfred Mann's Earth Band",
-      "year": 1976
-    },
-    {
-      "title": "Blind Faith",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Bright Lights",
-      "artist": "Matchbox Twenty",
-      "year": 2002
-    },
-    {
-      "title": "Too Much Light",
-      "artist": "Various Artists",
-      "year": 2014
-    }
-  ],
-  "gleam": [
-    {
-      "title": "Gleam",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "A Gleam of Light",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Starlight",
-      "artist": "Muse",
-      "year": 2006
-    },
-    {
-      "title": "Glimmer",
-      "artist": "Various Artists",
+      "title": "Dim the Lights",
+      "artist": "Panic! at the Disco",
       "year": 2011
-    },
-    {
-      "title": "Twinkle Twinkle Little Star",
-      "artist": "Various Artists",
-      "year": 1806
     }
   ],
   "gloom": [
     {
-      "title": "Gloom",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
       "title": "Doom and Gloom",
       "artist": "The Rolling Stones",
       "year": 2012
-    },
-    {
-      "title": "The Gloom",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Dark Days",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Gloomy Sunday",
-      "artist": "Billie Holiday",
-      "year": 1941
     }
   ],
   "flicker": [
@@ -14169,26 +11849,6 @@
       "title": "Flicker",
       "artist": "Niall Horan",
       "year": 2017
-    },
-    {
-      "title": "Flicker in the Dark",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Candle in the Wind",
-      "artist": "Elton John",
-      "year": 1973
-    },
-    {
-      "title": "Flame",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Firelight",
-      "artist": "Various Artists",
-      "year": 2012
     }
   ],
   "fade": [
@@ -14203,19 +11863,19 @@
       "year": 1994
     },
     {
-      "title": "Into the Fade",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
       "title": "Fade",
       "artist": "Staind",
       "year": 2005
     },
     {
-      "title": "Fading Like a Flower",
-      "artist": "Roxette",
-      "year": 1991
+      "title": "Fade Into You",
+      "artist": "Mazzy Star",
+      "year": 1993
+    },
+    {
+      "title": "Fade",
+      "artist": "Kanye West",
+      "year": 2016
     }
   ],
   "illuminate": [
@@ -14223,26 +11883,6 @@
       "title": "Illuminate",
       "artist": "Shawn Mendes",
       "year": 2016
-    },
-    {
-      "title": "Light the Way",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Illuminate My Soul",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Bright as the Sun",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Let There Be Light",
-      "artist": "Various Artists",
-      "year": 2010
     }
   ],
   "eclipse": [
@@ -14252,50 +11892,20 @@
       "year": 1983
     },
     {
-      "title": "Eclipse",
-      "artist": "Pink Floyd",
-      "year": 1973
-    },
-    {
-      "title": "Solar Eclipse",
-      "artist": "Various Artists",
-      "year": 2007
-    },
-    {
-      "title": "Dark Star",
-      "artist": "Grateful Dead",
-      "year": 1968
-    },
-    {
-      "title": "Black Sun",
-      "artist": "Various Artists",
+      "title": "Eclipse (All Yours)",
+      "artist": "Marina and the Diamonds",
       "year": 2012
     }
   ],
   "silhouette": [
     {
       "title": "Silhouettes",
-      "artist": "Herman's Hermits",
-      "year": 1965
+      "artist": "The Rays",
+      "year": 1957
     },
     {
       "title": "Silhouette",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Shadow and Shape",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Your Silhouette",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Dark Shape",
-      "artist": "Various Artists",
+      "artist": "Owl City",
       "year": 2015
     }
   ],
@@ -14311,19 +11921,19 @@
       "year": 1981
     },
     {
-      "title": "In the Twilight Zone",
-      "artist": "Various Artists",
-      "year": 1985
+      "title": "Twilight",
+      "artist": "Vampire Weekend",
+      "year": 2019
     },
     {
-      "title": "When Day Is Done",
-      "artist": "Various Artists",
-      "year": 1940
+      "title": "Twilight Zone",
+      "artist": "Golden Earring",
+      "year": 1982
     },
     {
-      "title": "Eveningfall",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Twilight Zone",
+      "artist": "2 Unlimited",
+      "year": 1992
     }
   ],
   "dawn": [
@@ -14338,19 +11948,19 @@
       "year": 1965
     },
     {
-      "title": "Red Sky at Morning",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Dawn (Go Away)",
+      "artist": "The Four Seasons",
+      "year": 1964
     },
     {
-      "title": "Morning Has Broken",
-      "artist": "Cat Stevens",
-      "year": 1972
+      "title": "Dawn of the Dead",
+      "artist": "Set It Off",
+      "year": 2016
     },
     {
-      "title": "Every Dawn",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "New Dawn",
+      "artist": "Yes",
+      "year": 2011
     }
   ],
   "dusk": [
@@ -14360,24 +11970,24 @@
       "year": 2017
     },
     {
+      "title": "Dusk Till Dawn",
+      "artist": "Zayn ft. Sia",
+      "year": 2017
+    },
+    {
       "title": "From Dusk Till Dawn",
-      "artist": "Various Artists",
-      "year": 1996
+      "artist": "Florence + the Machine",
+      "year": 2009
     },
     {
-      "title": "Twilight Zone",
-      "artist": "Various Artists",
-      "year": 1988
+      "title": "Dusk",
+      "artist": "Nite Jewel",
+      "year": 2012
     },
     {
-      "title": "At Dusk",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Eventide",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "From Dusk Till Dawn",
+      "artist": "Zayn ft. Sia",
+      "year": 2017
     }
   ],
   "electric": [
@@ -14414,50 +12024,25 @@
       "year": 1967
     },
     {
-      "title": "The Haze",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Through the Haze",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Smoky Haze",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Golden Haze",
-      "artist": "Various Artists",
-      "year": 2015
+      "title": "Purple Haze",
+      "artist": "The Jimi Hendrix Experience",
+      "year": 1967
     }
   ],
   "shimmering": [
     {
       "title": "Shimmering",
-      "artist": "Various Artists",
-      "year": 2012
+      "artist": "Explosions in the Sky",
+      "year": 2003
     },
     {
-      "title": "Shimmer",
-      "artist": "Fuel",
-      "year": 1998
-    },
-    {
-      "title": "Glitter and Be Gay",
-      "artist": "Various Artists",
-      "year": 1956
-    },
-    {
-      "title": "Sparkling",
-      "artist": "Various Artists",
+      "title": "Shimmering",
+      "artist": "Blake Mills",
       "year": 2010
     },
     {
-      "title": "Lustrous",
-      "artist": "Various Artists",
+      "title": "Shimmering Fauna",
+      "artist": "Battles",
       "year": 2011
     }
   ],
@@ -14495,78 +12080,43 @@
       "year": 1987
     },
     {
-      "title": "Brilliant",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Radiance",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Magnificent",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
       "title": "Brilliant Mind",
       "artist": "Furniture",
+      "year": 1986
+    },
+    {
+      "title": "You're So Brilliant",
+      "artist": "Jimmy Eat World",
+      "year": 2013
+    },
+    {
+      "title": "Brilliant Mistake",
+      "artist": "Elvis Costello",
       "year": 1986
     }
   ],
   "hidden": [
     {
-      "title": "Hidden in Plain Sight",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Hide and Seek",
-      "artist": "Imogen Heap",
-      "year": 2005
-    },
-    {
-      "title": "Secret Garden",
-      "artist": "Bruce Springsteen",
+      "title": "Hidden Away",
+      "artist": "The Corrs",
       "year": 1995
     },
     {
-      "title": "Invisible",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Hidden Track",
+      "artist": "Nirvana",
+      "year": 1991
     },
     {
-      "title": "The Hiding Place",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Hidden Place",
+      "artist": "Björk",
+      "year": 2001
     }
   ],
   "glare": [
     {
-      "title": "Under the Glare",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Dazzled",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Spotlight",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Out of the Glare",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Bright Side",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Glare",
+      "artist": "Karol G",
+      "year": 2021
     }
   ],
   "car": [
@@ -14599,28 +12149,13 @@
   "phone": [
     {
       "title": "Telephone",
-      "artist": "Lady Gaga feat. Beyonc\u00e9",
+      "artist": "Lady Gaga feat. Beyoncé",
       "year": 2009
     },
     {
-      "title": "Call Me",
-      "artist": "Blondie",
-      "year": 1980
-    },
-    {
-      "title": "Phone Home",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Phone Me",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "The Telephone Hour",
-      "artist": "Various Artists",
-      "year": 1963
+      "title": "Hotline Bling",
+      "artist": "Drake",
+      "year": 2015
     }
   ],
   "bed": [
@@ -14630,78 +12165,43 @@
       "year": 2004
     },
     {
-      "title": "Stay in Bed",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Your Body Is a Wonderland",
+      "artist": "John Mayer",
+      "year": 2001
     },
     {
-      "title": "This Bed Is on Fire",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Get Out of My Bed",
+      "artist": "Emma Bunton",
+      "year": 2001
     },
     {
-      "title": "Lazy",
-      "artist": "David Bowie",
-      "year": 1975
-    },
-    {
-      "title": "Bedroom Floor",
-      "artist": "Liam Payne",
-      "year": 2017
+      "title": "Your Bed",
+      "artist": "Bea Miller",
+      "year": 2015
     }
   ],
   "table": [
     {
-      "title": "Table for Two",
-      "artist": "Various Artists",
+      "title": "Kitchen Table",
+      "artist": "Kenny Chesney",
       "year": 2010
     },
     {
-      "title": "Bring It to the Table",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "At the Table",
-      "artist": "Various Artists",
-      "year": 2008
-    },
-    {
-      "title": "Two Chairs",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Setting the Table",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "The Table",
+      "artist": "Rich Mullins",
+      "year": 1996
     }
   ],
   "keys": [
     {
-      "title": "Hold My Keys",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Key Largo",
-      "artist": "Bertie Higgins",
-      "year": 1982
+      "title": "Keys to the Kingdom",
+      "artist": "Switchfoot",
+      "year": 2014
     },
     {
       "title": "Lost the Keys",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Piano Man",
-      "artist": "Billy Joel",
-      "year": 1973
-    },
-    {
-      "title": "Keys to the Kingdom",
-      "artist": "Various Artists",
-      "year": 2011
+      "artist": "Jack Johnson",
+      "year": 2003
     }
   ],
   "ring": [
@@ -14716,19 +12216,9 @@
       "year": 1979
     },
     {
-      "title": "With This Ring",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "The Ring",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Will You Love Me Tomorrow",
-      "artist": "The Shirelles",
-      "year": 1960
+      "title": "Single Ladies (Put a Ring on It)",
+      "artist": "Beyoncé",
+      "year": 2008
     }
   ],
   "gun": [
@@ -14736,16 +12226,6 @@
       "title": "Happiness Is a Warm Gun",
       "artist": "The Beatles",
       "year": 1968
-    },
-    {
-      "title": "Saturday Night Special",
-      "artist": "Lynyrd Skynyrd",
-      "year": 1975
-    },
-    {
-      "title": "Loaded Gun",
-      "artist": "Various Artists",
-      "year": 2009
     },
     {
       "title": "Tommy Gun",
@@ -14770,19 +12250,9 @@
       "year": 1984
     },
     {
-      "title": "Switching Blades",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "With a Little Help from My Friends",
-      "artist": "Joe Cocker",
-      "year": 1968
-    },
-    {
-      "title": "Edge of the Knife",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Knife",
+      "artist": "Grizzly Bear",
+      "year": 2006
     }
   ],
   "bottle": [
@@ -14797,19 +12267,19 @@
       "year": 1967
     },
     {
-      "title": "Rock Around the Bottle",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
       "title": "Genie in a Bottle",
       "artist": "Christina Aguilera",
       "year": 1999
     },
     {
-      "title": "Bottle Rocket",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Bottle It Up",
+      "artist": "Sara Bareilles",
+      "year": 2010
+    },
+    {
+      "title": "Whiskey in a Bottle",
+      "artist": "Colt Ford",
+      "year": 2010
     }
   ],
   "mirror": [
@@ -14824,19 +12294,9 @@
       "year": 1982
     },
     {
-      "title": "Looking Glass",
-      "artist": "Jethro Tull",
-      "year": 1975
-    },
-    {
       "title": "Mirrors",
       "artist": "Justin Timberlake",
       "year": 2013
-    },
-    {
-      "title": "Broken Mirror",
-      "artist": "Various Artists",
-      "year": 2010
     }
   ],
   "chain": [
@@ -14851,46 +12311,21 @@
       "year": 1977
     },
     {
-      "title": "Gold Chains",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Chain Gang",
+      "artist": "Sam Cooke",
+      "year": 1960
     },
     {
-      "title": "Chained",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Chains",
-      "artist": "Nick Jonas",
-      "year": 2014
+      "title": "Chain Hang Low",
+      "artist": "Jibbs",
+      "year": 2006
     }
   ],
   "rope": [
     {
-      "title": "Sit Down",
-      "artist": "James",
-      "year": 1991
-    },
-    {
-      "title": "Skip to My Lou",
-      "artist": "Various Artists",
-      "year": 1850
-    },
-    {
-      "title": "End of the Rope",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Rope",
       "artist": "Foo Fighters",
       "year": 2011
-    },
-    {
-      "title": "Tied Up",
-      "artist": "Various Artists",
-      "year": 2009
     }
   ],
   "letter": [
@@ -14922,29 +12357,19 @@
   ],
   "book": [
     {
-      "title": "Books",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "By the Book",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "A Good Book",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
       "title": "Paperback Writer",
       "artist": "The Beatles",
       "year": 1966
     },
     {
-      "title": "The Good Book",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "The Book of Love",
+      "artist": "Peter Gabriel",
+      "year": 2004
+    },
+    {
+      "title": "Book of Love",
+      "artist": "The Magnetic Fields",
+      "year": 1999
     }
   ],
   "map": [
@@ -14954,24 +12379,9 @@
       "year": 1994
     },
     {
-      "title": "The Map",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "I'll Follow the Map",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Treasure Map",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Geographica",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Maps",
+      "artist": "Maroon 5",
+      "year": 2014
     }
   ],
   "photo": [
@@ -14981,105 +12391,45 @@
       "year": 2005
     },
     {
-      "title": "Photograph",
-      "artist": "Ed Sheeran",
-      "year": 2014
-    },
-    {
-      "title": "Snapshot",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
       "title": "Picture This",
       "artist": "Blondie",
       "year": 1978
-    },
-    {
-      "title": "One More Photo",
-      "artist": "Various Artists",
-      "year": 2013
     }
   ],
   "wallet": [
     {
       "title": "Wallet",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Lost My Wallet",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Money Talks",
-      "artist": "AC/DC",
-      "year": 1990
-    },
-    {
-      "title": "Gold Digger",
-      "artist": "Kanye West",
-      "year": 2005
-    },
-    {
-      "title": "Broke Wallet",
-      "artist": "Various Artists",
-      "year": 2011
+      "artist": "Rio Da Yung OG",
+      "year": 2019
     }
   ],
   "lighter": [
     {
-      "title": "Lighter",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "My Lighter",
+      "artist": "Ludacris",
+      "year": 2006
     },
     {
-      "title": "Light My Fire",
-      "artist": "The Doors",
-      "year": 1967
-    },
-    {
-      "title": "Playing with Fire",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Lighters",
-      "artist": "Bad Meets Evil feat. Bruno Mars",
-      "year": 2011
-    },
-    {
-      "title": "Set Fire to the Rain",
-      "artist": "Adele",
-      "year": 2011
+      "title": "Flick My Lighter",
+      "artist": "Lil Wayne",
+      "year": 2005
     }
   ],
   "camera": [
     {
-      "title": "Smile",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Caught on Camera",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
       "title": "Camera",
-      "artist": "Various Artists",
-      "year": 2015
-    },
-    {
-      "title": "Picture",
-      "artist": "Kid Rock feat. Sheryl Crow",
-      "year": 2001
-    },
-    {
-      "title": "Say Cheese",
-      "artist": "Various Artists",
+      "artist": "Kesha",
       "year": 2011
+    },
+    {
+      "title": "Kodachrome",
+      "artist": "Paul Simon",
+      "year": 1973
+    },
+    {
+      "title": "Digital Camera",
+      "artist": "3OH!3",
+      "year": 2009
     }
   ],
   "screen": [
@@ -15089,78 +12439,48 @@
       "year": 2013
     },
     {
-      "title": "Glued to the Screen",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Silver Screen",
+      "artist": "Doris Day",
+      "year": 1988
     },
     {
-      "title": "Big Screen",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Freeze Frame",
-      "artist": "J. Geils Band",
-      "year": 1981
-    },
-    {
-      "title": "Video Killed the Radio Star",
-      "artist": "Buggles",
-      "year": 1979
+      "title": "The Screen",
+      "artist": "Trapt",
+      "year": 2003
     }
   ],
   "headphones": [
     {
-      "title": "Plug In Baby",
-      "artist": "Muse",
-      "year": 2001
-    },
-    {
       "title": "Headphones",
-      "artist": "Bj\u00f6rk",
-      "year": 1995
-    },
-    {
-      "title": "Through My Headphones",
-      "artist": "Various Artists",
+      "artist": "Ellie Goulding",
       "year": 2010
     },
     {
-      "title": "Earworm",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Put Your Headphones On",
+      "artist": "Britt Nicole",
+      "year": 2012
     },
     {
-      "title": "Soundtrack",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Headphones On",
+      "artist": "Marshmello & James Bay",
+      "year": 2021
     }
   ],
   "cigarette": [
     {
-      "title": "Cigarettes & Alcohol",
-      "artist": "Oasis",
-      "year": 1994
-    },
-    {
-      "title": "Smoke Gets in Your Eyes",
-      "artist": "The Platters",
-      "year": 1958
-    },
-    {
-      "title": "Smoking in the Boys Room",
-      "artist": "Brownsville Station",
-      "year": 1973
-    },
-    {
-      "title": "Don't Smoke in Bed",
-      "artist": "Various Artists",
-      "year": 1988
-    },
-    {
       "title": "Cigarette Daydreams",
       "artist": "Cage the Elephant",
       "year": 2014
+    },
+    {
+      "title": "Every Cigarette",
+      "artist": "Ben Lee",
+      "year": 2005
+    },
+    {
+      "title": "Cigarette Burns",
+      "artist": "Rise Against",
+      "year": 2006
     }
   ],
   "glass": [
@@ -15180,14 +12500,14 @@
       "year": 1968
     },
     {
-      "title": "Through a Glass Darkly",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Looking Glass",
       "artist": "Jethro Tull",
       "year": 1975
+    },
+    {
+      "title": "Shattered Glass",
+      "artist": "Backstreet Boys",
+      "year": 2019
     }
   ],
   "needle": [
@@ -15202,73 +12522,38 @@
       "year": 1964
     },
     {
-      "title": "Sharp Dressed Man",
-      "artist": "ZZ Top",
-      "year": 1983
-    },
-    {
-      "title": "Pins and Needles",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Stuck",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Needle in the Hay",
+      "artist": "Elliott Smith",
+      "year": 1995
     }
   ],
   "crown": [
     {
       "title": "Crown",
-      "artist": "Various Artists",
-      "year": 2014
+      "artist": "Stormzy",
+      "year": 2017
     },
     {
-      "title": "King of the Road",
-      "artist": "Roger Miller",
-      "year": 1965
+      "title": "Crown",
+      "artist": "Camila Cabello",
+      "year": 2022
     },
     {
-      "title": "Crown Heights Affair",
-      "artist": "Various Artists",
-      "year": 1976
-    },
-    {
-      "title": "Lay Down Your Crown",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Crown Me King",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Crown",
+      "artist": "Kevin Gates",
+      "year": 2016
     }
   ],
   "pen": [
     {
-      "title": "The Pen",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Pen and Paper",
+      "artist": "Bruce Hornsby",
+      "year": 1986
     },
     {
-      "title": "Pen & Notebook",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Writer in the Dark",
-      "artist": "Lorde",
-      "year": 2017
-    },
-    {
-      "title": "Poem Without Words",
-      "artist": "Various Artists",
+      "title": "Ink Pen",
+      "artist": "T-Pain",
       "year": 2011
-    },
-    {
-      "title": "A Fine Frenzy",
-      "artist": "A Fine Frenzy",
-      "year": 2007
     }
   ],
   "flag": [
@@ -15278,37 +12563,22 @@
       "year": 1992
     },
     {
-      "title": "Stars and Stripes Forever",
-      "artist": "John Philip Sousa",
-      "year": 1896
-    },
-    {
-      "title": "Flag Day",
-      "artist": "Various Artists",
+      "title": "American Flag",
+      "artist": "Jason Aldean",
       "year": 2010
     },
     {
-      "title": "Fly the Flag",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Ragged Old Flag",
+      "artist": "Johnny Cash",
+      "year": 1974
     },
     {
-      "title": "Under the Flag",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Where the Flag Don't Fly",
+      "artist": "Zac Brown Band",
+      "year": 2015
     }
   ],
   "dress": [
-    {
-      "title": "Little Red Dress",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "The Dress",
-      "artist": "Various Artists",
-      "year": 2015
-    },
     {
       "title": "Pretty in Pink",
       "artist": "The Psychedelic Furs",
@@ -15323,33 +12593,28 @@
       "title": "White Dress",
       "artist": "Lana Del Rey",
       "year": 2021
+    },
+    {
+      "title": "Dress",
+      "artist": "Taylor Swift",
+      "year": 2017
+    },
+    {
+      "title": "Sunday Dress",
+      "artist": "Kacey Musgraves",
+      "year": 2021
     }
   ],
   "jeans": [
-    {
-      "title": "Blue Jean",
-      "artist": "David Bowie",
-      "year": 1984
-    },
     {
       "title": "Blue Jeans",
       "artist": "Lana Del Rey",
       "year": 2012
     },
     {
-      "title": "Tight Jeans",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "She Wears Those Jeans",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Skinny Jeans",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Tight Fittin' Jeans",
+      "artist": "Conway Twitty",
+      "year": 1981
     }
   ],
   "shoes": [
@@ -15359,105 +12624,55 @@
       "year": 1956
     },
     {
-      "title": "These Boots Are Made for Walkin'",
-      "artist": "Nancy Sinatra",
-      "year": 1966
+      "title": "Blue Suede Shoes",
+      "artist": "Carl Perkins",
+      "year": 1955
     },
     {
-      "title": "Fancy Footwork",
-      "artist": "Chromeo",
-      "year": 2007
-    },
-    {
-      "title": "Like a Prayer",
-      "artist": "Madonna",
-      "year": 1989
-    },
-    {
-      "title": "Put Your Shoes On",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "New Shoes",
+      "artist": "Paolo Nutini",
+      "year": 2006
     }
   ],
   "clothes": [
     {
-      "title": "Clothes",
-      "artist": "Various Artists",
-      "year": 2015
+      "title": "Take Off Your Clothes",
+      "artist": "Morningwood",
+      "year": 2006
     },
     {
-      "title": "Shop Talk",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "American Boy",
+      "artist": "Estelle ft. Kanye West",
+      "year": 2008
     },
     {
       "title": "New Clothes",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Wearing Your Clothes",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Material Girl",
-      "artist": "Madonna",
-      "year": 1984
+      "artist": "The Vaccines",
+      "year": 2015
     }
   ],
   "shirt": [
     {
-      "title": "Men Without Hats (Shirt)",
-      "artist": "Various Artists",
-      "year": 1983
+      "title": "The Shirt",
+      "artist": "Bruce Springsteen",
+      "year": 1998
     },
     {
-      "title": "Blue Shirt",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Off with His Shirt",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Shirt Off My Back",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Back in Black",
-      "artist": "AC/DC",
-      "year": 1980
+      "title": "T-Shirt",
+      "artist": "Migos",
+      "year": 2017
     }
   ],
   "jacket": [
     {
       "title": "Leather Jacket",
-      "artist": "Various Artists",
-      "year": 2013
+      "artist": "Gucci Mane",
+      "year": 2016
     },
     {
       "title": "Yellow Jacket",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Mellow Yellow",
-      "artist": "Donovan",
-      "year": 1966
-    },
-    {
-      "title": "Fly Jacket",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Brand New Jacket",
-      "artist": "Various Artists",
-      "year": 2012
+      "artist": "Cannibal Ox",
+      "year": 2001
     }
   ],
   "coat": [
@@ -15467,78 +12682,38 @@
       "year": 1971
     },
     {
-      "title": "Josephs Coat",
-      "artist": "Various Artists",
-      "year": 1973
-    },
-    {
-      "title": "Heavy Coat",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Cold Heart",
-      "artist": "Elton John & Dua Lipa",
-      "year": 2021
-    },
-    {
-      "title": "Overcoat",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Fur Coat",
+      "artist": "T.I.",
+      "year": 2006
     }
   ],
   "hood": [
-    {
-      "title": "Hood",
-      "artist": "Various Artists",
-      "year": 2011
-    },
     {
       "title": "Little Red Riding Hood",
       "artist": "Sam the Sham and the Pharaohs",
       "year": 1966
     },
     {
-      "title": "Hood Mentality",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "The Hood Song",
+      "artist": "Bring Me the Horizon",
+      "year": 2013
     },
     {
-      "title": "Neighborhood",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "In the Ghetto",
-      "artist": "Elvis Presley",
-      "year": 1969
+      "title": "In tha Hood",
+      "artist": "DJ Screw",
+      "year": 1996
     }
   ],
   "hat": [
-    {
-      "title": "Hat Full of Rain",
-      "artist": "Various Artists",
-      "year": 2011
-    },
     {
       "title": "Top Hat",
       "artist": "Fred Astaire",
       "year": 1935
     },
     {
-      "title": "Old Hat",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Tip of the Hat",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Put On Your Sunday Best",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Straw Hat",
+      "artist": "Jimmy Buffett",
+      "year": 1974
     }
   ],
   "boots": [
@@ -15553,19 +12728,19 @@
       "year": 1964
     },
     {
-      "title": "Big Boots",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Boots On",
+      "artist": "Randy Houser",
+      "year": 2008
     },
     {
-      "title": "Pull On My Boots",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Old Town Road",
+      "artist": "Lil Nas X",
+      "year": 2019
     },
     {
-      "title": "Cowboy Boots",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Kick the Dust Up",
+      "artist": "Luke Bryan",
+      "year": 2015
     }
   ],
   "suit": [
@@ -15580,19 +12755,9 @@
       "year": 2013
     },
     {
-      "title": "Man in Suit",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Dressed for Success",
-      "artist": "Roxette",
-      "year": 1988
-    },
-    {
-      "title": "Birthday Suit",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Suit & Tie",
+      "artist": "Justin Timberlake ft. Jay-Z",
+      "year": 2013
     }
   ],
   "tie": [
@@ -15600,11 +12765,6 @@
       "title": "Suit and Tie",
       "artist": "Justin Timberlake",
       "year": 2013
-    },
-    {
-      "title": "Black Tie",
-      "artist": "Various Artists",
-      "year": 2009
     },
     {
       "title": "Tie Me Down",
@@ -15617,171 +12777,84 @@
       "year": 1973
     },
     {
-      "title": "Old School Tie",
-      "artist": "Various Artists",
-      "year": 2010
-    }
-  ],
-  "sneakers": [
-    {
-      "title": "My Adidas",
-      "artist": "Run-D.M.C.",
-      "year": 1986
+      "title": "Tie a Yellow Ribbon Round the Ole Oak Tree",
+      "artist": "Tony Orlando and Dawn",
+      "year": 1973
     },
     {
-      "title": "Sneaker Pimps",
-      "artist": "Various Artists",
-      "year": 1996
-    },
-    {
-      "title": "New Shoes",
-      "artist": "Paolo Nutini",
-      "year": 2006
-    },
-    {
-      "title": "Kick Off Your Sunday Shoes",
-      "artist": "Kevin Bacon",
-      "year": 1984
-    },
-    {
-      "title": "Nike Ground",
-      "artist": "Various Artists",
-      "year": 2008
+      "title": "Loosen Up My Tie",
+      "artist": "Archie Bell & the Drells",
+      "year": 1975
     }
   ],
   "heels": [
-    {
-      "title": "High Heels (She's Got It)",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Stilettos",
-      "artist": "Various Artists",
-      "year": 2010
-    },
     {
       "title": "Head Over Heels",
       "artist": "Tears for Fears",
       "year": 1985
     },
     {
-      "title": "These Boots Are Made for Walkin'",
-      "artist": "Nancy Sinatra",
-      "year": 1966
-    },
-    {
-      "title": "Pump Up the Heels",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Higher Heels",
+      "artist": "Vince Staples",
+      "year": 2017
     }
   ],
   "mask": [
     {
-      "title": "Masked Ball",
-      "artist": "Various Artists",
+      "title": "Mask Off",
+      "artist": "Future",
+      "year": 2017
+    },
+    {
+      "title": "The Mask",
+      "artist": "Bauhaus",
+      "year": 1980
+    },
+    {
+      "title": "Behind the Mask",
+      "artist": "Michael Jackson",
       "year": 2010
-    },
-    {
-      "title": "Hiding Behind a Mask",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Masquerade",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Under the Mask",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Face of a Man",
-      "artist": "Various Artists",
-      "year": 2011
     }
   ],
   "gloves": [
-    {
-      "title": "Black Velvet Gloves",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Gloves",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Velvet Glove",
-      "artist": "Red Hot Chili Peppers",
-      "year": 1995
-    },
     {
       "title": "Kid Gloves",
       "artist": "Rush",
       "year": 1984
     },
     {
-      "title": "Hands",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Boxing Gloves",
+      "artist": "Justin Bieber",
+      "year": 2021
+    },
+    {
+      "title": "White Gloves",
+      "artist": "Michael Jackson Tribute",
+      "year": 2010
     }
   ],
   "scarf": [
     {
-      "title": "Scarf Dance",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Wrapped Around Your Finger",
-      "artist": "The Police",
+      "title": "Red Scarf",
+      "artist": "Duran Duran",
       "year": 1983
-    },
-    {
-      "title": "Silk Scarf",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Faded Scarf",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Winter Warmer",
-      "artist": "Various Artists",
-      "year": 2011
     }
   ],
   "belt": [
     {
-      "title": "Tighten Up",
-      "artist": "Archie Bell & the Drells",
-      "year": 1968
-    },
-    {
-      "title": "Belt It Out",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Black Belt",
-      "artist": "Various Artists",
+      "artist": "Run the Jewels",
+      "year": 2014
+    },
+    {
+      "title": "Belt",
+      "artist": "Yelawolf",
       "year": 2011
     },
     {
-      "title": "Under the Belt",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Buckle Up",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Golden Belt",
+      "artist": "Skepta",
+      "year": 2016
     }
   ],
   "chains": [
@@ -15813,56 +12886,21 @@
   ],
   "jewelry": [
     {
-      "title": "Jewel",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Jewelry",
+      "artist": "SZA",
+      "year": 2016
     },
     {
-      "title": "Diamonds Are a Girl's Best Friend",
-      "artist": "Marilyn Monroe",
-      "year": 1953
-    },
-    {
-      "title": "Golden Jewelry",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Jewels",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Ice Ice Baby",
-      "artist": "Vanilla Ice",
-      "year": 1990
+      "title": "Jewelry",
+      "artist": "Kelis",
+      "year": 2001
     }
   ],
   "sweatshirt": [
     {
-      "title": "Big Sweater",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Comfy Clothes",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Cozy Up",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Soft Wear",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Stay Warm",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Sweatshirt",
+      "artist": "Jacob Sartorius",
+      "year": 2016
     }
   ],
   "leather": [
@@ -15872,213 +12910,74 @@
       "year": 1981
     },
     {
-      "title": "Leather Jacket",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Real Leather",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Leather Queen",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Soft Leather",
-      "artist": "Various Artists",
-      "year": 2012
-    }
-  ],
-  "gown": [
-    {
-      "title": "Ball Gown",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Wedding Gown",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "The Gown",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "White Gown",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Fine Gown",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Black Leather",
+      "artist": "Judas Priest",
+      "year": 1984
     }
   ],
   "veil": [
     {
       "title": "Behind the Veil",
-      "artist": "Various Artists",
-      "year": 2012
+      "artist": "Kamelot",
+      "year": 2005
     },
     {
-      "title": "Lace Veil",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Wedding Veil",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "White Veil",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Lift the Veil",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Under the Veil",
+      "artist": "Opeth",
+      "year": 1999
     }
   ],
   "cap": [
     {
-      "title": "I Wear My Cap Sideways",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "No Cap",
+      "artist": "Future & Young Thug",
+      "year": 2018
     },
     {
-      "title": "Baseball Cap",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Cap",
+      "artist": "G-Eazy",
+      "year": 2020
     },
     {
-      "title": "Cap Backwards",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Keep Your Cap On",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Flat Cap",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Fitted Cap",
+      "artist": "Lil' Flip",
+      "year": 2004
     }
   ],
   "fur": [
     {
-      "title": "Furs",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "The Real Fur",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
       "title": "Fur Coat",
-      "artist": "Various Artists",
-      "year": 2014
+      "artist": "T.I.",
+      "year": 2006
     },
     {
-      "title": "Soft Furs",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Fur Elise",
+      "artist": "Beethoven",
+      "year": 1810
     },
     {
-      "title": "The Psychedelic Furs",
-      "artist": "The Psychedelic Furs",
-      "year": 1980
+      "title": "Black Fur",
+      "artist": "The Kills",
+      "year": 2011
     }
   ],
   "uniform": [
     {
-      "title": "Boys in Uniform",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Uniform",
+      "artist": "Speedy Ortiz",
+      "year": 2018
     },
     {
-      "title": "Dress to Kill",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Military Man",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Uniformity",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Fall In",
-      "artist": "Various Artists",
-      "year": 2010
-    }
-  ],
-  "stockings": [
-    {
-      "title": "Christmas Stockings",
-      "artist": "Various Artists",
-      "year": 2008
-    },
-    {
-      "title": "Silk Stockings",
-      "artist": "Various Artists",
-      "year": 1957
-    },
-    {
-      "title": "Sheer Silk",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Leg Warmers",
-      "artist": "Various Artists",
-      "year": 1983
-    },
-    {
-      "title": "Vintage Stockings",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Uniform",
+      "artist": "Placebo",
+      "year": 2004
     }
   ],
   "robe": [
     {
-      "title": "Velvet Robe",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "The Robe",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Dressing Gown",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Wrapped in Robes",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Silk Robe",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Terry Cloth Robe",
+      "artist": "Wynonna Judd",
+      "year": 1996
     }
   ],
   "money": [
@@ -16110,16 +13009,6 @@
   ],
   "cash": [
     {
-      "title": "Cash Machine",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Cold Hard Cash",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Johnny Cash",
       "artist": "KiD CuDi",
       "year": 2009
@@ -16130,9 +13019,19 @@
       "year": 2009
     },
     {
-      "title": "Get the Cash",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Money",
+      "artist": "Pink Floyd",
+      "year": 1973
+    },
+    {
+      "title": "Cash Money",
+      "artist": "T-Pain",
+      "year": 2005
+    },
+    {
+      "title": "Cash Money",
+      "artist": "T-Pain ft. Rick Ross",
+      "year": 2009
     }
   ],
   "pay": [
@@ -16142,23 +13041,13 @@
       "year": 2006
     },
     {
-      "title": "Pay Day",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Pay Me",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "I Want You Back",
-      "artist": "The Jackson 5",
+      "title": "You Gotta Pay the Price",
+      "artist": "Al Kent",
       "year": 1969
     },
     {
-      "title": "Pay Up",
-      "artist": "Various Artists",
+      "title": "Pay Day",
+      "artist": "Yelawolf",
       "year": 2011
     }
   ],
@@ -16169,24 +13058,14 @@
       "year": 2015
     },
     {
-      "title": "What's It Worth",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "You're Worth It",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Worthy of It All",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
       "title": "Priceless",
       "artist": "For King and Country",
       "year": 2014
+    },
+    {
+      "title": "What's It Worth",
+      "artist": "Nathaniel Rateliff",
+      "year": 2013
     }
   ],
   "diamond": [
@@ -16223,24 +13102,14 @@
       "year": 1977
     },
     {
-      "title": "Filthy Rich",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Rich as Hell",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Rich Girl",
       "artist": "Gwen Stefani feat. Eve",
       "year": 2004
     },
     {
-      "title": "Riches",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Gonna Be Rich",
+      "artist": "Big Sean",
+      "year": 2011
     }
   ],
   "poor": [
@@ -16260,41 +13129,26 @@
       "year": 1966
     },
     {
-      "title": "Born to Be Poor",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Poor Unfortunate Souls",
+      "artist": "Pat Carroll",
+      "year": 1989
     },
     {
-      "title": "Living for the City",
-      "artist": "Stevie Wonder",
-      "year": 1974
+      "title": "Poor Little Rich Girl",
+      "artist": "Nellie McKay",
+      "year": 2004
     }
   ],
   "debt": [
     {
-      "title": "In Debt",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Debt",
+      "artist": "Loyle Carner",
+      "year": 2019
     },
     {
       "title": "Deep in Debt",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Pay the Price",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "IOU",
-      "artist": "Freeez",
-      "year": 1983
-    },
-    {
-      "title": "Owing You One",
-      "artist": "Various Artists",
-      "year": 2012
+      "artist": "Randy Travis",
+      "year": 2004
     }
   ],
   "bank": [
@@ -16304,24 +13158,24 @@
       "year": 1980
     },
     {
-      "title": "Rob the Bank",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
       "title": "Bank Account",
       "artist": "21 Savage",
       "year": 2017
     },
     {
-      "title": "Breaking the Bank",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "No Bank Account",
+      "artist": "Mystikal",
+      "year": 2001
     },
     {
-      "title": "Broke the Bank",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Break the Bank",
+      "artist": "Lil Wayne",
+      "year": 2007
+    },
+    {
+      "title": "Money in the Bank",
+      "artist": "Lil Scrappy",
+      "year": 2006
     }
   ],
   "spend": [
@@ -16331,78 +13185,16 @@
       "year": 1966
     },
     {
-      "title": "Spend It All",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Spendthrift",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Splashing the Cash",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Burning Holes in My Pocket",
-      "artist": "Various Artists",
-      "year": 2014
-    }
-  ],
-  "earn": [
-    {
-      "title": "Earn",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Get Paid",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Hard Earned Money",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Working for a Living",
-      "artist": "Huey Lewis and the News",
-      "year": 1983
-    },
-    {
-      "title": "Earned It",
-      "artist": "The Weeknd",
-      "year": 2015
+      "title": "Spend My Life with You",
+      "artist": "Eric Benét ft. Tamia",
+      "year": 1999
     }
   ],
   "profit": [
     {
-      "title": "Profits of Doom",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Prophet of Profit",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Coin of the Realm",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Bottom Line",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Payday",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Profit",
+      "artist": "Doechii",
+      "year": 2025
     }
   ],
   "loss": [
@@ -16410,26 +13202,6 @@
       "title": "Total Loss",
       "artist": "How to Dress Well",
       "year": 2012
-    },
-    {
-      "title": "Loss",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "At a Loss",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Lost It All",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Dead Loss",
-      "artist": "Various Artists",
-      "year": 2013
     }
   ],
   "dollar": [
@@ -16461,83 +13233,58 @@
   ],
   "coin": [
     {
-      "title": "Coin",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Two Coins",
-      "artist": "Dishwalla",
-      "year": 1995
-    },
-    {
       "title": "Flip a Coin",
-      "artist": "Various Artists",
+      "artist": "Kane Brown",
+      "year": 2022
+    },
+    {
+      "title": "Toss a Coin to Your Witcher",
+      "artist": "Sonya Belousova & Giona Ostinelli",
+      "year": 2019
+    },
+    {
+      "title": "Two-Headed Coin",
+      "artist": "The Airborne Toxic Event",
       "year": 2011
-    },
-    {
-      "title": "Pennies from Heaven",
-      "artist": "Bing Crosby",
-      "year": 1936
-    },
-    {
-      "title": "Brother Can You Spare a Dime",
-      "artist": "Bing Crosby",
-      "year": 1932
     }
   ],
   "price": [
-    {
-      "title": "The Price Is Right",
-      "artist": "Various Artists",
-      "year": 1972
-    },
     {
       "title": "Price Tag",
       "artist": "Jessie J feat. B.o.B",
       "year": 2011
     },
     {
-      "title": "At Any Price",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Price Tag",
+      "artist": "Jessie J ft. B.o.B",
+      "year": 2011
     },
     {
-      "title": "No Price on Love",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "What's the Price for Freedom",
+      "artist": "Toby Keith",
+      "year": 2003
     },
     {
-      "title": "Pay the Price",
-      "artist": "Various Artists",
-      "year": 2009
+      "title": "Price Tag",
+      "artist": "Jessie J",
+      "year": 2011
     }
   ],
   "cost": [
-    {
-      "title": "Cost of Living",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Whatever the Cost",
-      "artist": "Various Artists",
-      "year": 2011
-    },
     {
       "title": "At What Cost",
       "artist": "GoldLink",
       "year": 2017
     },
     {
-      "title": "No Cost to Me",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
       "title": "High Cost of Living",
       "artist": "Jamey Johnson",
       "year": 2008
+    },
+    {
+      "title": "The Cost of Livin'",
+      "artist": "Ronnie Dunn",
+      "year": 2011
     }
   ],
   "hustle": [
@@ -16552,46 +13299,9 @@
       "year": 2010
     },
     {
-      "title": "Hustlin'",
-      "artist": "Rick Ross",
-      "year": 2006
-    },
-    {
-      "title": "Hustle and Bustle",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Everyday I'm Hustlin'",
-      "artist": "Rick Ross",
-      "year": 2006
-    }
-  ],
-  "stack": [
-    {
-      "title": "Stack It Up",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Stacks on Deck",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Stack That Paper",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Paper Stacks",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Tall Stacks",
-      "artist": "Various Artists",
-      "year": 2014
+      "title": "Hustle",
+      "artist": "Kevin Gates",
+      "year": 2016
     }
   ],
   "bills": [
@@ -16601,24 +13311,19 @@
       "year": 1999
     },
     {
-      "title": "Paying Bills",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Bills, Bills, Bills",
+      "artist": "Destiny's Child",
+      "year": 1999
     },
     {
-      "title": "Due Bills",
-      "artist": "Various Artists",
-      "year": 2010
+      "title": "Bills",
+      "artist": "LunchMoney Lewis",
+      "year": 2015
     },
     {
-      "title": "Dollar Bills",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Stack of Bills",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Pay My Bills",
+      "artist": "Empire Cast",
+      "year": 2015
     }
   ],
   "credit": [
@@ -16628,51 +13333,26 @@
       "year": 1994
     },
     {
-      "title": "No Credit",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Credit Card Baby",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
       "title": "Bad Credit",
-      "artist": "Various Artists",
-      "year": 2009
+      "artist": "Devon Cole",
+      "year": 2020
     },
     {
-      "title": "Due Credit",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Credit Boys",
+      "artist": "Bktherula",
+      "year": 2020
     }
   ],
   "wealth": [
     {
-      "title": "Wealth of Nations",
-      "artist": "Various Artists",
+      "title": "Wealth",
+      "artist": "Various Production Music",
       "year": 2010
     },
     {
-      "title": "Old Money",
-      "artist": "Lana Del Rey",
-      "year": 2014
-    },
-    {
-      "title": "Wealthy Man",
-      "artist": "Various Artists",
-      "year": 2012
-    },
-    {
-      "title": "Accumulate",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Richness",
-      "artist": "Various Artists",
-      "year": 2011
+      "title": "Health, Wealth & Happiness",
+      "artist": "Master P",
+      "year": 1997
     }
   ],
   "treasure": [
@@ -16682,24 +13362,14 @@
       "year": 2013
     },
     {
-      "title": "National Treasure",
-      "artist": "Various Artists",
-      "year": 2004
-    },
-    {
-      "title": "Buried Treasure",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
       "title": "Sunken Treasure",
       "artist": "Wilco",
       "year": 1996
     },
     {
-      "title": "One Man's Treasure",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Buried Treasure",
+      "artist": "Kool & the Gang",
+      "year": 1986
     }
   ],
   "broke": [
@@ -16709,51 +13379,31 @@
       "year": 2015
     },
     {
-      "title": "Stone Broke",
-      "artist": "Various Artists",
-      "year": 2013
+      "title": "Broke",
+      "artist": "Modest Mouse",
+      "year": 2007
+    },
+    {
+      "title": "If I Was Broke",
+      "artist": "Rich Homie Quan",
+      "year": 2015
     },
     {
       "title": "Dead Broke",
-      "artist": "Various Artists",
-      "year": 2011
+      "artist": "Sam Hunt",
+      "year": 2014
     },
     {
-      "title": "Going Broke",
-      "artist": "Various Artists",
-      "year": 2009
-    },
-    {
-      "title": "Broke Up",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "I Was Broke",
+      "artist": "Yo Gotti",
+      "year": 2010
     }
   ],
   "invest": [
     {
-      "title": "Invest in Me",
-      "artist": "Various Artists",
-      "year": 2013
-    },
-    {
-      "title": "Long Term Investment",
-      "artist": "Various Artists",
-      "year": 2011
-    },
-    {
-      "title": "Portfolio",
-      "artist": "Various Artists",
-      "year": 2014
-    },
-    {
-      "title": "Pay It Forward",
-      "artist": "Various Artists",
-      "year": 2010
-    },
-    {
-      "title": "Future Gains",
-      "artist": "Various Artists",
-      "year": 2012
+      "title": "Invest in Love",
+      "artist": "Ronald Isley",
+      "year": 1996
     }
   ]
 }

@@ -7,7 +7,7 @@
 
   "Relationships": ["baby","girl","boy","friend","friends","lover","lovers","lady","women","man","somebody","someone","partner","stranger","enemy","sister","brother","mother","father","husband","wife","crush","soulmate","ex","darling","sweetheart"],
 
-  "Romance": ["kiss","touch","holding","loving","loved","hearts","romance","desire","passion","embrace","caress","adore","devotion","cherish","affection","intimacy","flirt","seduce","yearn","butterflies","hooked","infatuation","swept","ache","melt"],
+  "Romance": ["kiss","touch","holding","loving","loved","hearts","romance","desire","passion","embrace","caress","adore","devotion","cherish","affection","intimacy","flirt","yearn","butterflies","hooked","infatuation","swept","ache","melt"],
 
   "Body": ["hands","eyes","legs","back","head","feet","face","arms","lips","bones","skin","hair","blood","tears","voice","breath","knees","shoulder","chest","finger","tongue","spine","soul","mind","smile"],
 
@@ -15,7 +15,7 @@
 
   "Nature": ["rain","sun","storm","ice","wind","snow","cloud","thunder","lightning","star","moon","flower","stone","ocean","wave","earth","season","dark","bright","leaf","desert","sky","tide","horizon","cold"],
 
-  "Weather": ["rain","storm","wind","sun","cold","heat","snow","fog","hail","thunder","lightning","blizzard","flood","rainbow","hurricane","tornado","breeze","mist","frost","showers","cloudy","gust","sunshine","flurry","dusty"],
+  "Weather": ["rain","storm","wind","sun","cold","heat","snow","fog","hail","thunder","lightning","blizzard","flood","rainbow","hurricane","tornado","breeze","mist","frost","showers","cloudy","sunshine","flurry","dusty"],
 
   "Time": ["night","day","tomorrow","now","always","never","soon","late","moment","sunrise","sunset","lifetime","someday","once","again","still","past","future","hour","year","second","early","clock","long","tonight"],
 
@@ -25,29 +25,29 @@
 
   "Food & Drink": ["sugar","honey","wine","beer","cake","candy","pie","bread","salt","sweet","cherry","peach","lemon","apple","cream","juice","butter","lime","cookie","pepper","coffee","milk","fish","spice","chocolate"],
 
-  "Animals": ["lion","tiger","wolf","eagle","dove","snake","fox","butterfly","bird","horse","dog","cat","whale","crow","hawk","deer","swan","dragon","phoenix","raven","sparrow","owl","stallion","lamb","panther","hound","bear","shark","buffalo","robin"],
+  "Animals": ["lion","tiger","wolf","eagle","dove","snake","fox","butterfly","bird","horse","dog","cat","whale","crow","hawk","deer","swan","dragon","phoenix","raven","sparrow","owl","lamb","panther","hound","bear","shark","buffalo","robin"],
 
-  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","shimmer","spark","believe","rise","legend","spirit","bloom","float","circle","reflect","honor","enchant","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"],
+  "Disney": ["wish","dream","shine","glow","soar","dance","sing","brave","magic","wonder","free","sail","call","wave","open","spark","believe","rise","legend","spirit","bloom","float","circle","honor","discover","quest","journey","lantern","pride","kingdom","remember","surrender","somewhere","beyond","true","heart","light"],
 
   "Musicals": ["tomorrow","phantom","memory","tonight","seasons","defying","popular","roxanne","hamilton","chicago","grease","cats","wicked","rent","mama","sunrise","curtain","spotlight","dancing","theater","broadway","cabaret","master","music","dream","angel","chairs","finale","empty","one"],
 
-  "80s Movies": ["footloose","flashdance","ghostbusters","thriller","fame","maverick","danger","paradise","glory","maniac","warrior","rebel","fighter","survivor","hero","rocky","magic","running","burning","power","champion","jump","cobra","karate","batman"],
+  "80s Movies": ["footloose","flashdance","ghostbusters","thriller","fame","maverick","danger","paradise","glory","maniac","warrior","rebel","fighter","survivor","hero","magic","running","burning","power","champion","jump","cobra","karate","batman"],
 
   "Seasons": ["spring","summer","autumn","winter","sunshine","snowfall","harvest","bloom","frozen","golden","crisp","frosty","stormy","breezy","rainy","rainbow","drizzle","melting","thaw","solstice","foggy","dew","pollen","heat","frost","chill","shower"],
 
   "Actions": ["run","walk","dance","move","jump","drive","play","stop","start","fight","break","turn","fall","hold","push","pull","reach","chase","catch","throw","climb","crawl","carry","lift","drag","shake","wave","kick","spin"],
 
-  "Movement": ["go","come","leave","stay","follow","run","walk","move","travel","drift","float","fly","rush","flee","wander","escape","return","arrive","depart","roam","slip","glide","creep","race","hurry","linger","venture","cross","stride"],
+  "Movement": ["go","come","leave","stay","follow","run","walk","move","drift","float","fly","rush","flee","wander","escape","return","arrive","depart","roam","slip","glide","creep","race","hurry","linger","venture","cross","stride"],
 
   "Music Terms": ["song","beat","music","dance","sing","rap","verse","chorus","melody","rhythm","hook","track","bass","flow","lyric","note","tune","vibe","sound","record","album","drop","bridge","sample","remix","groove","riff","bar","tempo","playlist"],
 
-  "Travel": ["road","drive","travel","fly","ride","journey","trip","wander","explore","escape","cruise","sail","roam","venture","navigate","destination","route","highway","path","departure","arrival","drift","embark","backpack","expedition","voyage"],
+  "Travel": ["road","drive","fly","ride","journey","trip","wander","explore","escape","cruise","sail","roam","venture","navigate","destination","route","highway","path","departure","arrival","drift","embark","backpack","expedition","voyage"],
 
-  "Light & Dark": ["light","dark","shine","bright","glow","shadow","dim","blinding","gleam","gloom","flicker","spark","fade","illuminate","eclipse","silhouette","twilight","dawn","dusk","electric","haze","shimmering","reflection","brilliant","hidden","glare"],
+  "Light & Dark": ["light","dark","shine","bright","glow","shadow","dim","gloom","flicker","spark","fade","illuminate","eclipse","silhouette","twilight","dawn","dusk","electric","haze","shimmering","reflection","brilliant","hidden","glare"],
 
   "Objects": ["car","phone","door","bed","table","keys","ring","gun","knife","bottle","mirror","chain","rope","letter","book","map","clock","photo","wallet","lighter","camera","screen","headphones","cigarette","glass","needle","crown","cross","pen","flag"],
 
-  "Clothing": ["dress","jeans","shoes","clothes","shirt","jacket","coat","hood","hat","boots","suit","tie","sneakers","heels","mask","gloves","scarf","belt","chains","jewelry","sweatshirt","leather","gown","veil","cap","fur","uniform","stockings","robe"],
+  "Clothing": ["dress","jeans","shoes","clothes","shirt","jacket","coat","hood","hat","boots","suit","tie","heels","mask","gloves","scarf","belt","chains","jewelry","sweatshirt","leather","veil","cap","fur","uniform","robe"],
 
-  "Money & Value": ["money","cash","pay","worth","diamond","rich","poor","debt","bank","spend","earn","profit","loss","dollar","coin","price","cost","hustle","stack","bread","bills","credit","wealth","treasure","broke","invest"]
+  "Money & Value": ["money","cash","pay","worth","diamond","rich","poor","debt","bank","spend","profit","loss","dollar","coin","price","cost","hustle","bread","bills","credit","wealth","treasure","broke","invest"]
 }
